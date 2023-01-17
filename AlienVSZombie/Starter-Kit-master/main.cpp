@@ -15,6 +15,33 @@
 #include "pf/helper.h"
 #include <iostream>
 using namespace std;
+//Game Commands 
+    //Movement (up, down, left, right)
+    //Change direction of arrow (arrow)
+    //Display user commands (help)
+    //Save game (save)
+    //Load game (load)
+    //Quit game (quit)
+//Board setting (must be odd numbers)
+    //Board size and config
+    //Random generated Objects ("h"=health pack, "r"=rock/block, "<"/"^"/">"/"v"= direction pad, " "= empty space)
+//Graphic on board
+    //Zombie setting (number of zombie, denoted as int/number)
+    //Alien (denoted as A)
+//Stats
+    //Alien stat (Life, Attack)
+    //Zombie stat (Life, Attack, Range)
+//Spawn
+    //Alien (position will initially be at the middle)
+    //Zombie (random)
+//Turns
+    //Display who turn it is
+//AI movement program
+    //move towards Alien
+    //Attack when in range
+
+
+
 
 int main()
 {
