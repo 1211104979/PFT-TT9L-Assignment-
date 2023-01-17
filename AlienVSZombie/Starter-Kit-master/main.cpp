@@ -12,9 +12,6 @@
 
 // TODO: Fill in the missing information above and delete this line.
 
-#include "pf/helper.h"
-#include <iostream>
-using namespace std;
 //Game Commands 
     //Movement (up, down, left, right)
     //Change direction of arrow (arrow)
@@ -41,7 +38,9 @@ using namespace std;
     //Attack when in range
 
 
-
+#include "pf/helper.h"
+#include <iostream>
+using namespace std;
 
 int main()
 {
