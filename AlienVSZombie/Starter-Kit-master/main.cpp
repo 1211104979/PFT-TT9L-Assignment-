@@ -2,10 +2,10 @@
 // Course: TCP1101 PROGRAMMING FUNDAMENTALS 
 // Year: Trimester 1, 2022/23 (T2215) 
 // Lab: TxxL 
-// Names: MEMBER_NAME_1 | MEMBER_NAME_2 
-// IDs: MEMBER_ID_1 | MEMBER_ID_2 
-// Emails: MEMBER_EMAIL_1 | MEMBER_EMAIL_2 
-// Phones: MEMBER_PHONE_1 | MEMBER_PHONE_2  
+// Names: CHUA LI EN | MUHAMMAD AFIQ IKHWAN BIN AMINUDDIN  
+// IDs: 1211104335 | 1211104979 
+// Emails: 1211104335@student.mmu.edu.my | 1211104979@student.mmu.edu.my 
+// Phones: 011-1026 0985 | 011-3174 2235 
 // ********************************************************* 
 
 // TODO: Fill in the missing information above and delete this line.
