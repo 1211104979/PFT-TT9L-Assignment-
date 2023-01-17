@@ -50,7 +50,7 @@ void DemoCreateGameBoard()
     pf::ShowGameBoard();
 }
 
-//#ifdef DEMO
+#ifdef DEMO
 int main()
 {
     cout << "===== Begin Demo =====" << endl;
@@ -61,4 +61,4 @@ int main()
 
     cout << "===== End Demo =====" << endl;
 }
-//#endif
+#endif
