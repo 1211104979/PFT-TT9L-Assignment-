@@ -43,14 +43,20 @@
     //Move towards Alien
     //Attack when in range
 
-
 #include "pf/helper.h"
 #include <iostream>
 using namespace std;
+
+
 
 int main()
 {
     cout << "Assignment (Part 1)" << endl;
     cout << "Let's Get Started!" << endl;
     pf::Pause();
+
+    char input;
+    cout << "<command> ";
+    cin >> input; 
+    cout << endl;
 }
