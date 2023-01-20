@@ -16,6 +16,9 @@ public:
     Mars(int dimX = 9, int dimY = 5); 
     void init(int dimX, int dimY); 
     void display() const; 
+    void settings();
+    int setDimX(int x);
+    int setDimY(int y);
 
     int getDimX() const;
     int getDimY() const;
@@ -54,15 +57,28 @@ void Mars::init(int dimX, int dimY)
     } 
 }
 
-void settings() 
-{ 
-    Mars mars; 
+void Mars::settings() 
+{  
+    Mars mars;
     // mars.display(); 
     cout << " Board Rows     : " << mars.getDimY() << endl; 
     cout << " Board Columns  : " << mars.getDimX() << endl; 
     cout << " Zombie Count   : " << endl; // add zombie in the game
     cout << endl;
 
+}
+
+void changesetting()
+{
+    Mars mars;
+    int x, y;
+    cout << " Enter rows => ";
+    cin >> y;
+    cout << endl;
+    cout << " Enter columns => ";
+    cin >> x;
+    cout << endl;
+    //Mars(x,y) need to set something to change the coard config
 }
 
 void Mars::display() const 
@@ -124,10 +140,23 @@ void Mars::display() const
 
 void displaysetting() 
 {
+    Mars mars;
     cout << " Default Game Settings " << endl;
     cout << "-----------------------" << endl;
-    settings();
+    mars.settings();
     cout << " Do you wish to change the game settings (y/n)? =>" << endl;
+}
+
+int Mars::setDimX(int x)
+{
+    dimX_ = x;
+    return dimX_;
+}
+
+int Mars::setDimY(int y)
+{
+    dimY_ = y;
+    return dimY_;
 }
 
 int Mars::getDimX() const
@@ -140,55 +169,55 @@ int Mars::getDimY() const
     return dimY_; 
 }
 
-void test1_1() 
-{ 
-    Mars mars; 
-    mars.display(); 
-}
-
 char Mars::getObject(int x, int y) const 
 { 
     return map_[dimY_-y][x-1]; 
 }
 
-void test1_4() 
+void Board() 
 { 
     Mars mars; mars.display(); 
     
-    int x, y; 
-    char obj; x = 1; y = 1; 
-    obj = mars.getObject(x, y); 
-    cout << "Object at column " << x << " and row " << y << " is [" 
-         << obj << "]" << endl; 
-    x = 9; y = 2; 
-    obj = mars.getObject(x, y); 
-    cout << "Object at column " << x << " and row " << y << " is [" 
-         << obj << "]" << endl; 
+    // int x, y; 
+    // char obj; x = 1; y = 1; 
+    // obj = mars.getObject(x, y); 
+    // cout << "Object at column " << x << " and row " << y << " is [" 
+    //      << obj << "]" << endl; 
+    // x = 9; y = 2; 
+    // obj = mars.getObject(x, y); 
+    // cout << "Object at column " << x << " and row " << y << " is [" 
+    //      << obj << "]" << endl; 
     
-    x = 5; y = 5; 
-    obj = mars.getObject(x, y); 
-    cout << "Object at column " << x << " and row " << y << " is [" 
-         << obj << "]" << endl; 
+    // x = 5; y = 5; 
+    // obj = mars.getObject(x, y); 
+    // cout << "Object at column " << x << " and row " << y << " is [" 
+    //      << obj << "]" << endl; 
     
-    x = 5; y = 2;
-    obj = mars.getObject(x, y); 
-    cout << "Object at column " << x << " and row " << y << " is [" 
-         << obj << "]" << endl; 
+    // x = 5; y = 2;
+    // obj = mars.getObject(x, y); 
+    // cout << "Object at column " << x << " and row " << y << " is [" 
+    //      << obj << "]" << endl; 
+}
+
+void Board2() 
+{ 
+    Mars other; other.display(); 
 }
 
 int main() 
 { 
+    Mars mars;
     char input;
     displaysetting();
     cin >> input;
     if (input == 'y')
-        //changesetting()
-        return 0;
+        changesetting();
+
     else 
         srand(1); // use this for fixed map during testing 
 
         // srand(time(NULL)); // try this for random map 
         //test1_1();
         //test1_3(); 
-        test1_4();
+        Board();
 }
