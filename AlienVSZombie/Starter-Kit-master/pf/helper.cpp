@@ -4,8 +4,8 @@
 
 namespace pf
 {
-    const int kRows = 3;
-    const int kColumns = 5;
+    const int kRows = 5;
+    const int kColumns = 9;
     char kBoard[kRows][kColumns];
 
     int ClearScreen()

@@ -6,16 +6,18 @@
 #include <iomanip> // for setw() 
 using namespace std; 
 
-class Mars 
+class GameBoard 
 { 
 private: 
     vector< vector<char> > map_; // convention to put trailing underscore 
     int dimX_, dimY_;            // to indicate private data 
     
 public: 
-    Mars(int dimX = 9, int dimY = 5); 
+    GameBoard(int dimX = 9, int dimY = 5); 
+    void BoardGame(int dimX, int dimY);
+
     void init(int dimX, int dimY); 
-    void display() const; 
+    void display() ; 
     void settings();
     int setDimX(int x);
     int setDimY(int y);
@@ -26,12 +28,12 @@ public:
     char getObject(int dimX, int dimY) const;
 }; 
 
-Mars::Mars(int dimX, int dimY) 
+GameBoard::GameBoard(int dimX, int dimY) 
 { 
     init(dimX, dimY); 
 } 
 
-void Mars::init(int dimX, int dimY)
+void GameBoard::init(int dimX, int dimY)
 { 
     dimX_ = dimX; 
     dimY_ = dimY; 
@@ -57,12 +59,12 @@ void Mars::init(int dimX, int dimY)
     } 
 }
 
-void Mars::settings() 
+void GameBoard::settings() 
 {  
-    Mars mars;
+    GameBoard board;
     // mars.display(); 
-    cout << " Board Rows     : " << mars.getDimY() << endl; 
-    cout << " Board Columns  : " << mars.getDimX() << endl; 
+    cout << " Board Rows     : " << board.getDimY() << endl; 
+    cout << " Board Columns  : " << board.getDimX() << endl; 
     cout << " Zombie Count   : " << endl; // add zombie in the game
     cout << endl;
 
@@ -70,7 +72,7 @@ void Mars::settings()
 
 void changesetting()
 {
-    Mars mars;
+    GameBoard board;
     int x, y;
     cout << " Enter rows => ";
     cin >> y;
@@ -78,13 +80,17 @@ void changesetting()
     cout << " Enter columns => ";
     cin >> x;
     cout << endl;
-    //Mars(x,y) need to set something to change the coard config
+    board.setDimX(x);
+    board.setDimY(y);
+    cout << board.getDimX();
+    cout << board.getDimY();
+    //Mars(x,y) need to set something to change the board config
 }
 
-void Mars::display() const 
+void GameBoard::display() 
 { 
     // comment this out during testing 
-    system("cls"); // OR system("clear"); for Linux / MacOS 
+    //system("cls"); // OR system("clear"); for Linux / MacOS 
     cout << " --__--__--__--__--__--__--__--_" << endl; 
     cout << " =       Alien vs Zombie       =" << endl; 
     cout << " __--__--__--__--__--__--__--__-" << endl; 
@@ -140,43 +146,43 @@ void Mars::display() const
 
 void displaysetting() 
 {
-    Mars mars;
+    GameBoard board;
     cout << " Default Game Settings " << endl;
     cout << "-----------------------" << endl;
-    mars.settings();
+    board.settings();
     cout << " Do you wish to change the game settings (y/n)? =>" << endl;
 }
 
-int Mars::setDimX(int x)
+int GameBoard::setDimX(int x)
 {
     dimX_ = x;
     return dimX_;
 }
 
-int Mars::setDimY(int y)
+int GameBoard::setDimY(int y)
 {
     dimY_ = y;
     return dimY_;
 }
 
-int Mars::getDimX() const
+int GameBoard::getDimX() const
 {
     return dimX_;
 }
 
-int Mars::getDimY() const
+int GameBoard::getDimY() const
 {
     return dimY_; 
 }
 
-char Mars::getObject(int x, int y) const 
+char GameBoard::getObject(int x, int y) const 
 { 
     return map_[dimY_-y][x-1]; 
 }
 
 void Board() 
 { 
-    Mars mars; mars.display(); 
+    GameBoard board; board.display(); 
     
     // int x, y; 
     // char obj; x = 1; y = 1; 
@@ -199,21 +205,17 @@ void Board()
     //      << obj << "]" << endl; 
 }
 
-void Board2() 
-{ 
-    Mars other; other.display(); 
-}
-
 int main() 
 { 
-    Mars mars;
+    GameBoard board;
     char input;
     displaysetting();
     cin >> input;
-    if (input == 'y')
+    if (input == 'y' || input == 'Y')
         changesetting();
+        Board();
 
-    else 
+    if (input == 'n' || input == 'N')
         srand(1); // use this for fixed map during testing 
 
         // srand(time(NULL)); // try this for random map 
