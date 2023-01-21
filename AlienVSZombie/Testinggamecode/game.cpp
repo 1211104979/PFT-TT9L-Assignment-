@@ -14,7 +14,6 @@ private:
     
 public: 
     GameBoard(int dimX = 9, int dimY = 5); 
-    void BoardGame(int dimX, int dimY);
 
     void init(int dimX, int dimY); 
     void display() ; 
@@ -82,8 +81,9 @@ void changesetting()
     cout << endl;
     board.setDimX(x);
     board.setDimY(y);
-    cout << board.getDimX();
-    cout << board.getDimY();
+    cout << board.getDimX() << endl;
+    cout << board.getDimY() << endl;
+    board.display();
     //Mars(x,y) need to set something to change the board config
 }
 
@@ -183,26 +183,6 @@ char GameBoard::getObject(int x, int y) const
 void Board() 
 { 
     GameBoard board; board.display(); 
-    
-    // int x, y; 
-    // char obj; x = 1; y = 1; 
-    // obj = mars.getObject(x, y); 
-    // cout << "Object at column " << x << " and row " << y << " is [" 
-    //      << obj << "]" << endl; 
-    // x = 9; y = 2; 
-    // obj = mars.getObject(x, y); 
-    // cout << "Object at column " << x << " and row " << y << " is [" 
-    //      << obj << "]" << endl; 
-    
-    // x = 5; y = 5; 
-    // obj = mars.getObject(x, y); 
-    // cout << "Object at column " << x << " and row " << y << " is [" 
-    //      << obj << "]" << endl; 
-    
-    // x = 5; y = 2;
-    // obj = mars.getObject(x, y); 
-    // cout << "Object at column " << x << " and row " << y << " is [" 
-    //      << obj << "]" << endl; 
 }
 
 int main() 
@@ -212,14 +192,19 @@ int main()
     displaysetting();
     cin >> input;
     if (input == 'y' || input == 'Y')
+    {
         changesetting();
-        Board();
+    }
 
-    if (input == 'n' || input == 'N')
+
+    else if (input == 'n' || input == 'N')
+    {
         srand(1); // use this for fixed map during testing 
 
         // srand(time(NULL)); // try this for random map 
         //test1_1();
         //test1_3(); 
         Board();
+    }
+    
 }
