@@ -13,7 +13,7 @@ private:
     int dimX_, dimY_;            // to indicate private data 
     
 public: 
-    GameBoard(int dimX = 9, int dimY = 5); 
+    GameBoard(int dimX = 3, int dimY = 5); 
 
     void init(int dimX, int dimY); 
     void display() ; 
@@ -37,7 +37,7 @@ void GameBoard::init(int dimX, int dimY)
     dimX_ = dimX; 
     dimY_ = dimY; 
     
-    char objects[] = {'<', '^', '>', 'v', 'h', 'p', 'r', '.', ' ', ' '}; 
+    char objects[] = {'<', '^', '>', 'v', 'h', 'p', 'r', ' ', ' ', ' '}; 
     int noOfObjects = 10; // number of objects in the objects array 
     
     // create dynamic 2D array using vector 
@@ -55,7 +55,13 @@ void GameBoard::init(int dimX, int dimY)
             int objNo = rand() % noOfObjects; 
             map_[i][j] = objects[objNo]; 
         } 
-    } 
+    }
+    int y = dimY_/2;
+    int x = dimX_/2;
+    char Alien[] = {"A"};
+    map_[y][x] = Alien[0];
+
+    char Zombie[] = {};
 }
 
 void GameBoard::settings() 
@@ -81,8 +87,9 @@ void changesetting()
     cout << endl;
     board.setDimX(x);
     board.setDimY(y);
-    cout << board.getDimX() << endl;
-    cout << board.getDimY() << endl;
+    // cout << board.getDimX() << endl;
+    // cout << board.getDimY() << endl;
+    board.init(x,y);
     board.display();
     //Mars(x,y) need to set something to change the board config
 }
@@ -136,7 +143,7 @@ void GameBoard::display()
             cout << digit; 
     } 
     cout << endl; 
-    cout << " "; 
+    cout << "  "; 
     for (int j = 0; j < dimX_; ++j) 
     { 
         cout << " " << (j + 1) % 10; 
@@ -205,6 +212,10 @@ int main()
         //test1_1();
         //test1_3(); 
         Board();
+    }
+    else
+    {
+        cout << "Invalid input, please try again with the correct input" << endl;
     }
     
 }
