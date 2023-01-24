@@ -1,4 +1,4 @@
-#include "MainHeader.h"
+// #include "MainHeader.h"
 #include <iostream> 
 #include <string> 
 #include <vector> 
@@ -8,3 +8,10 @@
 #include <conio.h>
 
 using namespace std; 
+class Zombie
+{
+    public:
+        int hp;
+        int atk;
+        int rng;
+};
