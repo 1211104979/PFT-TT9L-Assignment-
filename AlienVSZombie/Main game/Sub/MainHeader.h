@@ -3,6 +3,8 @@
 #ifndef MAINHEADER_H
 #define MAINHEADER_H
 
+using namespace std;
+
     // Global 
     int ClearScreen();
     int Pause();
@@ -10,7 +12,9 @@
     void getMenu();
     void instructions();
     void gameover();
-
+    void playmenu();
+    void changesetting();
+    void Board();
 
 class GameBoard 
 { 
@@ -19,7 +23,7 @@ private:
     int dimX_, dimY_;            // to indicate private data 
     
 public: 
-    GameBoard(int dimX = 3, int dimY = 5); 
+    GameBoard(int dimX = 9, int dimY = 3); 
 
     void init(int dimX, int dimY); 
     void display() ; 

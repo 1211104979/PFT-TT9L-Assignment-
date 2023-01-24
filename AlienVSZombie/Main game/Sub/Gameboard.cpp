@@ -5,6 +5,8 @@
 #include <cstdlib> // for system() 
 #include <ctime> // for time() in srand( time(NULL) ); 
 #include <iomanip> // for setw() 
+#include <conio.h>
+
 using namespace std; 
 
 
@@ -43,36 +45,6 @@ void GameBoard::init(int dimX, int dimY)
     map_[y][x] = Alien[0];
 
     char Zombie[] = {};
-}
-
-void GameBoard::settings() 
-{  
-    GameBoard board;
-    // mars.display(); 
-    cout << " Board Rows     : " << board.getDimY() << endl; 
-    cout << " Board Columns  : " << board.getDimX() << endl; 
-    cout << " Zombie Count   : " << endl; // add zombie in the game
-    cout << endl;
-
-}
-
-void changesetting()
-{
-    GameBoard board;
-    int x, y;
-    cout << " Enter rows => ";
-    cin >> y;
-    cout << endl;
-    cout << " Enter columns => ";
-    cin >> x;
-    cout << endl;
-    board.setDimX(x);
-    board.setDimY(y);
-    // cout << board.getDimX() << endl;
-    // cout << board.getDimY() << endl;
-    board.init(x,y);
-    board.display();
-    //Mars(x,y) need to set something to change the board config
 }
 
 void GameBoard::display() 
@@ -132,15 +104,6 @@ void GameBoard::display()
     cout << endl << endl; 
 }
 
-void displaysetting() 
-{
-    GameBoard board;
-    cout << " Default Game Settings " << endl;
-    cout << "-----------------------" << endl;
-    board.settings();
-    cout << " Do you wish to change the game settings (y/n)? =>" << endl;
-}
-
 int GameBoard::setDimX(int x)
 {
     dimX_ = x;
@@ -168,35 +131,26 @@ char GameBoard::getObject(int x, int y) const
     return map_[dimY_-y][x-1]; 
 }
 
-void Board() 
-{ 
-    GameBoard board; board.display(); 
+void changesetting()
+{
+    GameBoard board;
+    int x, y;
+    cout << " Enter rows => ";
+    cin >> y;
+    cout << endl;
+    cout << " Enter columns => ";
+    cin >> x;
+    cout << endl;
+    board.setDimX(x);
+    board.setDimY(y);
+    board.init(x,y);
+    board.display();
 }
 
-int main() 
+void Board() 
 { 
-    GameBoard board;
-    char input;
-    displaysetting();
-    cin >> input;
-    if (input == 'y' || input == 'Y')
-    {
-        changesetting();
-    }
+    GameBoard board; 
+    //system("cls");
+    board.display();
 
-
-    else if (input == 'n' || input == 'N')
-    {
-        srand(1); // use this for fixed map during testing 
-
-        // srand(time(NULL)); // try this for random map 
-        //test1_1();
-        //test1_3(); 
-        Board();
-    }
-    else
-    {
-        cout << "Invalid input, please try again with the correct input" << endl;
-    }
-    
 }

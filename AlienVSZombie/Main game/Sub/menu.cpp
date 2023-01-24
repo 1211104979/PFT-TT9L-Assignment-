@@ -26,21 +26,21 @@ using namespace std;
 	void getMenu() 
 	{
 		do {
-			system("cls");
+			//system("cls");
 			system("color A");
 			cout <<  " -------------------------- " << endl;
 			cout <<  " |     Alien VS Zombie     |" << endl;
 			cout <<  " -------------------------- " << endl;
-			cout <<  " 	PLAY      	            " << endl;
-			cout << " 	INSTRUCTIONS	        " << endl;
-			cout << " 	QUIT			        " << endl;
+			cout <<  " 1.	PLAY      	          " << endl;
+			cout <<  " 2.	INSTRUCTIONS	      " << endl;
+			cout <<  " 3.	QUIT			      " << endl;
 			cout << endl;
-			cout << ">>> CHOICE:		            " << endl;
+			cout <<  ">>> CHOICE:		          " << endl;
 			char op = getche();
 			
 			switch(op) {
 				case '1':
-					//modes();
+					playmenu();
 					break;
 				case '2':
 					instructions();
@@ -65,13 +65,13 @@ using namespace std;
 
 
 	void instructions() {
-		system("cls");
+		//system("cls");
 		cout << endl;
 		cout <<  " --------------------------------------------- " << endl;
 		cout <<  "|               Alien VS Zombie               |" << endl;
 		cout <<  " --------------------------------------------- " << endl;
 		cout << endl;
-		cout <<  "                  INSTRUCTION                  " << endl;          
+		cout <<  "                  CONTROLS                  " << endl;          
 		cout <<  "| up    //Alien to move up.                   |" << endl;
 		cout <<  "| down  //Alien to move down.                 |" << endl; 
 		cout <<  "| left  //Alien to move left.                 |" << endl; 
@@ -88,7 +88,35 @@ using namespace std;
 		getch();
 	}
 
-// int main() 
-// {
-// 	getMenu();
-// }
+	void playmenu()  // edit the same as in gameMenu()
+{ 
+    GameBoard board;
+    do {
+        //system("cls");
+        cout << " Default Game Settings " << endl;
+        cout << "-----------------------" << endl;
+        cout << " Board Rows     : " << board.getDimY() << endl; 
+        cout << " Board Columns  : " << board.getDimX() << endl; 
+        cout << " Zombie Count   : " << endl; // add zombie in the game
+        cout << endl;
+        cout << " Do you wish to change the game settings (y/n)? =>" << endl;
+        cout << "<== Go back to menu (b)" << endl;
+        char input = getche();
+
+        switch(input) {
+            case 'y':
+                changesetting();
+                break;
+             case 'n':
+                 srand(1);
+                 Board();
+                 break;
+            case 'b':
+                getMenu();
+                break;
+            default:
+                cout << "Invalid! Try again" << endl;
+                break;
+        }
+    } while (1);
+}
