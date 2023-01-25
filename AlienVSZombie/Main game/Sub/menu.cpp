@@ -1,10 +1,12 @@
+// Afiq
+
 #include "MainHeader.h"
 #include <iostream>
 #include <cstdlib>
 #include <conio.h>
 
 using namespace std;
-//namespace gf
+
     int ClearScreen()
     {
         #if defined(_WIN32)
@@ -26,7 +28,7 @@ using namespace std;
 	void getMenu() 
 	{
 		do {
-			//system("cls");
+			//ClearScreen();
 			system("color A");
 			cout <<  " -------------------------- " << endl;
 			cout <<  " |     Alien VS Zombie     |" << endl;
@@ -58,14 +60,14 @@ using namespace std;
 	}
 
 	void gameover() {
-		system("cls");
+		ClearScreen();
 		cout << "\n\n\t\t\tGAME OVER.";
 		getch();
 	}
 
 
 	void instructions() {
-		//system("cls");
+		//ClearScreen();
 		cout << endl;
 		cout <<  " --------------------------------------------- " << endl;
 		cout <<  "|               Alien VS Zombie               |" << endl;
@@ -92,7 +94,7 @@ using namespace std;
 { 
     GameBoard board;
     do {
-        //system("cls");
+        //ClearScreen();
         cout << " Default Game Settings " << endl;
         cout << "-----------------------" << endl;
         cout << " Board Rows     : " << board.getDimY() << endl; 

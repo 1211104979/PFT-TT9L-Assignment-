@@ -1,4 +1,3 @@
-#pragma once
 #include <vector> 
 #ifndef MAINHEADER_H
 #define MAINHEADER_H
@@ -16,26 +15,41 @@ using namespace std;
     void changesetting();
     void Board();
 
-class GameBoard 
-{ 
-private: 
-    vector< vector<char> > map_; // convention to put trailing underscore 
-    int dimX_, dimY_;            // to indicate private data 
-    
-public: 
-    GameBoard(int dimX = 9, int dimY = 3); 
+class GameBoard
+{
+private:
+    vector<vector<char>> map_; // convention to put trailing underscore
+    int dimX_, dimY_, zomB_;   // to indicate private data //le
 
-    void init(int dimX, int dimY); 
-    void display() ; 
+public:
+    GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // le
+
+    void init(int dimX, int dimY, int zomb); // le
+    void display();
     void settings();
     int setDimX(int x);
     int setDimY(int y);
+    int setZomB(int z); // le
 
     int getDimX() const;
     int getDimY() const;
+    int getZomB() const; // le
 
     char getObject(int dimX, int dimY) const;
-}; 
+};
 
+class Zombie
+{
+    private:
+        int zomB_;
+
+    public:
+        int hp_;
+        int atk_;
+        int rng_;
+
+        Zombie(int hp, int atk, int rng); 
+
+};
 
 #endif
