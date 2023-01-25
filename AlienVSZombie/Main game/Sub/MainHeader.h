@@ -4,7 +4,7 @@
 
 using namespace std;
 
-    // Global 
+// Global--------------------------------------------------------------------------------------- 
     int ClearScreen(); // (from tutorial)
     int Pause(); // (from tutorial)
          
@@ -16,7 +16,9 @@ using namespace std;
     void Board(); // liEn
     void zombiestat(int no); // Afiq 
     void alienstat(); // Afiq 
+// Global---------------------------------------------------------------------------------------
 
+//Class-----------------------------------------------------------------------------------------
 class GameBoard // liEn & Afiq (from tutorial)
 {
     private:
@@ -55,5 +57,6 @@ class Zombie : public GameBoard // Afiq
         int atkgen(int* atk); // Afiq 
         int rnggen(int* rng); // Afiq 
 };
+//Class-----------------------------------------------------------------------------------------
 
 #endif
