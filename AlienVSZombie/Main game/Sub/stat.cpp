@@ -37,7 +37,7 @@ void Zombie::data()
     cout << "  Range :" << rng_ << endl;
 }
 
-int main()
+void zombiestat()
 {
     //GameBoard zombie;
     int b = 4;//zombie.getZomB();

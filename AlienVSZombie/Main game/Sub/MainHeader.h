@@ -14,6 +14,7 @@ using namespace std;
     void playmenu();
     void changesetting();
     void Board();
+    void zombiestat();
 
 class GameBoard
 {
@@ -56,7 +57,6 @@ class Zombie
         int hpgen(int* hp); 
         int atkgen(int* atk);
         int rnggen(int* rng);
-
 };
 
 #endif
