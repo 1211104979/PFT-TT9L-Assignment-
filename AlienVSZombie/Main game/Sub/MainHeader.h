@@ -9,13 +9,17 @@ using namespace std;
     int Pause(); // (from tutorial)
          
     void getMenu(); // Afiq
-    void instructions(); // Afiq
+    void controls(); // Afiq
+    void help(); // Afiq
     void gameover(); // Afiq
     void playmenu(); // Afiq
     void changesetting(); // liEn
     void Board(); // liEn
     void zombiestat(int no); // Afiq 
     void alienstat(); // Afiq 
+
+    void defplay();
+    void play();
 // Global---------------------------------------------------------------------------------------
 
 //Class-----------------------------------------------------------------------------------------
@@ -27,12 +31,13 @@ class GameBoard // liEn & Afiq (from tutorial)
 
     public:
         int zomB_; // Afiq 
+        char Alien_;
 
         GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // liEn 
 
         void init(int dimX, int dimY, int zomb); // liEn 
         void display(); // liEn & Afiq (from tutorial)
-        void settings(); // liEn & Afiq (from tutorial)
+        //void settings(); // liEn & Afiq (from tutorial)
         int setDimX(int x); // liEn 
         int setDimY(int y); // liEn 
         int setZomB(int z); // liEn 
@@ -40,7 +45,7 @@ class GameBoard // liEn & Afiq (from tutorial)
         int getDimX() const; // Afiq 
         int getDimY() const; // Afiq 
         int getZomB() const; // liEn 
-
+        char getAlien(int dimY_, int dimX_);
         char getObject(int dimX, int dimY) const; // Afiq 
 };
 

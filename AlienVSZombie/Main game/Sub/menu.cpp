@@ -28,7 +28,7 @@ using namespace std;
 	void getMenu() 
 	{
 		do {
-			//ClearScreen();
+			ClearScreen();
 			system("color A");
 			cout <<  " -------------------------- " << endl;
 			cout <<  " |     Alien VS Zombie     |" << endl;
@@ -45,7 +45,7 @@ using namespace std;
 					playmenu();
 					break;
 				case '2':
-					instructions();
+					controls();
 					break;
 				case '3':
 					exit(0);
@@ -65,9 +65,8 @@ using namespace std;
 		getch();
 	}
 
-
-	void instructions() {
-		//ClearScreen();
+	void controls() {
+		ClearScreen();
 		cout << endl;
 		cout <<  " --------------------------------------------- " << endl;
 		cout <<  "|               Alien VS Zombie               |" << endl;
@@ -89,14 +88,35 @@ using namespace std;
 		cout <<  "Press any key to continue";
 		getch();
 	}
+
+	void help()
+	{
+		cout << endl;
+		cout <<  " Commands " << endl;
+		cout << endl;         
+		cout <<  " up    - Move up. " << endl;
+		cout <<  " down  - Move down. " << endl; 
+		cout <<  " left  - Move left. " << endl; 
+		cout <<  " right - Move right. " << endl; 
+		cout <<  " arrow - Switch the direction of an arrow. " << endl;
+		cout <<  " help  - Display user commands. " << endl; 
+		cout <<  " save  - Save the game. " << endl; 
+		cout <<  " load  - Load a  game. " << endl; 
+		cout <<  " quit  - Quit the game. " << endl; 
+		cout << endl;
+		cout <<  "Press any key to continue" << endl;
+		getch();
+	}
+
 //Afiq--------------------------------------------------------------------
 
 //LiEn--------------------------------------------------------------------
 	void playmenu()  // edit the same as in gameMenu()
 	{ 
 		GameBoard board;
-		do {
-			//ClearScreen();
+		do 
+		{
+			ClearScreen();
 			cout << " Default Game Settings " << endl;
 			cout << "-----------------------" << endl;
 			cout << " Board Rows     : " << board.getDimY() << endl; 
@@ -107,13 +127,13 @@ using namespace std;
 			cout << "<== Go back to menu (b)" << endl;
 			char input = getche();
 
-			switch(input) {
+			switch(input) 
+			{
 				case 'y':
-					changesetting();
+					play();
 					break;
 				case 'n':
-					srand(1);
-					Board();
+					defplay();
 					break;
 				case 'b':
 					getMenu();

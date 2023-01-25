@@ -148,6 +148,14 @@ int GameBoard ::getZomB() const // le -> add new function
     return zomB_;
 }
 
+char GameBoard ::getAlien(int dimY_, int dimX_)
+{
+    int y = dimY_ / 2;
+    int x = dimX_ / 2;
+    Alien_ = map_[y][x];
+    return Alien_;
+}
+
 char GameBoard::getObject(int x, int y) const
 {
     return map_[dimY_ - y][x - 1];
@@ -190,7 +198,6 @@ void changesetting() // liEn & Afiq
             int no = board.getZomB(); // Afiq
             alienstat(); // Afiq
             zombiestat(no); // Afiq
-            Pause();
         }
     }
 }
@@ -198,15 +205,9 @@ void changesetting() // liEn & Afiq
 void Board()
 {
     GameBoard board;
-    // system("cls");
     board.display();
     int no = board.getZomB(); // Afiq
     alienstat(); // Afiq   
     zombiestat(no); // Afiq
-    Pause();
 }
 
-// int main()
-// {
-//     Board();
-// }
