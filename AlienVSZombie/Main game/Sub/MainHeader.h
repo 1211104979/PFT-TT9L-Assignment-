@@ -14,7 +14,8 @@ using namespace std;
     void playmenu();
     void changesetting();
     void Board();
-    void zombiestat();
+    void zombiestat(int no);
+    void alienstat();
 
 class GameBoard
 {

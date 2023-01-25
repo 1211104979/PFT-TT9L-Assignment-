@@ -113,9 +113,6 @@ void GameBoard::display()
     }
     cout << endl
          << endl;
-
-    zombiestat();
-    Pause();
 }
 
 int GameBoard::setDimX(int x)
@@ -188,9 +185,12 @@ void changesetting()
             board.setDimX(x);
             board.setDimY(y);
             board.setZomB(z); // le
-
             board.init(x, y, z); // le
-            board.display();
+            board.display(); 
+            int no = board.getZomB(); 
+            alienstat();   
+            zombiestat(no);
+            Pause();
         }
     }
 }
@@ -200,6 +200,10 @@ void Board()
     GameBoard board;
     // system("cls");
     board.display();
+    int no = board.getZomB();
+    alienstat();    
+    zombiestat(no);
+    Pause();
 }
 
 // int main()

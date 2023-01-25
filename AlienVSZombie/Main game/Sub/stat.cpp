@@ -37,12 +37,20 @@ void Zombie::data() // Shows zombie stats
     cout << "  Range :" << rng_ << endl;
 }
 
-void zombiestat()
+void alienstat()
 {
-    Zombie no;
+    int alhp_ = 100;
+    int alatk_ = 0;
+    cout << " Alien    :";
+    cout << "  Health point :" << alhp_ ;
+    cout << "  Attack :" << alatk_ << endl;
+}
+
+void zombiestat(int no)
+{
     Zombie entity[9];
     
-    int b = no.getZomB();
+    int b = no;
 
     int hp[3] = {100, 150, 200};
     int atk[3] = {5, 10, 15};
@@ -57,7 +65,7 @@ void zombiestat()
     
     for (int i = 0; i < b; ++i)
     {
-        cout << " Zombie " << i+1; 
+        cout << " Zombie " << i+1 << " :"; 
         entity[i].data();
     }
 
