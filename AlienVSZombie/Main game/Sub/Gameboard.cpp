@@ -77,7 +77,7 @@ void GameBoard::display()
         cout << "+" << endl;
 
         // display row number
-        cout << setw(2) << (dimY_ - i);
+        cout << setw(2) << (dimY_ - i) << " ";
         // display cell content and border of each column
         for (int j = 0; j < dimX_; ++j)
         {
