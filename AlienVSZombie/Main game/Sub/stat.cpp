@@ -1,3 +1,4 @@
+//Afiq--------------------------------------------------------------------
 #include "MainHeader.h"
 #include <iostream> 
 #include <string> 
@@ -37,7 +38,7 @@ void Zombie::data() // Shows zombie stats
     cout << "  Range :" << rng_ << endl;
 }
 
-void alienstat()
+void alienstat() // Shows Alien stats
 {
     int alhp_ = 100;
     int alatk_ = 0;
@@ -46,7 +47,7 @@ void alienstat()
     cout << "  Attack :" << alatk_ << endl;
 }
 
-void zombiestat(int no)
+void zombiestat(int no) // show each zombie stats
 {
     Zombie entity[9];
     
@@ -71,4 +72,5 @@ void zombiestat(int no)
 
 }
 
+//------------------------------------------------------------------------
 

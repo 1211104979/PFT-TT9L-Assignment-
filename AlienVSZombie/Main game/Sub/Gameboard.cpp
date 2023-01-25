@@ -9,19 +9,19 @@
 
 using namespace std;
 
-GameBoard::GameBoard(int dimX, int dimY, int zomb)
+GameBoard::GameBoard(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 {
     init(dimX, dimY, zomb);
 }
 
-void GameBoard::init(int dimX, int dimY, int zomb)
+void GameBoard::init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 {
     dimX_ = dimX;
     dimY_ = dimY;
     zomB_ = zomb;
 
     char objects[] = {'<', '^', '>', 'v', 'h', 'p', 'r', ' ', ' ', ' '};
-    char zomBie[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'}; // le
+    char zomBie[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'}; // liEn 
     int noOfObjects = 10;                                          // number of objects in the objects array
 
     // create dynamic 2D array using vector
@@ -41,7 +41,7 @@ void GameBoard::init(int dimX, int dimY, int zomb)
         }
     }
 
-    // put random zombies into the vector array // le
+    // put random zombies into the vector array // liEn 
     for (int i = 0; i < zomB_; ++i)
     {
 
@@ -57,7 +57,7 @@ void GameBoard::init(int dimX, int dimY, int zomb)
 
 }
 
-void GameBoard::display()
+void GameBoard::display() // liEn & Afiq (from tutorial)
 {
     // comment this out during testing
     // system("cls"); // OR system("clear"); for Linux / MacOS
@@ -127,7 +127,7 @@ int GameBoard::setDimY(int y)
     return dimY_;
 }
 
-int GameBoard::setZomB(int z) // le -> add new function
+int GameBoard::setZomB(int z) // liEn -> add new function
 {
     zomB_ = z;
     return zomB_;
@@ -153,22 +153,22 @@ char GameBoard::getObject(int x, int y) const
     return map_[dimY_ - y][x - 1];
 }
 
-void changesetting()
+void changesetting() // liEn & Afiq
 {
     GameBoard board;
-    int x, y, z;  // le
-    cout << endl; // le -> next line when input 'y/n' entered
+    int x, y, z;  // liEn 
+    cout << endl; // liEn  -> next line when input 'y/n' entered
     cout << " Enter rows => ";
     cin >> y;
     cout << endl;
     cout << " Enter columns => ";
     cin >> x;
     cout << endl;
-    cout << " Enter zombies => "; // le
+    cout << " Enter zombies => "; // liEn 
     cin >> z;
     cout << endl;
 
-    if (x % 2 == 0 || y % 2 == 0) // le -> //restriction for only accepting odd numbers and range of zombies within 1 until 9
+    if (x % 2 == 0 || y % 2 == 0) // liEn  -> //restriction for only accepting odd numbers and range of zombies within 1 until 9
     {
         cout << "Rows and Columns must be odd numbers.\n\n";
     }
@@ -184,12 +184,12 @@ void changesetting()
         {
             board.setDimX(x);
             board.setDimY(y);
-            board.setZomB(z); // le
-            board.init(x, y, z); // le
+            board.setZomB(z); // liEn 
+            board.init(x, y, z); // liEn 
             board.display(); 
-            int no = board.getZomB(); 
-            alienstat();   
-            zombiestat(no);
+            int no = board.getZomB(); // Afiq
+            alienstat(); // Afiq
+            zombiestat(no); // Afiq
             Pause();
         }
     }
@@ -200,9 +200,9 @@ void Board()
     GameBoard board;
     // system("cls");
     board.display();
-    int no = board.getZomB();
-    alienstat();    
-    zombiestat(no);
+    int no = board.getZomB(); // Afiq
+    alienstat(); // Afiq   
+    zombiestat(no); // Afiq
     Pause();
 }
 

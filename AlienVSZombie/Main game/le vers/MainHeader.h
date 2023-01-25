@@ -13,30 +13,30 @@ void getMenu();
 void instructions();
 void gameover();
 void playmenu();
-void changesetting();
-void Board();
+void changesetting(); // liEn 
+void Board(); // liEn 
 
-class GameBoard
+class GameBoard // liEn & Afiq (from tutorial)
 {
 private:
     vector<vector<char>> map_; // convention to put trailing underscore
-    int dimX_, dimY_, zomB_;   // to indicate private data //le
+    int dimX_, dimY_, zomB_;   // to indicate private data //liEn
 
 public:
-    GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // le
+    GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // liEn
 
-    void init(int dimX, int dimY, int zomb); // le
-    void display();
-    void settings();
-    int setDimX(int x);
-    int setDimY(int y);
-    int setZomB(int z); // le
+    void init(int dimX, int dimY, int zomb); // liEn
+    void display(); // liEn & Afiq (from tutorial)
+    void settings(); // liEn & Afiq (from tutorial)
+    int setDimX(int x); // liEn (from tutorial)
+    int setDimY(int y); // liEn (from tutorial)
+    int setZomB(int z); // liEn
 
-    int getDimX() const;
-    int getDimY() const;
-    int getZomB() const; // le
+    int getDimX() const; // Afiq (from tutorial)
+    int getDimY() const; // Afiq (from tutorial)
+    int getZomB() const; // liEn
 
-    char getObject(int dimX, int dimY) const;
+    char getObject(int dimX, int dimY) const; // liEn & Afiq (from tutorial)
 };
 
 #endif
