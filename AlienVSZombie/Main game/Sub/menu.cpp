@@ -121,7 +121,7 @@ using namespace std;
 			cout << "-----------------------" << endl;
 			cout << " Board Rows     : " << board.getDimY() << endl; 
 			cout << " Board Columns  : " << board.getDimX() << endl; 
-			cout << " Zombie Count   : " << endl; // add zombie in the game
+			cout << " Zombie Count   : " << board.getZomB() << endl; 
 			cout << endl;
 			cout << " Do you wish to change the game settings (y/n)? =>" << endl;
 			cout << "<== Go back to menu (b)" << endl;

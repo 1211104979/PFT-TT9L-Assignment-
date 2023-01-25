@@ -172,7 +172,9 @@ void changesetting() // liEn & Afiq
     cout << " Enter columns => ";
     cin >> x;
     cout << endl;
-    cout << " Enter zombies => "; // liEn 
+    cout << " Zombie Settings " << endl;
+    cout << "-----------------" << endl;
+    cout << " Enter number of zombies => "; // liEn 
     cin >> z;
     cout << endl;
 
@@ -198,6 +200,7 @@ void changesetting() // liEn & Afiq
             int no = board.getZomB(); // Afiq
             alienstat(); // Afiq
             zombiestat(no); // Afiq
+            Pause();
         }
     }
 }
@@ -209,5 +212,6 @@ void Board()
     int no = board.getZomB(); // Afiq
     alienstat(); // Afiq   
     zombiestat(no); // Afiq
+    Pause();
 }
 
