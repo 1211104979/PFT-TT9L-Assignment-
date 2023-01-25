@@ -9,31 +9,57 @@
 
 using namespace std; 
 
-Zombie::Zombie(int hp, int atk, int rng)
+int Zombie::hpgen(int* hp)
 {
-    hp_  = hp;
-    atk_ = atk;
-    rng_ = rng;
+    int ranhp  = rand() % noobj;
+    hp_ = hp[ranhp];
+    return hp_;
 }
 
+int Zombie::atkgen(int* atk)
+{
+    int ranatk = rand() % noobj;
+    atk_ = atk[ranatk];
+    return atk_;
+}
 
-Zombie zombie1 = Zombie(100, 15, 2);
-Zombie zombie2 = Zombie(200, 5, 1);
-Zombie zombie3 = Zombie(150, 10, 3);
+int Zombie::rnggen(int* rng)
+{
+    int ranrng = rand() % noobj;
+    rng_ = rng[ranrng];
+    return rng_;
+}
 
+void Zombie::data()
+{
+    cout << "  Health point :" << hp_ ;
+    cout << "  Attack :" << atk_ ;
+    cout << "  Range :" << rng_ << endl;
+}
 
-// zombie stat
-// hp[3] = {100, 150, 200}
-// atk[3] = {5, 10, 15}
-// rng[3] = {1, 2, 3}
-// noobj = 3
-// for (int i = 0; i < zomB; ++i)
-//     {
-//          ranhp  = rand() % noobj;
-//          hp_ = hp[ranhp]
-//          ranatk = rand() % noobj;
-//          atk_ = atk[ranhp]
-//          ranrng = rand() % noobj;
-//          rng_ = rng[ranhp]
-//     }
+int main()
+{
+    //GameBoard zombie;
+    int b = 4;//zombie.getZomB();
+    Zombie entity[9];
+
+    int hp[3] = {100, 150, 200};
+    int atk[3] = {5, 10, 15};
+    int rng[3] = {1, 2, 3};
+
+    for (int i = 0; i < b; ++i)
+    {
+        int hp_  = entity[i].hpgen(hp);
+        int atk_ = entity[i].atkgen(atk);
+        int rng_ = entity[i].rnggen(rng);
+    }
+    
+    for (int i = 0; i < b; ++i)
+    {
+        cout << " Zombie " << i+1; 
+        entity[i].data();
+    }
+
+}
+
 

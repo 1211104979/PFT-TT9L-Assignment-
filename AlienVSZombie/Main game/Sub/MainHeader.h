@@ -47,8 +47,15 @@ class Zombie
         int hp_;
         int atk_;
         int rng_;
+        // int hp[3] = {100, 150, 200};
+        // int atk[3] = {5, 10, 15};
+        // int rng[3] = {1, 2, 3};
+        int noobj = 3;
 
-        Zombie(int hp, int atk, int rng); 
+        void data();
+        int hpgen(int* hp); 
+        int atkgen(int* atk);
+        int rnggen(int* rng);
 
 };
 

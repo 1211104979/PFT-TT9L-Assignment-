@@ -14,7 +14,7 @@ GameBoard::GameBoard(int dimX, int dimY, int zomb)
     init(dimX, dimY, zomb);
 }
 
-void GameBoard::init(int dimX, int dimY, int zomb = 1)
+void GameBoard::init(int dimX, int dimY, int zomb)
 {
     dimX_ = dimX;
     dimY_ = dimY;
@@ -55,7 +55,6 @@ void GameBoard::init(int dimX, int dimY, int zomb = 1)
     char Alien[] = {"A"};
     map_[y][x] = Alien[0];
 
-    char Zombie[] = {};
 }
 
 void GameBoard::display()
