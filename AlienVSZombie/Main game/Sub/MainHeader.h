@@ -40,7 +40,8 @@ class GameBoard // liEn & Afiq (from tutorial)
         int getZomB() const; // liEn 
 
         char getObject(int dimX, int dimY) const; // Afiq 
-}
+};
+
 class Zombie : public GameBoard // Afiq 
 {
     public:
