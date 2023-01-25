@@ -9,28 +9,28 @@
 
 using namespace std; 
 
-int Zombie::hpgen(int* hp)
+int Zombie::hpgen(int* hp) // Health point for zombies
 {
     int ranhp  = rand() % noobj;
     hp_ = hp[ranhp];
     return hp_;
 }
 
-int Zombie::atkgen(int* atk)
+int Zombie::atkgen(int* atk) // Attack point for zombies
 {
     int ranatk = rand() % noobj;
     atk_ = atk[ranatk];
     return atk_;
 }
 
-int Zombie::rnggen(int* rng)
+int Zombie::rnggen(int* rng) // Range for zombies
 {
     int ranrng = rand() % noobj;
     rng_ = rng[ranrng];
     return rng_;
 }
 
-void Zombie::data()
+void Zombie::data() // Shows zombie stats
 {
     cout << "  Health point :" << hp_ ;
     cout << "  Attack :" << atk_ ;
@@ -39,9 +39,10 @@ void Zombie::data()
 
 void zombiestat()
 {
-    //GameBoard zombie;
-    int b = 4;//zombie.getZomB();
+    Zombie no;
     Zombie entity[9];
+    
+    int b = no.getZomB();
 
     int hp[3] = {100, 150, 200};
     int atk[3] = {5, 10, 15};

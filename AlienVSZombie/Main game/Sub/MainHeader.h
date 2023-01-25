@@ -20,9 +20,11 @@ class GameBoard
 {
 private:
     vector<vector<char>> map_; // convention to put trailing underscore
-    int dimX_, dimY_, zomB_;   // to indicate private data //le
+    int dimX_, dimY_;   // to indicate private data //le
 
 public:
+    int zomB_;
+
     GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // le
 
     void init(int dimX, int dimY, int zomb); // le
@@ -39,11 +41,8 @@ public:
     char getObject(int dimX, int dimY) const;
 };
 
-class Zombie
+class Zombie : public GameBoard
 {
-    private:
-        int zomB_;
-
     public:
         int hp_;
         int atk_;

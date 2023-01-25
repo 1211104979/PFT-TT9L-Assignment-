@@ -113,6 +113,9 @@ void GameBoard::display()
     }
     cout << endl
          << endl;
+
+    zombiestat();
+    Pause();
 }
 
 int GameBoard::setDimX(int x)
