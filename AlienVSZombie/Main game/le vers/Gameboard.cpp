@@ -88,7 +88,7 @@ void GameBoard::display()
     }
 
     // display lower border of the last row
-    cout << " ";
+    //cout << " ";
     for (int j = 0; j < dimX_; ++j)
     {
         cout << "+-";
