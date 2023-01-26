@@ -17,8 +17,6 @@
 #include <iomanip> // for setw()
 #include <conio.h>
 
-using namespace std;
-
 GameBoard::GameBoard(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 {
     init(dimX, dimY, zomb);
@@ -71,58 +69,58 @@ void GameBoard::display() // liEn & Afiq (from tutorial)
 {
     // comment this out during testing
     // system("cls"); // OR system("clear"); for Linux / MacOS
-    cout << " --__--__--__--__--__--__--__--_" << endl;
-    cout << " =       Alien vs Zombie       =" << endl;
-    cout << " __--__--__--__--__--__--__--__-" << endl;
+    std::cout << " --__--__--__--__--__--__--__--_" << std::endl;
+    std::cout << " =       Alien vs Zombie       =" << std::endl;
+    std::cout << " __--__--__--__--__--__--__--__-" << std::endl;
 
     // for each row
     for (int i = 0; i < dimY_; ++i)
     {
         // display upper border of the row
-        cout << " ";
+        std::cout << " ";
         for (int j = 0; j < dimX_; ++j)
         {
-            cout << "+-";
+            std::cout << "+-";
         }
-        cout << "+" << endl;
+        std::cout << "+" << std::endl;
 
         // display row number
-        cout << setw(2) << (dimY_ - i);
+        std::cout << std::setw(2) << (dimY_ - i);
         // display cell content and border of each column
         for (int j = 0; j < dimX_; ++j)
         {
-            cout << "|" << map_[i][j];
+            std::cout << "|" << map_[i][j];
         }
-        cout << "|" << endl;
+        std::cout << "|" << std::endl;
     }
 
     // display lower border of the last row
-    cout << " ";
+    std::cout << " ";
     for (int j = 0; j < dimX_; ++j)
     {
-        cout << "+-";
+        std::cout << "+-";
     }
-    cout << "+" << endl;
+    std::cout << "+" << std::endl;
 
     // display column number
-    cout << " ";
+    std::cout << " ";
     for (int j = 0; j < dimX_; ++j)
     {
         int digit = (j + 1) / 10;
-        cout << " ";
+        std::cout << " ";
         if (digit == 0)
-            cout << " ";
+            std::cout << " ";
         else
-            cout << digit;
+            std::cout << digit;
     }
-    cout << endl;
-    cout << "  ";
+    std::cout << std::endl;
+    std::cout << "  ";
     for (int j = 0; j < dimX_; ++j)
     {
-        cout << " " << (j + 1) % 10;
+        std::cout << " " << (j + 1) % 10;
     }
-    cout << endl
-         << endl;
+    std::cout << std::endl
+         << std::endl;
 }
 
 int GameBoard::setDimX(int x)
@@ -175,29 +173,29 @@ void changesetting() // liEn & Afiq
 {
     GameBoard board;
     int x, y, z;  // liEn 
-    cout << endl; // liEn  -> next line when input 'y/n' entered
-    cout << " Enter rows => ";
-    cin >> y;
-    cout << endl;
-    cout << " Enter columns => ";
-    cin >> x;
-    cout << endl;
-    cout << " Zombie Settings " << endl;
-    cout << "-----------------" << endl;
-    cout << " Enter number of zombies => "; // liEn 
-    cin >> z;
-    cout << endl;
+    std::cout << std::endl; // liEn  -> next line when input 'y/n' entered
+    std::cout << " Enter rows => ";
+    std::cin >> y;
+    std::cout << std::endl;
+    std::cout << " Enter columns => ";
+    std::cin >> x;
+    std::cout << std::endl;
+    std::cout << " Zombie Settings " << std::endl;
+    std::cout << "-----------------" << std::endl;
+    std::cout << " Enter number of zombies => "; // liEn 
+    std::cin >> z;
+    std::cout << std::endl;
 
     if (x % 2 == 0 || y % 2 == 0) // liEn  -> //restriction for only accepting odd numbers and range of zombies within 1 until 9
     {
-        cout << "Rows and Columns must be odd numbers.\n\n";
+        std::cout << "Rows and Columns must be odd numbers.\n\n";
     }
 
     else
     {
         if (z < 1 || z > 9)
         {
-            cout << "Zombies can only within the range of 1 until 9. " << endl;
+            std::cout << "Zombies can only within the range of 1 until 9. " << std::endl;
         }
 
         else

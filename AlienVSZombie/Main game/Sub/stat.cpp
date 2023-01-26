@@ -18,8 +18,6 @@
 #include <iomanip> // for setw() 
 #include <conio.h>
 
-using namespace std; 
-
 int Zombie::hpgen(int* hp) // Health point for zombies
 {
     int ranhp  = rand() % noobj;
@@ -43,18 +41,18 @@ int Zombie::rnggen(int* rng) // Range for zombies
 
 void Zombie::data() // Shows zombie stats
 {
-    cout << "  Health point :" << hp_ ;
-    cout << "  Attack :" << atk_ ;
-    cout << "  Range :" << rng_ << endl;
+    std::cout << "  Health point :" << hp_ ;
+    std::cout << "  Attack :" << atk_ ;
+    std::cout << "  Range :" << rng_ << std::endl;
 }
 
 void alienstat() // Shows Alien stats
 {
     int alhp_ = 100;
     int alatk_ = 0;
-    cout << " Alien    :";
-    cout << "  Health point :" << alhp_ ;
-    cout << "  Attack :" << alatk_ << endl;
+    std::cout << " Alien    :";
+    std::cout << "  Health point :" << alhp_ ;
+    std::cout << "  Attack :" << alatk_ << std::endl;
 }
 
 void zombiestat(int no) // show each zombie stats
@@ -76,7 +74,7 @@ void zombiestat(int no) // show each zombie stats
     
     for (int i = 0; i < b; ++i)
     {
-        cout << " Zombie " << i+1 << " :"; 
+        std::cout << " Zombie " << i+1 << " :"; 
         entity[i].data();
     }
 

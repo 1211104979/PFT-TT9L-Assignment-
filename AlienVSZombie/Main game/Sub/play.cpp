@@ -14,17 +14,15 @@
 #include <ctime>   // for time() in srand( time(NULL) );
 #include <iomanip> // for setw()
 
-using namespace std;
-
 void defplay()
 {
     ClearScreen();
     Board();
     while(1)
     {
-        string con;
-        cout << " Command " ;
-        cin >> con ;
+        std::string con;
+        std::cout << " Command " ;
+        std::cin >> con ;
         if (con == "up")
         {
 
@@ -66,9 +64,9 @@ void play()
     changesetting();
     while(1)
     {
-        string con;
-        cout << " Command " ;
-        cin >> con ;
+        std::string con;
+        std::cout << " Command " ;
+        std::cin >> con ;
         if (con == "up")
         {
 

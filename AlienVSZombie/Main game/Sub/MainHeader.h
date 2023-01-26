@@ -12,8 +12,6 @@
 #ifndef MAINHEADER_H
 #define MAINHEADER_H
 
-using namespace std;
-
 // Global--------------------------------------------------------------------------------------- 
     int ClearScreen(); // (from tutorial)
     int Pause(); // (from tutorial)
@@ -36,7 +34,7 @@ using namespace std;
 class GameBoard // liEn & Afiq (from tutorial)
 {
     private:
-        vector<vector<char>> map_; // convention to put trailing underscore
+        std::vector<std::vector<char>> map_; // convention to put trailing underscore
         int dimX_, dimY_;   // to indicate private data // liEn 
 
     public:

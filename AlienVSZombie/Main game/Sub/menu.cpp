@@ -15,8 +15,6 @@
 #include <cstdlib>
 #include <conio.h> // getch()
 
-using namespace std; // delete this later and change it
-
     int ClearScreen()
     {
         #if defined(_WIN32)
@@ -39,16 +37,16 @@ using namespace std; // delete this later and change it
 	{
 		do {
 			ClearScreen();
-			system("color A");
-			cout <<  " -------------------------- " << endl;
-			cout <<  " |     Alien VS Zombie     |" << endl;
-			cout <<  " -------------------------- " << endl;
-			cout <<  " 1.	PLAY      	          " << endl;
-			cout <<  " 2.	INSTRUCTIONS	      " << endl;
-			cout <<  " 3.	QUIT			      " << endl;
-			cout << endl;
-			cout <<  ">>> CHOICE:		          " << endl;
-			char op = getche();
+			std::cout <<  " -------------------------- " << std::endl;
+			std::cout <<  " |     Alien VS Zombie     |" << std::endl;
+			std::cout <<  " -------------------------- " << std::endl;
+			std::cout <<  " 1.	PLAY      	           " << std::endl;
+			std::cout <<  " 2.	INSTRUCTIONS	       " << std::endl;
+			std::cout <<  " 3.	QUIT			       " << std::endl;
+			std::cout << std::endl;
+			std::cout <<  ">>> CHOICE:		           " << std::endl;
+			char op;
+			std::cin >> op;
 			
 			switch(op) {
 				case '1':
@@ -61,7 +59,7 @@ using namespace std; // delete this later and change it
 					exit(0);
 					break;
 				default:
-					cout << "Invalid! Try again";
+					std::cout << "Invalid! Try again";
 					break;
 			}
 			
@@ -71,51 +69,49 @@ using namespace std; // delete this later and change it
 
 	void gameover() {
 		ClearScreen();
-		cout << "\n\n\t\t\tGAME OVER.";
-		getch();
+		std::cout << "\n\n\t\t\tGAME OVER.";
+		Pause();
 	}
 
 	void controls() {
 		ClearScreen();
-		cout << endl;
-		cout <<  " --------------------------------------------- " << endl;
-		cout <<  "|               Alien VS Zombie               |" << endl;
-		cout <<  " --------------------------------------------- " << endl;
-		cout << endl;
-		cout <<  "                  CONTROLS                  " << endl;          
-		cout <<  "| up    //Alien to move up.                   |" << endl;
-		cout <<  "| down  //Alien to move down.                 |" << endl; 
-		cout <<  "| left  //Alien to move left.                 |" << endl; 
-		cout <<  "| right //Alien to move right.                |" << endl; 
-		cout <<  "| arrow //Switch the direction of             |" << endl; 
-		cout <<  "|       //an arrow object in the game board.  |" << endl;
-		cout <<  "| help  //List and describe the commands      |" << endl; 
-		cout <<  "|       //that the player can use in the game.|" << endl;
-		cout <<  "| save  //Save the current game to a file.    |" << endl; 
-		cout <<  "| load  //Load a saved game from a file.      |" << endl; 
-		cout <<  "| quit  //Quit the game while still in play.  |" << endl; 
-		cout << endl;
-		cout <<  "Press any key to continue";
-		getch();
+		std::cout << std::endl;
+		std::cout <<  " --------------------------------------------- " << std::endl;
+		std::cout <<  "|               Alien VS Zombie               |" << std::endl;
+		std::cout <<  " --------------------------------------------- " << std::endl;
+		std::cout << std::endl;
+		std::cout <<  "                  CONTROLS                     " << std::endl;          
+		std::cout <<  "| up    //Alien to move up.                   |" << std::endl;
+		std::cout <<  "| down  //Alien to move down.                 |" << std::endl; 
+		std::cout <<  "| left  //Alien to move left.                 |" << std::endl; 
+		std::cout <<  "| right //Alien to move right.                |" << std::endl; 
+		std::cout <<  "| arrow //Switch the direction of             |" << std::endl; 
+		std::cout <<  "|       //an arrow object in the game board.  |" << std::endl;
+		std::cout <<  "| help  //List and describe the commands      |" << std::endl; 
+		std::cout <<  "|       //that the player can use in the game.|" << std::endl;
+		std::cout <<  "| save  //Save the current game to a file.    |" << std::endl; 
+		std::cout <<  "| load  //Load a saved game from a file.      |" << std::endl; 
+		std::cout <<  "| quit  //Quit the game while still in play.  |" << std::endl; 
+		std::cout << std::endl;
+		Pause();
 	}
 
 	void help()
 	{
-		cout << endl;
-		cout <<  " Commands " << endl;
-		cout << endl;         
-		cout <<  " up    - Move up. " << endl;
-		cout <<  " down  - Move down. " << endl; 
-		cout <<  " left  - Move left. " << endl; 
-		cout <<  " right - Move right. " << endl; 
-		cout <<  " arrow - Switch the direction of an arrow. " << endl;
-		cout <<  " help  - Display user commands. " << endl; 
-		cout <<  " save  - Save the game. " << endl; 
-		cout <<  " load  - Load a  game. " << endl; 
-		cout <<  " quit  - Quit the game. " << endl; 
-		cout << endl;
-		cout <<  "Press any key to continue" << endl;
-		getch();
+		std::cout << std::endl;
+		std::cout <<  " Commands " << std::endl;
+		std::cout << std::endl;         
+		std::cout <<  " up    - Move up. " << std::endl;
+		std::cout <<  " down  - Move down. " << std::endl; 
+		std::cout <<  " left  - Move left. " << std::endl; 
+		std::cout <<  " right - Move right. " << std::endl; 
+		std::cout <<  " arrow - Switch the direction of an arrow. " << std::endl;
+		std::cout <<  " help  - Display user commands. " << std::endl; 
+		std::cout <<  " save  - Save the game. " << std::endl; 
+		std::cout <<  " load  - Load a  game. " << std::endl; 
+		std::cout <<  " quit  - Quit the game. " << std::endl; 
+		std::cout << std::endl;
+		Pause();
 	}
 
 //Afiq--------------------------------------------------------------------
@@ -127,15 +123,16 @@ using namespace std; // delete this later and change it
 		do 
 		{
 			ClearScreen();
-			cout << " Default Game Settings " << endl;
-			cout << "-----------------------" << endl;
-			cout << " Board Rows     : " << board.getDimY() << endl; 
-			cout << " Board Columns  : " << board.getDimX() << endl; 
-			cout << " Zombie Count   : " << board.getZomB() << endl; 
-			cout << endl;
-			cout << " Do you wish to change the game settings (y/n)? =>" << endl;
-			cout << "<== Go back to menu (b)" << endl;
-			char input = getche();
+			std::cout << " Default Game Settings " << std::endl;
+			std::cout << "-----------------------" << std::endl;
+			std::cout << " Board Rows     : " << board.getDimY() << std::endl; 
+			std::cout << " Board Columns  : " << board.getDimX() << std::endl; 
+			std::cout << " Zombie Count   : " << board.getZomB() << std::endl; 
+			std::cout << std::endl;
+			std::cout << " Do you wish to change the game settings (y/n)? =>" << std::endl;
+			std::cout << "<== Go back to menu (b)" << std::endl;
+			char input;
+			std::cin>> input;
 
 			switch(input) 
 			{
@@ -149,7 +146,7 @@ using namespace std; // delete this later and change it
 					getMenu();
 					break;
 				default:
-					cout << "Invalid! Try again" << endl;
+					std::cout << "Invalid! Try again" << std::endl;
 					break;
 			}
 		} while (1);
