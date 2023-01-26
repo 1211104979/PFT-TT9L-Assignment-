@@ -15,7 +15,7 @@
 #include <cstdlib>
 #include <conio.h> // getch()
 
-using namespace std;
+using namespace std; // delete this later and change it
 
     int ClearScreen()
     {
