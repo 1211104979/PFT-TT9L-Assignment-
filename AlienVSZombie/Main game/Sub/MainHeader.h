@@ -15,6 +15,7 @@
 // Global--------------------------------------------------------------------------------------- 
     int ClearScreen(); // (from tutorial)
     int Pause(); // (from tutorial)
+    // int move_up();
          
     void getMenu(); // Afiq
     void controls(); // Afiq
@@ -34,12 +35,11 @@
 class GameBoard // liEn & Afiq (from tutorial)
 {
     private:
-        std::vector<std::vector<char>> map_; // convention to put trailing underscore
         int dimX_, dimY_;   // to indicate private data // liEn 
 
     public:
+        std::vector<std::vector<char>> map_; // convention to put trailing underscore
         int zomB_; // Afiq 
-        char Alien_;
 
         GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // liEn 
 
@@ -48,11 +48,11 @@ class GameBoard // liEn & Afiq (from tutorial)
         int setDimX(int x); // liEn 
         int setDimY(int y); // liEn 
         int setZomB(int z); // liEn 
+        std::vector<std::vector<char>> setmap(int y, int x, char obj);
 
         int getDimX() const; // Afiq 
         int getDimY() const; // Afiq 
         int getZomB() const; // liEn 
-        char getAlien(int dimY_, int dimX_);
         char getObject(int dimX, int dimY) const; // Afiq 
 };
 
@@ -69,6 +69,24 @@ class Zombie : public GameBoard // Afiq
         int atkgen(int* atk); // Afiq 
         int rnggen(int* rng); // Afiq 
 };
+
+class movement : public GameBoard
+{
+    public:
+        int AlienX_;
+        int AlienY_;
+
+        int setalienX_(int x);
+        int setalienY_(int y);
+
+        void move_up();
+        void move_down();
+        void move_left();
+        void move_right();
+        void move_arrow();
+        void get_arrow();
+};
+
 //Class-----------------------------------------------------------------------------------------
 
 #endif

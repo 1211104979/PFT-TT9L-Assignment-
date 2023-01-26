@@ -14,37 +14,55 @@
 //Alien move
 // get vector of the alien
 
-void move_up()
-{
+    int movement::setalienX_(int x)
+    {
+        return AlienX_;
+    }
 
-}
+    int movement::setalienY_(int y)
+    {
+        return AlienY_;
+    }
 
-void move_down()
-{
-    
-}
+    void movement::move_up()
+    {
+        GameBoard board;
+        int defx = AlienX_;
+        int x = board.getDimX();
+        char trail[] = {'.'};
+        board.setmap(AlienY_, AlienX_, trail[0]);
+        std::cout << x - AlienX_ << std::endl;
+        for(int i = 0; i< x - AlienX_; ++i)
+        {
+            board.setmap(AlienX_, i, '.');
+        }
+        AlienX_ = defx + (x - AlienX_);
+        board.setmap(AlienY_, AlienX_, 'A');
+        setalienX_(AlienX_);
 
-void move_left()
-{
-    
-}
+    }
 
-void move_right()
-{
-    
-}
+    void movement::move_down()
+    {
+ 
+    }
 
-void move_arrow()
-{
-    
-}
+    void movement::move_left()
+    {
+ 
+    }
 
-void get_arrow()
-{
-    
-}
+    void movement::move_right()
+    {
 
-void move_trail()
-{
-    
-}
+    }
+
+    void movement::move_arrow()
+    {
+
+    }
+
+    void movement::get_arrow()
+    {
+
+    }

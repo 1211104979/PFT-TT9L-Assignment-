@@ -15,31 +15,39 @@
 
 void defplay()
 {
-    ClearScreen();
+    //ClearScreen();
+    movement move;
     GameBoard board;
+
     Board();
+    int x = board.getDimX()/2;
+    int y = board.getDimX()/2;
+    int setalienX_(int x);
+    int setalienY_(int y);
     while(1)
     {
         std::string con;
         char obj;
-        obj = board.getObject(2, 2);
+        obj = board.getObject(5, 2);
+        std::cout << " object ";
+        std::cout << obj << std::endl;
         std::cout << " Command " ;
         std::cin >> con ;
         if (con == "up")
         {
-            // move_up()
+            move.move_up();
         }
         if (con == "down")
         {
-            // move_down()
+            // move.move_down();
         }
         if (con == "left")
         {
-            // move_left()
+            // move.move_left();
         }
         if (con == "right")
         {
-            // move_right()
+            // move.move_right();
         }
         if (con == "help")
         {
@@ -67,15 +75,22 @@ void defplay()
 
 void play()
 {
-    ClearScreen();
+    //ClearScreen();
+    movement move;
     GameBoard board;
+
     changesetting();
+    int x = board.getDimX()/2;
+    int y = board.getDimX()/2;
+    int setalienX_(int x);
+    int setalienY_(int y);
     while(1)
     {
         std::string con;
         char obj;
-        obj = board.getObject(2, 5);
-        std::cout << obj ;
+        obj = board.getObject(5, 2);
+        std::cout << " object ";
+        std::cout << obj << std::endl;
         std::cout << " Command " ;
         std::cin >> con ;
         if (con == "up")

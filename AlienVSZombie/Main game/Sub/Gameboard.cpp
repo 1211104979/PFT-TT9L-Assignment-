@@ -59,7 +59,7 @@ void GameBoard::init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial
 
     int y = dimY_ / 2;
     int x = dimX_ / 2;
-    char Alien[] = {"A"};
+    char Alien[] = "A";
     map_[y][x] = Alien[0];
 
 }
@@ -134,6 +134,12 @@ int GameBoard::setDimY(int y)
     return dimY_;
 }
 
+std::vector<std::vector<char>> GameBoard::setmap(int y, int x, char obj)
+{
+    map_[y][x] = obj;
+    return map_;
+}
+
 int GameBoard::setZomB(int z) // liEn -> add new function
 {
     zomB_ = z;
@@ -155,17 +161,9 @@ int GameBoard ::getZomB() const // le -> add new function
     return zomB_;
 }
 
-char GameBoard ::getAlien(int dimY_, int dimX_)
-{
-    int y = dimY_ / 2;
-    int x = dimX_ / 2;
-    Alien_ = map_[y][x];
-    return Alien_;
-}
-
 char GameBoard::getObject(int x, int y) const
 {
-    return map_[y][x];
+    return map_[dimY_-y][x-1];
 }
 
 void changesetting() // liEn & Afiq
