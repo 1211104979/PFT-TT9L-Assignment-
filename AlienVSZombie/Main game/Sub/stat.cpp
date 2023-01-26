@@ -10,28 +10,22 @@
 //Afiq--------------------------------------------------------------------
 #include "MainHeader.h"
 #include <iostream> 
-#include <string> 
-#include <vector> 
-#include <cstdlib> // for system() 
-#include <ctime> // for time() in srand( time(NULL) ); 
-#include <iomanip> // for setw() 
-#include <conio.h>
 
-int Zombie::hpgen(int* hp) // Health point for zombies
+int Zombie::hpgen(int* hp) // Health point for zombies (pointer for hp array)
 {
     int ranhp  = rand() % noobj;
     hp_ = hp[ranhp];
     return hp_;
 }
 
-int Zombie::atkgen(int* atk) // Attack point for zombies
+int Zombie::atkgen(int* atk) // Attack point for zombies (pointer for atk array)
 {
     int ranatk = rand() % noobj;
     atk_ = atk[ranatk];
     return atk_;
 }
 
-int Zombie::rnggen(int* rng) // Range for zombies
+int Zombie::rnggen(int* rng) // Range for zombies (pointer for rng array)
 {
     int ranrng = rand() % noobj;
     rng_ = rng[ranrng];
