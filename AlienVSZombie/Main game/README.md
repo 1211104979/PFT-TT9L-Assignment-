@@ -10,11 +10,7 @@ Please provide the YouTube link to your [Video Demo](https://youtube.com).
 
 Provide instructions on how to compile your program, especially when it is non-trivial.
 
-For example:
-
-```
-g++ main.cpp folder1\code.cpp folder2\code.cpp ......
-```
+..... g++ Sub\*.cpp main.cpp .....
 
 ## User Manual
 
@@ -31,8 +27,7 @@ Please DO NOT change the Progress Log below. Leave it as it is.
 
 Please replace the following with your group members' names. 
 
-- Tony Stark
-- Steve Rogers
-- Dr. Strange
+- Chua Li En
+- Muhammad Afiq Ikhwan Bin Aminuddin
 
 

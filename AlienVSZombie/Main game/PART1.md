@@ -48,19 +48,20 @@ Describe the additional features that has been implemented.
 
 List down the contribution of each group members.
 
-### Muhammad Afiq Ikhwan Bin Aminuddin
-
-1. Game main menu
-2. Game play menu (game setting)
-3. Controls in menu and during game
-4. Quit function
-
 ### Chua Li En
 
 1. Randomly generate game board.
 2. Alien generation
 3. Randomly generate Zombie position
 4. 
+
+
+### Muhammad Afiq Ikhwan Bin Aminuddin
+
+1. Game main menu
+2. Game play menu (game setting)
+3. Controls in menu and during game
+4. Quit function
 
 ## Problems Encountered & Solutions
 
