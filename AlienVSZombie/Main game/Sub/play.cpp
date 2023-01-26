@@ -16,27 +16,30 @@
 void defplay()
 {
     ClearScreen();
+    GameBoard board;
     Board();
     while(1)
     {
         std::string con;
+        char obj;
+        obj = board.getObject(2, 2);
         std::cout << " Command " ;
         std::cin >> con ;
         if (con == "up")
         {
-
+            // move_up()
         }
         if (con == "down")
         {
-            
+            // move_down()
         }
         if (con == "left")
         {
-            
+            // move_left()
         }
         if (con == "right")
         {
-            
+            // move_right()
         }
         if (con == "help")
         {
@@ -53,6 +56,11 @@ void defplay()
         if (con == "quit")
         {
             exit(0);
+        }
+        else
+        {
+            std::cout << "invalid input" << std::endl;
+            Pause();
         }
     }
 }
@@ -60,10 +68,14 @@ void defplay()
 void play()
 {
     ClearScreen();
+    GameBoard board;
     changesetting();
     while(1)
     {
         std::string con;
+        char obj;
+        obj = board.getObject(2, 5);
+        std::cout << obj ;
         std::cout << " Command " ;
         std::cin >> con ;
         if (con == "up")
@@ -97,6 +109,11 @@ void play()
         if (con == "quit")
         {
             exit(0);
+        }
+        else
+        {
+            std::cout << "invalid input" << std::endl;
+            Pause();
         }
     }
 }

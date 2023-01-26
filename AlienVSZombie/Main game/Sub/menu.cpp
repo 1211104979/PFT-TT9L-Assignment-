@@ -147,6 +147,7 @@
 					break;
 				default:
 					std::cout << "Invalid! Try again" << std::endl;
+					Pause();
 					break;
 			}
 		} while (1);

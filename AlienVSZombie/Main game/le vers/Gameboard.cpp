@@ -151,7 +151,7 @@ int GameBoard ::getZomB() const // le -> add new function
 
 char GameBoard::getObject(int x, int y) const
 {
-    return map_[dimY_ - y][x - 1];
+    return map_[dimY_-y][x-1];
 }
 
 void changesetting()

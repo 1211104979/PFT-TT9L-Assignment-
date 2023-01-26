@@ -165,7 +165,7 @@ char GameBoard ::getAlien(int dimY_, int dimX_)
 
 char GameBoard::getObject(int x, int y) const
 {
-    return map_[dimY_ - y][x - 1];
+    return map_[y][x];
 }
 
 void changesetting() // liEn & Afiq
@@ -215,6 +215,7 @@ void changesetting() // liEn & Afiq
 void Board()
 {
     GameBoard board;
+    srand(1);
     board.display();
     int no = board.getZomB(); // Afiq
     alienstat(); // Afiq   
