@@ -13,6 +13,7 @@
 
 //Alien move
 // get vector of the alien
+
 void move_up()
 {
 

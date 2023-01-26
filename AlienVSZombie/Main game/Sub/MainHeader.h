@@ -45,7 +45,6 @@ class GameBoard // liEn & Afiq (from tutorial)
 
         void init(int dimX, int dimY, int zomb); // liEn 
         void display(); // liEn & Afiq (from tutorial)
-        //void settings(); // liEn & Afiq (from tutorial)
         int setDimX(int x); // liEn 
         int setDimY(int y); // liEn 
         int setZomB(int z); // liEn 
