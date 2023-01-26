@@ -6,7 +6,16 @@ Please provide the YouTube link to your [Video Demo](https://youtube.com).
 
 ## Minimum Requirements
 
+
+
 ### Completed
+
+1. Game Main menu
+2. Game play menu (Gambe Board Setting)
+3. Game board generation (default)
+4. Game board generation (custom)
+5. Control page
+6. Quit option
 
 List all the features completed.
 
@@ -31,18 +40,15 @@ List down the contribution of each group members.
 
 For example:
 
-### Tony Stark
+### Muhammad Afiq Ikhwan Bin Aminuddin
 
 1. Randomly generate game board.
 2. *add more*
 
-### Steve Rogers
+### Chua Li En
 
 1. Zombie movement and attack behaviour.
 2. *add more*
-
-### Dr. Strange
-
 1. Implement all game objects.
 2. *add more*
 
