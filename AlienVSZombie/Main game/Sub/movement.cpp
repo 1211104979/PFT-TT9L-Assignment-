@@ -24,7 +24,7 @@
         return AlienY_;
     }
 
-    void movement::move_up()
+    void movement::move_up() // problem
     {
         GameBoard board;
         int defx = AlienX_;
