@@ -33,6 +33,98 @@
     {
         return AlienY_;
     }
+//====================================================
+void movement::move_up2() // problem
+    {
+        GameBoard board2;
+
+        int y = board2.getDimY() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        // board.setmap(AlienY_, AlienX_, trail[0]);
+        for(int i = y - AlienY_; i > 0; --i)
+        {
+            board2.setmap(i, AlienX_, trail[0]);
+        }
+        AlienY_ = 0;
+        setalienY_(AlienY_);
+        board2.setmap(AlienY_, AlienX_, 'A');
+        board2.display(); 
+        int no = board2.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
+    }
+
+    void movement::move_down2()
+    {
+        GameBoard board2;
+
+        int y = board2.getDimY() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        for(int i = 0; i < AlienY_ + y; ++i)
+        {
+            board2.setmap(i, AlienX_, trail[0]);
+        }
+        AlienY_ =  y;
+        setalienY_(AlienY_);
+        board2.setmap(AlienY_, AlienX_, 'A');
+        board2.display(); 
+        int no = board2.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
+    }
+
+    void movement::move_left2()
+    {
+        GameBoard board2;
+
+        int x = board2.getDimX() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        for(int i = x - AlienX_; i > 0; --i)
+        {
+            board2.setmap(AlienY_, i, trail[0]);
+        }
+        AlienX_ = 0;
+        setalienX_(AlienX_);
+        board2.setmap(AlienY_, AlienX_, 'A');
+        board2.display(); 
+        int no = board2.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
+    }
+
+    void movement::move_right2()
+    {
+        GameBoard board2;
+
+        int x = board2.getDimX() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        for(int i = 0; i < x - AlienX_; ++i)
+        {
+            board2.setmap(AlienY_, i, trail[0]);
+        }
+        AlienX_ = x;
+        setalienX_(AlienX_);
+        board2.setmap(AlienY_, AlienX_, 'A');
+        board2.display(); 
+        int no = board2.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
+    }
+
+    void movement::move_arrow2()
+    {
+
+    }
+
+    void movement::get_arrow2()
+    {
+
+    }
+//====================================================
 
     void movement::move_up() // problem
     {

@@ -89,6 +89,12 @@ class movement : public GameBoard
         void move_right();
         void move_arrow();
         void get_arrow();
+        void move_up2();
+        void move_down2();
+        void move_left2();
+        void move_right2();
+        void move_arrow2();
+        void get_arrow2();
 };
 
 //Class-----------------------------------------------------------------------------------------

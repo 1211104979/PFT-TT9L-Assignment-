@@ -198,12 +198,15 @@ void changesetting() // liEn & Afiq
         }
 
         else
-        {
-            board.setDimX(x);
-            board.setDimY(y);
-            board.setZomB(z); // liEn 
-            board.init(x, y, z); // liEn
-            board.display(); 
+        {   GameBoard board2 = GameBoard(x, y, z);
+            board2.setDimX(x);
+            board2.setDimY(y);
+            board2.setZomB(z); // liEn 
+            std::cout << "z " ;
+            std::cout << z << std::endl;
+            
+            board2.init(x, y, z); // liEn
+            board2.display(); 
             // int no = board.getZomB(); // Afiq
             // alienstat(); // Afiq
             // zombiestat(no); // Afiq

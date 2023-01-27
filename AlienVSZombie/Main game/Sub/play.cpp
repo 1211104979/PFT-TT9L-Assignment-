@@ -17,17 +17,17 @@ void play()
 {
     //ClearScreen();
     movement move;
-    GameBoard board;
+    GameBoard board2;
 
     changesetting();
 
-    int x = board.getDimX()/2;
-    int y = board.getDimY()/2;
+    int x = board2.getDimX()/2;
+    int y = board2.getDimY()/2;
     move.setalienX_(x);
     move.setalienY_(y);
     // board.display(); 
 
-    int no = board.getZomB(); // Afiq
+    int no = board2.getZomB(); // Afiq
     alienstat(); // Afiq
     zombiestat(no); // Afiq
 
@@ -40,22 +40,22 @@ void play()
 
         if (con == "up")
         {
-            move.move_up();
+            move.move_up2();
         }
 
         if (con == "down")
         {
-            move.move_down();
+            move.move_down2();
         }
 
         if (con == "left")
         {
-            move.move_left();
+            move.move_left2();
         }
 
         if (con == "right")
         {
-            move.move_right();
+            move.move_right2();
         }
 
         if (con == "help")
