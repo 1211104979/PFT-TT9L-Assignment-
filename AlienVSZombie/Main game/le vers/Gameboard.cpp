@@ -55,7 +55,6 @@ void GameBoard::init(int dimX, int dimY, int zomb)
     char Alien[] = {"A"};
     map_[y][x] = Alien[0];
 
-    char Zombie[] = {};
 }
 
 void GameBoard::display()
