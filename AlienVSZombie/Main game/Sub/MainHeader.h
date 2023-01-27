@@ -37,12 +37,10 @@
 class GameBoard // liEn & Afiq (from tutorial)
 {
     private:
-        int dimX_, dimY_;   // to indicate private data // liEn 
+        std::vector<std::vector<char>> map_; // convention to put trailing underscore
+        int dimX_, dimY_, zomB_;   // to indicate private data // liEn 
 
     public:
-        std::vector<std::vector<char>> map_; // convention to put trailing underscore
-        int zomB_; // Afiq 
-
         GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // liEn 
 
         void init(int dimX, int dimY, int zomb); // liEn 
