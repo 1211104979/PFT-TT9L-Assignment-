@@ -13,7 +13,6 @@
 #include "MainHeader.h"
 #include <iostream>
 #include <cstdlib>
-#include <conio.h> // getch()
 
     int ClearScreen()
     {
@@ -136,11 +135,11 @@
 
 			switch(input) 
 			{
-				case 'y':
-					play();
-					break;
 				case 'n':
 					defplay();
+					break;
+				case 'y':
+					play();
 					break;
 				case 'b':
 					getMenu();

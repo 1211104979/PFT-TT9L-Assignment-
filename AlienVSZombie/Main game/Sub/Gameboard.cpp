@@ -56,9 +56,11 @@ void GameBoard::init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial
         int randX = rand() % dimX_;
         map_[randY][randX] = zomBie[i];
     }
+    // initzombie();
 
     int y = dimY_ / 2;
     int x = dimX_ / 2;
+    // initalien(y, x);
     char Alien[] = "A";
     map_[y][x] = Alien[0];
 
@@ -200,12 +202,11 @@ void changesetting() // liEn & Afiq
             board.setDimX(x);
             board.setDimY(y);
             board.setZomB(z); // liEn 
-            board.init(x, y, z); // liEn 
+            board.init(x, y, z); // liEn
             board.display(); 
-            int no = board.getZomB(); // Afiq
-            alienstat(); // Afiq
-            zombiestat(no); // Afiq
-            Pause();
+            // int no = board.getZomB(); // Afiq
+            // alienstat(); // Afiq
+            // zombiestat(no); // Afiq
         }
     }
 }
@@ -215,9 +216,8 @@ void Board()
     GameBoard board;
     srand(1);
     board.display();
-    int no = board.getZomB(); // Afiq
-    alienstat(); // Afiq   
-    zombiestat(no); // Afiq
-    Pause();
+    // int no = board.getZomB(); // Afiq
+    // alienstat(); // Afiq   
+    // zombiestat(no); // Afiq
 }
 

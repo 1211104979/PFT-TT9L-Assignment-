@@ -24,7 +24,8 @@
     void playmenu(); // Afiq
     void changesetting(); // liEn
     void Board(); // liEn
-    void initalien();
+    // void initzombie();
+    // void initalien(int y, int x);
     void zombiestat(int no); // Afiq 
     void alienstat(); // Afiq 
 
@@ -76,9 +77,11 @@ class movement : public GameBoard
     public:
         int AlienX_;
         int AlienY_;
-    
+
         int setalienX_(int x);
         int setalienY_(int y);
+        int getalienX_() const;
+        int getalienY_() const;
 
         void move_up();
         void move_down();

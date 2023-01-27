@@ -12,11 +12,26 @@
 #include <iostream>
 #include <cstdlib>
 
-void initalien()
+void initalien(int y, int x)
 {
     GameBoard board;
-    int y = board.getDimY() / 2;
-    int x = board.getDimX() / 2;
+
     char Alien[] = {'A'};
     board.setmap(y, x, Alien[0]);
+}
+
+void initzombie()
+{
+    GameBoard board;
+
+    char zomBie[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    int zomB_ = board.getZomB();
+    int y = board.getDimY();
+    int x = board.getDimX();
+    for (int i = 0; i < zomB_; ++i)
+    {
+        int randY = rand() % y;
+        int randX = rand() % x;
+        board.setmap(randY, randX, zomBie[i]);
+    }
 }

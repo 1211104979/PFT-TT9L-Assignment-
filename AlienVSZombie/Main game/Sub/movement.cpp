@@ -16,10 +16,20 @@
 
     int movement::setalienX_(int x)
     {
-        return AlienX_;
+        return AlienX_ = x;
     }
 
     int movement::setalienY_(int y)
+    {
+        return AlienY_ = y;
+    }
+
+    int movement::getalienX_() const
+    {
+        return AlienX_;
+    }
+
+    int movement::getalienY_() const
     {
         return AlienY_;
     }
@@ -27,34 +37,82 @@
     void movement::move_up() // problem
     {
         GameBoard board;
-        int defx = AlienX_;
-        int x = board.getDimX();
-        char trail[] = {'.'};
-        board.setmap(AlienY_, AlienX_, trail[0]);
-        std::cout << x - AlienX_ << std::endl;
-        for(int i = 0; i< x - AlienX_; ++i)
-        {
-            board.setmap(AlienX_, i, '.');
-        }
-        AlienX_ = defx + (x - AlienX_);
-        board.setmap(AlienY_, AlienX_, 'A');
-        setalienX_(AlienX_);
 
+        int y = board.getDimY() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        // board.setmap(AlienY_, AlienX_, trail[0]);
+        for(int i = y - AlienY_; i > 0; --i)
+        {
+            board.setmap(i, AlienX_, trail[0]);
+        }
+        AlienY_ = 0;
+        setalienY_(AlienY_);
+        board.setmap(AlienY_, AlienX_, 'A');
+        board.display(); 
+        int no = board.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
     }
 
     void movement::move_down()
     {
- 
+        GameBoard board;
+
+        int y = board.getDimY() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        for(int i = 0; i < AlienY_ + y; ++i)
+        {
+            board.setmap(i, AlienX_, trail[0]);
+        }
+        AlienY_ =  y;
+        setalienY_(AlienY_);
+        board.setmap(AlienY_, AlienX_, 'A');
+        board.display(); 
+        int no = board.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
     }
 
     void movement::move_left()
     {
- 
+        GameBoard board;
+
+        int x = board.getDimX() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        for(int i = x - AlienX_; i > 0; --i)
+        {
+            board.setmap(AlienY_, i, trail[0]);
+        }
+        AlienX_ = 0;
+        setalienX_(AlienX_);
+        board.setmap(AlienY_, AlienX_, 'A');
+        board.display(); 
+        int no = board.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
     }
 
     void movement::move_right()
     {
+        GameBoard board;
 
+        int x = board.getDimX() - 1;
+        char trail[] = {'.'};
+        char Alien[] = {'A'};
+        for(int i = 0; i < x - AlienX_; ++i)
+        {
+            board.setmap(AlienY_, i, trail[0]);
+        }
+        AlienX_ = x;
+        setalienX_(AlienX_);
+        board.setmap(AlienY_, AlienX_, 'A');
+        board.display(); 
+        int no = board.getZomB(); // Afiq
+        alienstat(); // Afiq
+        zombiestat(no); // Afiq
     }
 
     void movement::move_arrow()

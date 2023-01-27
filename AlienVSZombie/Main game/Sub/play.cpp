@@ -13,66 +13,6 @@
 #include <ctime>   // for time() in srand( time(NULL) );
 #include <iomanip> // for setw()
 
-void defplay()
-{
-    //ClearScreen();
-    movement move;
-    GameBoard board;
-
-    Board();
-    int x = board.getDimX()/2;
-    int y = board.getDimX()/2;
-    int setalienX_(int x);
-    int setalienY_(int y);
-    while(1)
-    {
-        std::string con;
-        char obj;
-        obj = board.getObject(5, 2);
-        std::cout << " object ";
-        std::cout << obj << std::endl;
-        std::cout << " Command " ;
-        std::cin >> con ;
-        if (con == "up")
-        {
-            move.move_up();
-        }
-        if (con == "down")
-        {
-            // move.move_down();
-        }
-        if (con == "left")
-        {
-            // move.move_left();
-        }
-        if (con == "right")
-        {
-            // move.move_right();
-        }
-        if (con == "help")
-        {
-            help();
-        }
-        if (con == "save")
-        {
-            //save();
-        }
-        if (con == "load")
-        {
-            //load();
-        }
-        if (con == "quit")
-        {
-            exit(0);
-        }
-        else
-        {
-            std::cout << "invalid input" << std::endl;
-            Pause();
-        }
-    }
-}
-
 void play()
 {
     //ClearScreen();
@@ -80,55 +20,142 @@ void play()
     GameBoard board;
 
     changesetting();
+
     int x = board.getDimX()/2;
-    int y = board.getDimX()/2;
-    int setalienX_(int x);
-    int setalienY_(int y);
+    int y = board.getDimY()/2;
+    move.setalienX_(x);
+    move.setalienY_(y);
+    // board.display(); 
+
+    int no = board.getZomB(); // Afiq
+    alienstat(); // Afiq
+    zombiestat(no); // Afiq
+
     while(1)
     {
+
         std::string con;
-        char obj;
-        obj = board.getObject(5, 2);
-        std::cout << " object ";
-        std::cout << obj << std::endl;
         std::cout << " Command " ;
         std::cin >> con ;
+
         if (con == "up")
         {
-
+            move.move_up();
         }
+
         if (con == "down")
         {
-            
+            move.move_down();
         }
+
         if (con == "left")
         {
-            
+            move.move_left();
         }
+
         if (con == "right")
         {
-            
+            move.move_right();
         }
+
         if (con == "help")
         {
             help();
         }
+
         if (con == "save")
         {
             //save();
         }
+
         if (con == "load")
         {
             //load();
         }
+
         if (con == "quit")
         {
             exit(0);
         }
-        else
-        {
-            std::cout << "invalid input" << std::endl;
-            Pause();
-        }
+
+        // else
+        // {
+        //     std::cout << "invalid input" << std::endl;
+            
+        // }
     }
 }
+
+void defplay()
+{
+    //ClearScreen();
+    movement move;
+    GameBoard board;
+
+    Board();
+
+    int x = board.getDimX()/2;
+    int y = board.getDimY()/2;
+    move.setalienX_(x);
+    move.setalienY_(y);
+    // board.display(); 
+
+    int no = board.getZomB(); // Afiq
+    alienstat(); // Afiq
+    zombiestat(no); // Afiq
+
+    while(1)
+    {
+
+        std::string con;
+        std::cout << " Command " ;
+        std::cin >> con ;
+
+        if (con == "up")
+        {
+            move.move_up();
+        }
+
+        if (con == "down")
+        {
+            move.move_down();
+        }
+
+        if (con == "left")
+        {
+            move.move_left();
+        }
+
+        if (con == "right")
+        {
+            move.move_right();
+        }
+
+        if (con == "help")
+        {
+            help();
+        }
+
+        if (con == "save")
+        {
+            //save();
+        }
+
+        if (con == "load")
+        {
+            //load();
+        }
+
+        if (con == "quit")
+        {
+            exit(0);
+        }
+
+        // else
+        // {
+        //     std::cout << "invalid input" << std::endl;
+            
+        // }
+    }
+}
+
