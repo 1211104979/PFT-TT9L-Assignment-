@@ -16,6 +16,8 @@
 #include <ctime>   // for time() in srand( time(NULL) );
 #include <iomanip> // for setw()
 
+using namespace std;
+
 GameBoard::GameBoard(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 {
     init(dimX, dimY, zomb);
@@ -207,9 +209,9 @@ void changesetting() // liEn & Afiq
             
             board2.init(x, y, z); // liEn
             board2.display(); 
-            // int no = board.getZomB(); // Afiq
-            // alienstat(); // Afiq
-            // zombiestat(no); // Afiq
+            int no = board.getZomB(); // Afiq
+            alienstat(); // Afiq
+            zombiestat(no); // Afiq
         }
     }
 }
@@ -219,8 +221,8 @@ void Board()
     GameBoard board;
     srand(1);
     board.display();
-    // int no = board.getZomB(); // Afiq
-    // alienstat(); // Afiq   
-    // zombiestat(no); // Afiq
+    int no = board.getZomB(); // Afiq
+    alienstat(); // Afiq   
+    zombiestat(no); // Afiq
 }
 

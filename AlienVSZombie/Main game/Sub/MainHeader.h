@@ -12,6 +12,7 @@
 #ifndef MAINHEADER_H
 #define MAINHEADER_H
 
+using namespace std;
 // Global--------------------------------------------------------------------------------------- 
     int ClearScreen(); // (from tutorial)
     int Pause(); // (from tutorial)

@@ -11,6 +11,8 @@
 #include "MainHeader.h"
 #include <iostream>
 
+using namespace std;
+
 //Alien move
 // get vector of the alien
 

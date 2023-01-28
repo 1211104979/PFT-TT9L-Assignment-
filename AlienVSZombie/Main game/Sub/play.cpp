@@ -13,6 +13,8 @@
 #include <ctime>   // for time() in srand( time(NULL) );
 #include <iomanip> // for setw()
 
+using namespace std;
+
 void play()
 {
     //ClearScreen();
@@ -27,16 +29,12 @@ void play()
     move.setalienY_(y);
     // board.display(); 
 
-    int no = board2.getZomB(); // Afiq
-    alienstat(); // Afiq
-    zombiestat(no); // Afiq
-
     while(1)
     {
 
-        std::string con;
-        std::cout << " Command " ;
-        std::cin >> con ;
+        string con;
+        cout << " Command " ;
+        cin >> con ;
 
         if (con == "up")
         {
@@ -100,16 +98,12 @@ void defplay()
     move.setalienY_(y);
     // board.display(); 
 
-    int no = board.getZomB(); // Afiq
-    alienstat(); // Afiq
-    zombiestat(no); // Afiq
-
     while(1)
     {
 
-        std::string con;
-        std::cout << " Command " ;
-        std::cin >> con ;
+        string con;
+        cout << " Command " ;
+        cin >> con ;
 
         if (con == "up")
         {

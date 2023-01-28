@@ -11,6 +11,8 @@
 #include "MainHeader.h"
 #include <iostream> 
 
+using namespace std;
+
 int Zombie::hpgen(int* hp) // Health point for zombies (pointer for hp array)
 {
     int ranhp  = rand() % noobj;
@@ -34,18 +36,18 @@ int Zombie::rnggen(int* rng) // Range for zombies (pointer for rng array)
 
 void Zombie::data() // Shows zombie stats
 {
-    std::cout << "  Health point :" << hp_ ;
-    std::cout << "  Attack :" << atk_ ;
-    std::cout << "  Range :" << rng_ << std::endl;
+    cout << "  Health point :" << hp_ ;
+    cout << "  Attack :" << atk_ ;
+    cout << "  Range :" << rng_ << endl;
 }
 
 void alienstat() // Shows Alien stats
 {
     int alhp_ = 100;
     int alatk_ = 0;
-    std::cout << " Alien    :";
-    std::cout << "  Health point :" << alhp_ ;
-    std::cout << "  Attack :" << alatk_ << std::endl;
+    cout << " Alien    :";
+    cout << "  Health point :" << alhp_ ;
+    cout << "  Attack :" << alatk_ << endl;
 }
 
 void zombiestat(int no) // show each zombie stats
@@ -67,7 +69,7 @@ void zombiestat(int no) // show each zombie stats
     
     for (int i = 0; i < b; ++i)
     {
-        std::cout << " Zombie " << i+1 << " :"; 
+        cout << " Zombie " << i+1 << " :"; 
         entity[i].data();
     }
 
