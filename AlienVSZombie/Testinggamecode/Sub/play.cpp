@@ -56,6 +56,11 @@ void play()
         if (con == "help")
         {
             help();
+            Pause();
+            display(); 
+            int no = getZomB(); // Afiq
+            alienstat(); // Afiq
+            zomdisplay(no);
         }
 
         if (con == "save")

@@ -36,12 +36,11 @@ using namespace std;
         return AlienY_;
     }
 //====================================================
-void movement::move_up() // problem
+void movement::move_up() 
     {
 
         int y = getDimY() - 1;
         char trail[] = {'.'};
-        char Alien[] = {'A'};
         for(int i = y - AlienY_; i > 0; --i)
         {
             setmap(i, AlienX_, trail[0]);
@@ -52,14 +51,13 @@ void movement::move_up() // problem
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
-        zombiestat(no); // Afiq
+        zomdisplay(no);
     }
 
     void movement::move_down()
     {
         int y = getDimY() - 1;
         char trail[] = {'.'};
-        char Alien[] = {'A'};
         for(int i = 0; i < AlienY_ + y; ++i)
         {
             setmap(i, AlienX_, trail[0]);
@@ -70,14 +68,13 @@ void movement::move_up() // problem
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
-        zombiestat(no); // Afiq
+        zomdisplay(no);
     }
 
     void movement::move_left()
     {
         int x = getDimX() - 1;
         char trail[] = {'.'};
-        char Alien[] = {'A'};
         for(int i = x - AlienX_; i > 0; --i)
         {
             setmap(AlienY_, i, trail[0]);
@@ -88,14 +85,13 @@ void movement::move_up() // problem
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
-        zombiestat(no); // Afiq
+        zomdisplay(no);
     }
 
     void movement::move_right()
     {
         int x = getDimX() - 1;
         char trail[] = {'.'};
-        char Alien[] = {'A'};
         for(int i = 0; i < x - AlienX_; ++i)
         {
             setmap(AlienY_, i, trail[0]);
@@ -106,7 +102,8 @@ void movement::move_up() // problem
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
-        zombiestat(no); // Afiq
+        zomdisplay(no);
+
     }
 
     void movement::move_arrow()

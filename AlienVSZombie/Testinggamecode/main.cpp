@@ -5,12 +5,11 @@
 
 using namespace std;
 
+Enemy zombie;
 
 vector<vector<char>> map_; // convention to put trailing underscore
 int dimX_ = 9, dimY_ = 3, zomB_ = 1;   // to indicate private data // liEn
-int hp[3] = {100, 150, 200};
-int atk[3] = {5, 10, 15};
-int rng[3] = {1, 2, 3};
+
 char h, x;
 
 void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
@@ -35,7 +34,6 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
         for (int j = 0; j < dimX_; ++j)
         {
 			h = randomiseItems(x);
-            // int objNo = rand() % noOfObjects;
             map_[i][j] = h;
         }
     }
@@ -47,11 +45,9 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
         int randX = rand() % dimX_;
         map_[randY][randX] = zomBie[i];
     }
-    // initzombie();
 
     int y = dimY_ / 2;
     int x = dimX_ / 2;
-    // initalien(y, x);
     char Alien[] = "A";
     map_[y][x] = Alien[0];
 
@@ -199,7 +195,7 @@ void changesetting() // liEn & Afiq
             display(); 
             int no = getZomB(); // Afiq
             alienstat(); // Afiq
-            displayzombie(no);
+			zombie.zombiegen(no); 
 			play();
         }
     }
@@ -210,18 +206,25 @@ void Board()
     srand(1);
     display();
     int no = getZomB(); // Afiq
-    alienstat(); // Afiq   
-    displayzombie(no);
+    alienstat(); // Afiq  
+	zombie.zombiegen(no); 
 	play();
 }
 
+void zomdisplay(int no)
+{
+    int b = no;
 
+    for (int i = 0; i < b; i++)
+    {
+        cout << '\n' << "  Zombie " << i + 1 << " : Health point " << zombie.ZombHpVec[i] << ", Attack  " << zombie.ZombAtkVec[i] << ", Range " << zombie.ZombRngVec[i];
+        cout << endl;
+    }
+}
 
 int main() 
 {
 	init(dimX_, dimY_, zomB_);
-	int no = getZomB();
-	zombiestat(no); 
 	getMenu();
 }
 

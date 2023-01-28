@@ -13,67 +13,35 @@
 
 using namespace std;
 
-int Zombie::hpgen(int* hp) // Health point for zombies (pointer for hp array)
-{
-    int ranhp  = rand() % noobj;
-    hp_ = hp[ranhp];
-    return hp_;
-}
-
-int Zombie::atkgen(int* atk) // Attack point for zombies (pointer for atk array)
-{
-    int ranatk = rand() % noobj;
-    atk_ = atk[ranatk];
-    return atk_;
-}
-
-int Zombie::rnggen(int* rng) // Range for zombies (pointer for rng array)
-{
-    int ranrng = rand() % noobj;
-    rng_ = rng[ranrng];
-    return rng_;
-}
-
-void Zombie::data() // Shows zombie stats
-{
-    cout << "  Health point :" << hp_ ;
-    cout << "  Attack :" << atk_ ;
-    cout << "  Range :" << rng_ << endl;
-}
-
 void alienstat() // Shows Alien stats
 {
     int alhp_ = 100;
     int alatk_ = 0;
-    cout << " Alien    :";
-    cout << "  Health point :" << alhp_ ;
-    cout << "  Attack :" << alatk_ << endl;
+    cout << "  Alien    :";
+    cout << "  Health point " << alhp_ ;
+    cout << ", Attack :" << alatk_ << endl;
 }
 
-void zombiestat(int no) // show each zombie stats
+void Enemy::zombiegen(int no)
 {
-    Zombie entity[9];
-    
     int b = no;
 
-    int hp[3] = {100, 150, 200};
-    int atk[3] = {5, 10, 15};
-    int rng[3] = {1, 2, 3};
-
-    for (int i = 0; i < b; ++i)
+    for (int i = 0; i < b; i++)
     {
-        int hp_  = entity[i].hpgen(hp);
-        int atk_ = entity[i].atkgen(atk);
-        int rng_ = entity[i].rnggen(rng);
+        int randhp = rand() % 2 + 1;
+        int randatk = rand() % 2 + 1;
+        int randrng = rand() % 5 + 1;
+        int ZombieHp = 100 + (randhp * 50);
+        int ZombieAtk = 5 + (randatk  * 5);
+        int ZombieRange = randrng ;
+        ZombHpVec.push_back(ZombieHp);
+        ZombAtkVec.push_back(ZombieAtk);
+        ZombRngVec.push_back(ZombieRange);
+        std::cout << '\n' << "  Zombie " << i + 1 << " : Health point " << ZombieHp << ", Attack  " << ZombieAtk << ", Range " << ZombieRange;
+        cout << endl;
     }
-    
-    for (int i = 0; i < b; ++i)
-    {
-        cout << " Zombie " << i+1 << " :"; 
-        entity[i].data();
-    }
-
 }
+
 
 //------------------------------------------------------------------------
 

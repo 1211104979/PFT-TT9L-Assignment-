@@ -60,10 +60,7 @@ class GameBoard // liEn & Afiq (from tutorial)
 class Zombie : public GameBoard // Afiq 
 {
     public:
-        int hp_; // Afiq 
-        int atk_; // Afiq 
-        int rng_; // Afiq 
-        int noobj = 3; // Afiq 
+        int hp_, atk_, rng_, noobj = 3; // Afiq 
 
         void data(); // Afiq 
         int hpgen(int* hp); // Afiq 

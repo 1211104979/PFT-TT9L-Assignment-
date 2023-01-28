@@ -20,6 +20,9 @@
 
 using namespace std;
 // Global--------------------------------------------------------------------------------------- 
+
+    
+    
     int ClearScreen(); // (from tutorial)
     int Pause(); // (from tutorial)
     // int move_up();
@@ -32,11 +35,8 @@ using namespace std;
     char randomiseItems(char x);
     void changesetting(); // liEn
     void Board(); // liEn
-    // void initzombie();
-    // void initalien(int y, int x);
-    void zombiestat(int no); // Afiq 
     void alienstat(); // Afiq 
-
+    void zomdisplay(int no);
     void defplay();
     void play();
 
@@ -54,18 +54,15 @@ using namespace std;
         char getObject(int dimX, int dimY);  // Afiq 
 // Global---------------------------------------------------------------------------------------
 //Class-----------------------------------------------------------------------------------------
-class Zombie // Afiq 
+class Enemy // Afiq 
 {
     public:
-        int hp_; // Afiq 
-        int atk_; // Afiq 
-        int rng_; // Afiq 
-        int noobj = 3; // Afiq 
+        int hp_, atk_, rng_;
+        vector<int> ZombHpVec;
+        vector<int> ZombAtkVec;     
+        vector<int> ZombRngVec;
+        void zombiegen(int no);
 
-        void data(); // Afiq 
-        int hpgen(int* hp); // Afiq 
-        int atkgen(int* atk); // Afiq 
-        int rnggen(int* rng); // Afiq 
 };
 
 class movement 
