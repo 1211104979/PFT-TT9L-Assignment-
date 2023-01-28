@@ -7,13 +7,22 @@
 // Emails: 1211104335@student.mmu.edu.my | 1211104979@student.mmu.edu.my      //
 // Phones: 011-1026 0985                 | 011-3174 2235                      //
 // ************************************************************************** //
-#include <vector> 
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cstdlib> // for system()
+#include <ctime>   // for time() in srand( time(NULL) );
+#include <iomanip> // for setw()
 
 #ifndef MAINHEADER_H
 #define MAINHEADER_H
 
 using namespace std;
 // Global--------------------------------------------------------------------------------------- 
+
+    
+    
     int ClearScreen(); // (from tutorial)
     int Pause(); // (from tutorial)
     // int move_up();
@@ -23,26 +32,14 @@ using namespace std;
     void help(); // Afiq
     void gameover(); // Afiq
     void playmenu(); // Afiq
+    char randomiseItems(char x);
     void changesetting(); // liEn
     void Board(); // liEn
-    // void initzombie();
-    // void initalien(int y, int x);
-    void zombiestat(int no); // Afiq 
     void alienstat(); // Afiq 
-
+    void zomdisplay(int no);
     void defplay();
     void play();
-// Global---------------------------------------------------------------------------------------
 
-//Class-----------------------------------------------------------------------------------------
-class GameBoard // liEn & Afiq (from tutorial)
-{
-    private:
-        std::vector<std::vector<char>> map_; // convention to put trailing underscore
-        int dimX_, dimY_, zomB_;   // to indicate private data // liEn 
-
-    public:
-        GameBoard(int dimX = 9, int dimY = 3, int zomb = 1); // liEn 
 
         void init(int dimX, int dimY, int zomb); // liEn 
         void display(); // liEn & Afiq (from tutorial)
@@ -51,24 +48,24 @@ class GameBoard // liEn & Afiq (from tutorial)
         int setZomB(int z); // liEn 
         std::vector<std::vector<char>> setmap(int y, int x, char obj);
 
-        int getDimX() const; // Afiq 
-        int getDimY() const; // Afiq 
-        int getZomB() const; // liEn 
-        char getObject(int dimX, int dimY) const; // Afiq 
-};
-
-class Zombie : public GameBoard // Afiq 
+        int getDimX();  // Afiq 
+        int getDimY();  // Afiq 
+        int getZomB();  // liEn 
+        char getObject(int dimX, int dimY);  // Afiq 
+// Global---------------------------------------------------------------------------------------
+//Class-----------------------------------------------------------------------------------------
+class Enemy // Afiq 
 {
     public:
-        int hp_, atk_, rng_, noobj = 3; // Afiq 
+        int hp_, atk_, rng_;
+        vector<int> ZombHpVec;
+        vector<int> ZombAtkVec;     
+        vector<int> ZombRngVec;
+        void zombiegen(int no);
 
-        void data(); // Afiq 
-        int hpgen(int* hp); // Afiq 
-        int atkgen(int* atk); // Afiq 
-        int rnggen(int* rng); // Afiq 
 };
 
-class movement : public GameBoard
+class movement 
 {
     public:
         int AlienX_;
@@ -85,12 +82,7 @@ class movement : public GameBoard
         void move_right();
         void move_arrow();
         void get_arrow();
-        void move_up2();
-        void move_down2();
-        void move_left2();
-        void move_right2();
-        void move_arrow2();
-        void get_arrow2();
+
 };
 
 //Class-----------------------------------------------------------------------------------------

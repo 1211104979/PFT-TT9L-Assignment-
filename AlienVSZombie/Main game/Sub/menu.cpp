@@ -120,15 +120,14 @@ using namespace std;
 //LiEn--------------------------------------------------------------------
 	void playmenu()  // edit the same as in gameMenu()
 	{ 
-		GameBoard board;
 		do 
 		{
 			ClearScreen();
 			cout << "     Game Settings     " << endl;
 			cout << "-----------------------" << endl;
-			cout << " Board Rows     : " << board.getDimY() << endl; 
-			cout << " Board Columns  : " << board.getDimX() << endl; 
-			cout << " Zombie Count   : " << board.getZomB() << endl; 
+			cout << " Board Rows     : " << getDimY() << endl; 
+			cout << " Board Columns  : " << getDimX() << endl; 
+			cout << " Zombie Count   : " << getZomB() << endl; 
 			cout << endl;
 			cout << " Do you wish to change the game settings (y/n)? =>" << endl;
 			cout << "<== Go back to menu (b)" << endl;
@@ -138,10 +137,10 @@ using namespace std;
 			switch(input) 
 			{
 				case 'n':
-					defplay();
+					Board();
 					break;
 				case 'y':
-					play();
+					changesetting();
 					break;
 				case 'b':
 					getMenu();

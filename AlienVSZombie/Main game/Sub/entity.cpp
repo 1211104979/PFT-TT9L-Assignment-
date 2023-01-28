@@ -9,31 +9,55 @@
 // ************************************************************************** //
 
 #include "MainHeader.h"
-#include <iostream>
-#include <cstdlib>
 
 using namespace std;
 
-void initalien(int y, int x)
+
+
+char randomiseItems(char x)
 {
-    GameBoard board;
-
-    char Alien[] = {'A'};
-    board.setmap(y, x, Alien[0]);
-}
-
-void initzombie()
-{
-    GameBoard board;
-
-    char zomBie[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    int zomB_ = board.getZomB();
-    int y = board.getDimY();
-    int x = board.getDimX();
-    for (int i = 0; i < zomB_; ++i)
+    int randomNum = rand() % 10 + 1; // Can't randomise letters, so assigning each one number with a letter
+    switch (randomNum)               // 4 assigned to space to make the chances of " " increase.
     {
-        int randY = rand() % y;
-        int randX = rand() % x;
-        board.setmap(randY, randX, zomBie[i]);
+    case 1:
+        x = 'h'; // h is Health (+20 health to Alien)
+        break;
+
+    case 2:
+        x = 'v'; // Arrows (v ^ < >) changes movement for alien
+        break;
+
+    case 3:
+        x = '^'; // Arrows (v ^ < >) changes movement for alien
+        break;
+
+    case 4:
+        x = '<'; // Arrows (v ^ < >) changes movement for alien
+        break;
+
+    case 5:
+        x = '>'; // Arrows (v ^ < >) changes movement for alien
+        break;
+
+    case 6:
+        x = 'p';
+        break;
+
+    case 7:
+        x = ' ';
+        break;
+
+    case 8:
+        x = ' ';
+        break;
+
+    case 9:
+        x = ' ';
+        break;
+
+    case 10:
+        x = ' ';
+        break;
     }
+    return x;
 }

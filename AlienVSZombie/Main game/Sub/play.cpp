@@ -19,81 +19,9 @@ void play()
 {
     //ClearScreen();
     movement move;
-    GameBoard board2;
 
-    changesetting();
-
-    int x = board2.getDimX()/2;
-    int y = board2.getDimY()/2;
-    move.setalienX_(x);
-    move.setalienY_(y);
-    // board.display(); 
-
-    while(1)
-    {
-
-        string con;
-        cout << " Command " ;
-        cin >> con ;
-
-        if (con == "up")
-        {
-            move.move_up2();
-        }
-
-        if (con == "down")
-        {
-            move.move_down2();
-        }
-
-        if (con == "left")
-        {
-            move.move_left2();
-        }
-
-        if (con == "right")
-        {
-            move.move_right2();
-        }
-
-        if (con == "help")
-        {
-            help();
-        }
-
-        if (con == "save")
-        {
-            //save();
-        }
-
-        if (con == "load")
-        {
-            //load();
-        }
-
-        if (con == "quit")
-        {
-            exit(0);
-        }
-
-        // else
-        // {
-        //     std::cout << "invalid input" << std::endl;
-            
-        // }
-    }
-}
-
-void defplay()
-{
-    //ClearScreen();
-    movement move;
-    GameBoard board;
-
-    Board();
-
-    int x = board.getDimX()/2;
-    int y = board.getDimY()/2;
+    int x = getDimX()/2;
+    int y = getDimY()/2;
     move.setalienX_(x);
     move.setalienY_(y);
     // board.display(); 
@@ -128,6 +56,11 @@ void defplay()
         if (con == "help")
         {
             help();
+            Pause();
+            display(); 
+            int no = getZomB(); // Afiq
+            alienstat(); // Afiq
+            zomdisplay(no);
         }
 
         if (con == "save")
@@ -152,4 +85,3 @@ void defplay()
         // }
     }
 }
-
