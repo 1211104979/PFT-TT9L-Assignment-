@@ -17,9 +17,9 @@ void alienstat() // Shows Alien stats
 {
     int alhp_ = 100;
     int alatk_ = 0;
-    cout << "  Alien    :";
-    cout << "  Health point " << alhp_ ;
-    cout << ", Attack :" << alatk_ << endl;
+    cout << "  Alien    ";
+    cout << "| Health point :" << alhp_ ;
+    cout << "| Attack :" << alatk_;
 }
 
 void Enemy::zombiegen(int no)
@@ -37,9 +37,9 @@ void Enemy::zombiegen(int no)
         ZombHpVec.push_back(ZombieHp);
         ZombAtkVec.push_back(ZombieAtk);
         ZombRngVec.push_back(ZombieRange);
-        std::cout << '\n' << "  Zombie " << i + 1 << " : Health point " << ZombieHp << ", Attack  " << ZombieAtk << ", Range " << ZombieRange;
-        cout << endl;
+        cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << ZombieHp << "| Attack :" << ZombieAtk << "| Range :" << ZombieRange;
     }
+    cout << endl;
 }
 
 

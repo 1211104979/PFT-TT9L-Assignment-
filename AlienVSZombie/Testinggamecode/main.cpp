@@ -217,7 +217,7 @@ void zomdisplay(int no)
 
     for (int i = 0; i < b; i++)
     {
-        cout << '\n' << "  Zombie " << i + 1 << " : Health point " << zombie.ZombHpVec[i] << ", Attack  " << zombie.ZombAtkVec[i] << ", Range " << zombie.ZombRngVec[i];
+        cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZombHpVec[i] << "| Attack :" << zombie.ZombAtkVec[i] << "| Range :" << zombie.ZombRngVec[i];
         cout << endl;
     }
 }
