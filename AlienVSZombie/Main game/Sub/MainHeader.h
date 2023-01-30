@@ -32,12 +32,11 @@ using namespace std;
     void help(); // Afiq
     void gameover(); // Afiq
     void playmenu(); // Afiq
-    char randomiseItems(char x);
+    char randObject(char x);
     void changesetting(); // liEn
     void Board(); // liEn
     void alienstat(); // Afiq 
     void zomdisplay(int no);
-    void defplay();
     void play();
 
 
