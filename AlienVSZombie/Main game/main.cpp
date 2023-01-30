@@ -267,6 +267,43 @@ void zomdisplay(int no)
     cout << endl;
 }
 
+int *getZomHP(int num)
+{
+    int numZ = num;
+    static int Zhp[9];
+
+    for (int i = 0; i < numZ; i++)
+    {
+        Zhp[i] = zombie.ZombHpVec[i];
+    }
+    return Zhp;
+}
+
+int *getZomAtk(int numZom)
+{
+    int Zonum = numZom;
+    static int Zatk[9];
+
+    for (int i = 0; i < numZom; i++)
+    {
+        Zatk[i] = zombie.ZombAtkVec[i];
+    }
+    return Zatk;
+}
+
+int *getZomRge(int numofZ)
+{
+    int Znumber = numofZ;
+    static int Zrge[9];
+
+    for (int i = 0; i < Znumber; i++)
+    {
+        Zrge[i] = zombie.ZombRngVec[i];
+    }
+    return Zrge;
+}
+
+
 int main() 
 {
 	init(dimX_, dimY_, zomB_);
