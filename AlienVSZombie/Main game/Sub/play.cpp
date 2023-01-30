@@ -62,7 +62,7 @@ void play()
 
         if (con == "save")
         {
-            //save();
+            fileExist();
         }
 
         if (con == "load")
