@@ -51,6 +51,11 @@ using namespace std;
         int getDimY();  // Afiq 
         int getZomB();  // liEn 
         // char getObject(int dimX, int dimY);  // Afiq 
+
+    int *getZomHP(int num);
+    int *getZomAtk(int numZom);
+    int *getZomRge(int numofZ);
+    int fileExist();
 // Global---------------------------------------------------------------------------------------
 //Class-----------------------------------------------------------------------------------------
 class Enemy // Afiq 
