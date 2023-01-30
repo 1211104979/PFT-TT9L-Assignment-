@@ -17,15 +17,12 @@ using namespace std;
 
 void play()
 {
-    //ClearScreen();
     movement move;
 
     int x = getDimX()/2;
     int y = getDimY()/2;
     move.setalienX_(x);
     move.setalienY_(y);
-    // board.display(); 
-
     while(1)
     {
 

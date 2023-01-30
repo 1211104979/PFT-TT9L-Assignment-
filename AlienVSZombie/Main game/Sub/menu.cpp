@@ -16,24 +16,6 @@
 
 using namespace std;
 
-    int ClearScreen()
-    {
-        #if defined(_WIN32)
-            return std::system("cls");
-        #elif defined(__linux__) || defined(__APPLE__)
-            return std::system("clear");
-        #endif
-    }
-
-    int Pause()
-    {
-        #if defined(_WIN32)
-            return std::system("pause");
-        #elif defined(__linux__) || defined(__APPLE__)
-            return std::system(R"(read -p "Press any key to continue . . . " dummy)");
-        #endif
-    }
-
 	void getMenu() 
 	{
 		do {
@@ -42,9 +24,9 @@ using namespace std;
 			cout <<  " |     Alien VS Zombie     |" << endl;
 			cout <<  " -------------------------- " << endl;
 			cout <<  " 1.	PLAY      	          " << endl;
-			cout <<  " 2.	INSTRUCTIONS	      " << endl;
+			cout <<  " 2.	CONTROLS	          " << endl;
 			cout <<  " 3.	QUIT			      " << endl;
-			cout << std::endl;
+			cout << endl;
 			cout <<  ">>> CHOICE:		          " << endl;
 			char op;
 			cin >> op;
@@ -66,12 +48,6 @@ using namespace std;
 			
 		} while (1);
 
-	}
-
-	void gameover() {
-		ClearScreen();
-		cout << "\n\n\t\t\tGAME OVER.";
-		Pause();
 	}
 
 	void controls() {
@@ -99,6 +75,7 @@ using namespace std;
 
 	void help()
 	{
+		ClearScreen();
 		cout << endl;
 		cout <<  " Commands " << endl;
 		cout << endl;         
@@ -112,7 +89,6 @@ using namespace std;
 		cout <<  " load  - Load a  game. " << endl; 
 		cout <<  " quit  - Quit the game. " << endl; 
 		cout << endl;
-		Pause();
 	}
 
 //Afiq--------------------------------------------------------------------
@@ -120,9 +96,9 @@ using namespace std;
 //LiEn--------------------------------------------------------------------
 	void playmenu()  // edit the same as in gameMenu()
 	{ 
+		ClearScreen();
 		do 
 		{
-			ClearScreen();
 			cout << "     Game Settings     " << endl;
 			cout << "-----------------------" << endl;
 			cout << " Board Rows     : " << getDimY() << endl; 
@@ -133,7 +109,7 @@ using namespace std;
 			cout << "<== Go back to menu (b)" << endl;
 			char input;
 			cin>> input;
-
+			
 			switch(input) 
 			{
 				case 'n':
@@ -153,3 +129,8 @@ using namespace std;
 		} while (1);
 	}
 //LiEn--------------------------------------------------------------------
+	void gameover() {
+		ClearScreen();
+		cout << "\n\n\t\t\tGAME OVER.";
+		Pause();
+	}

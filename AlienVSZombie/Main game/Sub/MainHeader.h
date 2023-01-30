@@ -50,16 +50,15 @@ using namespace std;
         int getDimX();  // Afiq 
         int getDimY();  // Afiq 
         int getZomB();  // liEn 
-        char getObject(int dimX, int dimY);  // Afiq 
+        // char getObject(int dimX, int dimY);  // Afiq 
 // Global---------------------------------------------------------------------------------------
 //Class-----------------------------------------------------------------------------------------
 class Enemy // Afiq 
 {
     public:
-        int hp_, atk_, rng_;
-        vector<int> ZombHpVec;
-        vector<int> ZombAtkVec;     
-        vector<int> ZombRngVec;
+        vector<int> ZHpVec;
+        vector<int> ZAtkVec;     
+        vector<int> ZRngVec;
         void zombiegen(int no);
 
 };

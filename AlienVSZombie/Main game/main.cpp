@@ -77,7 +77,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
     {
         for (int j = 0; j < dimX_; ++j)
         {
-			h = randomiseItems(x);
+			h = randObject(x);
             map_[i][j] = h;
         }
     }
@@ -100,7 +100,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 void display() // liEn & Afiq (from tutorial)
 {
     // comment this out during testing
-    // system("cls"); // OR system("clear"); for Linux / MacOS
+    ClearScreen();
     cout << " ****************************** " << endl;
     cout << " *    .:'Alien vs Zombie':.   * " << endl;
     cout << " ****************************** " << endl;
@@ -109,7 +109,7 @@ void display() // liEn & Afiq (from tutorial)
     for (int i = 0; i < dimY_; ++i)
     {
         // display upper border of the row
-        std::cout << " ";
+        cout << " ";
         for (int j = 0; j < dimX_; ++j)
         {
             cout << "+-";
@@ -194,13 +194,14 @@ int getZomB()  // le -> add new function
     return zomB_;
 }
 
-char getObject(int x, int y) 
-{
-    return map_[dimY_-y][x-1];
-}
+// char getObject(int x, int y) 
+// {
+//     return map_[dimY_-y][x-1];
+// }
 
 void changesetting() // liEn & Afiq
 {
+    ClearScreen();
     int x, y, z;  // liEn 
     cout << endl; // liEn  -> next line when input 'y/n' entered
     cout << " Enter rows => ";
@@ -234,10 +235,9 @@ void changesetting() // liEn & Afiq
             setZomB(z); // liEn 
             cout << "z " ;
             cout << z << endl;
-            
             init(x, y, z); // liEn
             display(); 
-            int no = getZomB(); // Afiq
+            int no = zomB_; // Afiq
             alienstat(); // Afiq
 			zombie.zombiegen(no); 
 			play();
@@ -247,9 +247,10 @@ void changesetting() // liEn & Afiq
 
 void Board()
 {
+    ClearScreen();
     srand(1);
     display();
-    int no = getZomB(); // Afiq
+    int no = zomB_; // Afiq
     alienstat(); // Afiq  
 	zombie.zombiegen(no); 
 	play();
@@ -261,7 +262,7 @@ void zomdisplay(int no)
 
     for (int i = 0; i < b; i++)
     {
-        cout << '\n' << "  Zombie " << i + 1 << " : Health point " << zombie.ZombHpVec[i] << ", Attack  " << zombie.ZombAtkVec[i] << ", Range " << zombie.ZombRngVec[i];
+        cout << '\n' << "  Zombie " << i + 1 << " : Health point " << zombie.ZHpVec[i] << ", Attack  " << zombie.ZAtkVec[i] << ", Range " << zombie.ZRngVec[i];
     }
     cout << endl;
 }

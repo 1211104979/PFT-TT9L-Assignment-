@@ -56,9 +56,9 @@ void movement::move_up()
 
     void movement::move_down()
     {
-        int y = getDimY() - 1;
+        int y = getDimY() - 1; // 3 -1 = 2 , Alien = 1
         char trail[] = {'.'};
-        for(int i = 0; i < AlienY_ + y; ++i)
+        for(int i = AlienY_; i < y; ++i)
         {
             setmap(i, AlienX_, trail[0]);
         }
@@ -73,9 +73,9 @@ void movement::move_up()
 
     void movement::move_left()
     {
-        int x = getDimX() - 1;
+        int x = getDimX() - 1; // 9 - 1 = 8, 
         char trail[] = {'.'};
-        for(int i = x - AlienX_; i > 0; --i)
+        for(int i = x - AlienX_; i > 0; --i) // 8 - 4 = 4
         {
             setmap(AlienY_, i, trail[0]);
         }
@@ -92,7 +92,7 @@ void movement::move_up()
     {
         int x = getDimX() - 1;
         char trail[] = {'.'};
-        for(int i = 0; i < x - AlienX_; ++i)
+        for(int i = AlienX_; i < x; ++i)
         {
             setmap(AlienY_, i, trail[0]);
         }
