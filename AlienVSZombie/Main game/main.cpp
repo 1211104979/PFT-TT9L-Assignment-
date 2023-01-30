@@ -274,7 +274,7 @@ int *getZomHP(int num)
 
     for (int i = 0; i < numZ; i++)
     {
-        Zhp[i] = zombie.ZombHpVec[i];
+        Zhp[i] = zombie.ZHpVec[i];
     }
     return Zhp;
 }
@@ -286,7 +286,7 @@ int *getZomAtk(int numZom)
 
     for (int i = 0; i < numZom; i++)
     {
-        Zatk[i] = zombie.ZombAtkVec[i];
+        Zatk[i] = zombie.ZAtkVec[i];
     }
     return Zatk;
 }
@@ -298,7 +298,7 @@ int *getZomRge(int numofZ)
 
     for (int i = 0; i < Znumber; i++)
     {
-        Zrge[i] = zombie.ZombRngVec[i];
+        Zrge[i] = zombie.ZRngVec[i];
     }
     return Zrge;
 }
