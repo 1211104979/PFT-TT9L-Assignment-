@@ -26,7 +26,8 @@ using namespace std;
     int ClearScreen(); // (from tutorial)
     int Pause(); // (from tutorial)
     // int move_up();
-         
+
+    extern vector<vector<char>> map_;     
     void getMenu(); // Afiq
     void controls(); // Afiq
     void help(); // Afiq
