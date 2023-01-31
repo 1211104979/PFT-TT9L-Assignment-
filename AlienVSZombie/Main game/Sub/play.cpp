@@ -67,7 +67,8 @@ void play()
 
         if (con == "load")
         {
-            //load();
+            loadmap();
+            Board();
         }
 
         if (con == "quit")
