@@ -5,6 +5,25 @@
 #include <fstream>
 using namespace std;
 
+string split(string stence, char del)
+{
+    string temp = "";
+
+    for (int i = 0; i < stence.size(); i++)
+    {
+        if (stence[i] != del)
+        {
+            temp += stence[i];
+        }
+        else
+        {
+            cout << temp << " ";
+            temp = "";
+        }
+    }
+    return temp;
+}
+
 int fileExisting(string fileNme)
 {
     ifstream gameFile;
@@ -12,7 +31,7 @@ int fileExisting(string fileNme)
     char oWrite;
     int i = 0;
 
-    gameFile.open(".\\testfiles\\" + fileNme);
+    gameFile.open(".\\savefiles\\" + fileNme);
     if (gameFile)
     {
         return 1;
@@ -56,12 +75,16 @@ void saveFile(string nameFile)
     gameFile.open(userFile, ios::out);
     if (gameFile.is_open())
     {
-        gameFile << "Y:" << dimY_ << " X:" << dimX_;
+        gameFile << "Y" << dimY_ << "\nX" << dimX_;
         for (int i = 0; i < dimY_; ++i)
+
         {
+
             gameFile << "\n";
+            gameFile << 'T';
             for (int j = 0; j < dimX_; ++j)
             {
+
                 gameFile << map_[i][j];
             }
         }
@@ -73,36 +96,128 @@ void saveFile(string nameFile)
         for (int i = 0; i < Znum; i++)
         {
             gameFile << '\n'
-                     << "Z" << i + 1 << ", HP: " << hp[i] << ", ATK:" << atk[i] << ", RGE:" << rge[i];
+                     << "Z" << i + 1 << ", H" << hp[i] << ", A" << atk[i] << ", R" << rge[i];
         }
         gameFile.close();
         cout << "Game saved successfully." << endl;
     }
 }
+int loadDim(string Line, char dim)
+{
 
-void loadFile(string LoadFname)
+    string content = split(Line, dim);
+    int dimNum = stoi(content);
+
+    return dimNum;
+}
+
+int getLoadDimX(string file)
 {
     ifstream gameFile;
-    string existFile;
-    int testExist;
+    int dim_x;
+    gameFile.open(file, ios::in); // read the file
+    if (gameFile.is_open())
+    {
+        string readL;
+        while (getline(gameFile, readL))
+        {
+            if (readL[0] == 'X')
+            {
+                dim_x = loadDim(readL, 'X');
+            }
+        }
+        gameFile.close();
+    }
+    return dim_x;
+}
 
+int getLoadDimY(string file)
+{
+    ifstream gameFile;
+    int dim_y;
+    gameFile.open(file, ios::in); // read the file
+    if (gameFile.is_open())
+    {
+        string readL;
+        while (getline(gameFile, readL))
+        {
+            if (readL[0] == 'Y')
+            {
+                dim_y = loadDim(readL, 'Y');
+            }
+        }
+        gameFile.close();
+    }
+    return dim_y;
+}
+
+int getLoadZom(string file)
+{
+    ifstream gameFile;
+    int numZom;
+    gameFile.open(file, ios::in); // read the file
+    if (gameFile.is_open())
+    {
+        string readL;
+        while (getline(gameFile, readL))
+        {
+            if (readL[0] == 'Z')
+            {
+                numZom++;
+            }
+        }
+        gameFile.close();
+    }
+    return numZom;
+}
+
+void loadmap()
+{
+    ifstream gameFile;
+    string existFile, LoadFname;
+    int testExist, i, j, strLength, nZom, dim_x, dim_y;
+    char del = ':';
+    i = 0;
+    nZom = 0;
+    dim_x = 0;
+    dim_y = 0;
+
+    LoadFname = getLoadFname();
     testExist = fileExisting(LoadFname);
-    existFile = ".\\savefiles\\" + LoadFname;
 
     if (testExist == 1)
     {
+        existFile = ".\\savefiles\\" + LoadFname;
+        dim_x = getLoadDimX(existFile);
+        dim_y = getLoadDimY(existFile);
+        nZom = getLoadZom(existFile);
+        init(dim_x, dim_y, nZom);
+        map_.clear();
+        emptymap(dim_x, dim_y);
+
         gameFile.open(existFile, ios::in); // read the file
         if (gameFile.is_open())
         {
             string readLine;
             while (getline(gameFile, readLine))
             {
-                cout << readLine << endl;
-            }
-            gameFile.close();
 
-            cout << "Game loaded successfully." << endl;
+                if (readLine[0] == 'T')
+                {
+                    if (i < dim_y)
+                    {
+                        for (int j = 0; j < dim_x; ++j)
+                        {
+                            char item = readLine[j + 1];
+                            cout << item;
+                            map_[i][j] = item;
+                        }
+                        ++i;
+                    }
+                }
+            }
         }
+        gameFile.close();
     }
     else
     {
@@ -149,14 +264,3 @@ int fileExist()
     } while (i == 1);
     return 0;
 }
-
-/*
-ios::in - opens the file to read(default for ifstream)
-ios::out - opens the file to write(default for ofstream)
-ios::binary - opens the file in binary mode
-ios::app- opens the file to append new info at the end
-ios::ate - opens and moves the control to the end of the file
-ios::trunc - removes the data in the existing file
-ios::nocreate - opens the file only if it already exists
-ios::noreplace - opens the file only if it doesn't already exist
-*/
