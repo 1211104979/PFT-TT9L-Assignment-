@@ -1,5 +1,0 @@
-Y:3 X:9
-v >h >  ^
->ppvAvvp^
-  v>^<^^1
-Z1, HP: 200, ATK:15, RGE:5
