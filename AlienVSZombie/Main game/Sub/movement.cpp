@@ -14,24 +14,28 @@
 using namespace std;
 
 //Alien move
-// get vector of the alien
+// obj detection and effect
 
-    int movement::setalienX_(int x)
+
+
+
+
+int movement::setalienX_(int x)
     {
         return AlienX_ = x;
     }
 
-    int movement::setalienY_(int y)
+int movement::setalienY_(int y)
     {
         return AlienY_ = y;
     }
 
-    int movement::getalienX_() const
+int movement::getalienX_() const
     {
         return AlienX_;
     }
 
-    int movement::getalienY_() const
+int movement::getalienY_() const
     {
         return AlienY_;
     }
