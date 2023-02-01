@@ -26,8 +26,7 @@ using namespace std;
     int Pause(); // (from tutorial)
     // int move_up();
 
-    extern vector<vector<char>> map_; 
-    void emptymap(int dX, int dY);
+    extern vector<vector<char>> map_;     
     void getMenu(); // Afiq
     void controls(); // Afiq
     void help(); // Afiq
@@ -56,7 +55,6 @@ using namespace std;
     int *getZomAtk(int numZom);
     int *getZomRge(int numofZ);
     int fileExist();
-    void loadmap();
 // Global---------------------------------------------------------------------------------------
 //Class-----------------------------------------------------------------------------------------
 

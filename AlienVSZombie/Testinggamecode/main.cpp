@@ -58,15 +58,6 @@ int dimX_ = 9, dimY_ = 3, zomB_ = 1;   // to indicate private data // liEn
 
 char h, x;
 
-void emptymap(int dX, int dY)
-{
-    map_.resize(dY); // create empty rows
-    for (int i = 0; i < dY; ++i)
-    {
-        map_[i].resize(dX); // resize each row
-    }
-}
-
 void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 {
     dimX_ = dimX;
@@ -77,7 +68,11 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
     int noOfObjects = 10;                                          // number of objects in the objects array
 
     // create dynamic 2D array using vector
-    emptymap(dimX_, dimY_);
+    map_.resize(dimY_); // create empty rows
+    for (int i = 0; i < dimY_; ++i)
+    {
+        map_[i].resize(dimX_); // resize each row
+    }
 
     // put random characters into the vector array
     for (int i = 0; i < dimY_; ++i)
