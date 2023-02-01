@@ -28,7 +28,7 @@ List all the features completed.
 6. Quit option
 7. Save function
 8. Alien generated in the middle
-9. Alien movement
+9. Alien movement (simple movement)
 
 
 ### To Do
@@ -38,10 +38,12 @@ List all the features not yet done. Remove this section if there is no incomplet
 1. Zombie attack behaviour.
 2. Implement all game objects.
 3. Load function
+4. Arrow direction control command
+5. Game object interaction
 
 ## Additional Features
 
-Describe the additional features that has been implemented.
+NONE YET
 
 ## Contributions
 
@@ -62,10 +64,13 @@ List down the contribution of each group members.
 3. Controls in menu and during game
 4. Quit function
 5. Alien movement
-6. Zombie movement
+6. Zombie movement still
 
 ## Problems Encountered & Solutions
 
 Describe the problems encountered and provide the solutions / plan for the solutions.
 1. if the specific folder for saving file(savefiles) is being deleted. The game will not be able to be saved.
    -Planned to add a function to check the existence of the folder and create the folder if the folder doesn't exist.
+
+2. The arrow direction command did not function properly and trigger other movement function. 
+   -Check all the movement function for repeating variables and any minor mistakes of the function.
