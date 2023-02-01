@@ -64,7 +64,7 @@ List down the contribution of each group members.
 3. Controls in menu and during game
 4. Quit function
 5. Alien movement
-6. Zombie movement still
+6. Game objection interaction (still in progress)
 
 ## Problems Encountered & Solutions
 

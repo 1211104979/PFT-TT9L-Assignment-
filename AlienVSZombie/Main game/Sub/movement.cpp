@@ -50,16 +50,17 @@ int movement::getalienY_() const
         return AlienY_;
     }
 //====================================================
+
 // Alien movement function
 void movement::move_up() 
     {
 
         int y = getDimY() - 1; // 3 - 1 = 2,
-        cout << "y = " ;
-        cout << y << endl;
+        // cout << "y = " ;
+        // cout << y << endl;
         char trail[] = {'.'};
-        cout << "AlienY_ = " ;
-        cout << AlienY_ << endl;
+        // cout << "AlienY_ = " ;
+        // cout << AlienY_ << endl;
         for(int i = AlienY_; i > 0; --i) // 2 - 1 = 1
         {
             int temp = i;
@@ -154,8 +155,8 @@ void movement::move_up()
     {
         int y = getDimY() - 1; // 3 -1 = 2 , Alien = 1
         char trail[] = {'.'};
-        cout << "y = " ;
-        cout << y << endl;
+        // cout << "y = " ;
+        // cout << y << endl;
         for(int i = AlienY_; i < y; ++i)
         {
             int temp = i;
@@ -248,7 +249,7 @@ void movement::move_up()
     {
         int x = getDimX() - 1; // 9 - 1 = 8, 
         char trail[] = {'.'};
-        cout << "AlienY_ =" << AlienY_ << endl;
+        // cout << "AlienY_ =" << AlienY_ << endl;
         for(int i = AlienX_; i > 0; --i) // 8 - 4 = 4
         {
             int temp = i;
@@ -346,7 +347,7 @@ void movement::move_up()
     {
         int x = getDimX() - 1;
         char trail[] = {'.'};
-        cout << "AlienY_ =" << AlienY_ << endl;
+        // cout << "AlienY_ =" << AlienY_ << endl;
         for(int i = AlienX_; i < x; ++i)
         {
             int temp = i;

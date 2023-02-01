@@ -37,7 +37,7 @@ char randObject(char x)
     switch (Num)             
     {
     case 1:
-        x = 'h'; 
+        x = '^'; 
         break;
 
     case 2:
@@ -45,15 +45,15 @@ char randObject(char x)
         break;
 
     case 3:
-        x = '^'; 
-        break;
-
-    case 4:
         x = '<'; 
         break;
 
-    case 5:
+    case 4:
         x = '>'; 
+        break;
+
+    case 5:
+        x = 'h'; 
         break;
 
     case 6:
