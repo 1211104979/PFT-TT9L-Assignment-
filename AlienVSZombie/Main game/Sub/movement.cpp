@@ -61,77 +61,87 @@ void movement::move_up()
         char trail[] = {'.'};
         cout << "AlienY_ = " ;
         cout << AlienY_ << endl;
-        for(int i = y - AlienY_; i > 0; --i) // 2 - 1 = 1
+        for(int i = AlienY_; i > 0; --i) // 2 - 1 = 1
         {
             int temp = i;
-            cout << "temp = " ;
-            cout << temp << endl;
-            // char obj = getObject(temp - 1, AlienX_);
+            // cout << "temp = " ;
+            // cout << temp << endl;
+            char obj = getObject(temp - 1, AlienX_);
             // cout << "obj" ;
             // cout << obj << endl;
             // cout << "i = " ;
             // cout << i << endl;
-            // // if (obj == 'h'); // Health (+20 health to Alien)
-            // // {
-            // //     cout << " Gained 20 Health " << endl;
-            // //     Pause();
-            // //     getalhp_();
-            // //     setalhp_(20);
-            // //     break;
-            // // }
-            // if (obj == 'v'); // move down by 1 and stop
-            // {
-            //     AlienY_ = i + 1;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == '^'); // move up by 1 and stop
-            // {
-            //     AlienY_ = i - 1;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == '<'); // move to the left by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ - 1;
-            //     setalienX_(AlienX_);
-            //     AlienY_ = i;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == '>'); // move to the right by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ + 1;
-            //     setalienX_(AlienX_);
-            //     AlienY_ = i;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == 'p'); // attack nearby Zombie
-            // {
-            //     cout << "Pod detected, searching for alien to attack" << endl;
-            //     Pause();
-            //     break;
+            if (obj == 'h') // Health (+20 health to Alien)
+            {
+                cout << " Gained 20 Health " << endl;
+                Pause();
+                getalhp_();
+                setalhp_(20);
+                break;
+            }
+            else if (obj == 'v') // move down by 1 and stop
+            {
+                AlienY_ = i ;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else if (obj == '^') // move up by 1 and stop
+            {
+                if (i-2>=0)
+                {
+                    AlienY_ = i - 2;
+                    setalienY_(AlienY_);
+                    i = y;
+                    break;
+                }
+                else
+                {
+                    AlienY_ = i - 1;
+                    setalienY_(AlienY_);
+                    i = y;
+                    break;
+                }
+            }
+            else if (obj == '<') // move to the left by 1 and stop
+            {
+                AlienX_ = AlienX_ - 1;
+                setalienX_(AlienX_);
+                AlienY_ = i - 1;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else if (obj == '>') // move to the right by 1 and stop
+            {
+                AlienX_ = AlienX_ + 1;
+                setalienX_(AlienX_);
+                AlienY_ = i - 1;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else if (obj == 'p') // attack nearby Zombie
+            {
+                cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
+                break;
 
-            // }
-            // if (obj == 'r');
-            // {
-            //     AlienY_ = i + 1;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == ' ');
-            // {
+            }
+            else if (obj == 'r')
+            {
+                AlienY_ = i;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else 
+            {
                 setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
-            //     break;
-            // }
+                // break;
+            }
         }
         // AlienY_ = 0;
         // setalienY_(AlienY_);
@@ -152,72 +162,82 @@ void movement::move_up()
         for(int i = AlienY_; i < y; ++i)
         {
             int temp = i;
-            // char obj = getObject(temp + 1, AlienX_);
+            char obj = getObject(temp + 1, AlienX_);
             // cout << "obj" ;
             // cout << obj << endl;
             // cout << "i = " ;
             // cout << i << endl;
-            // // if (obj == 'h'); // Health (+20 health to Alien)
-            // // {
-            // //     cout << " Gained 20 Health " << endl;
-            // //     Pause();
-            // //     getalhp_();
-            // //     setalhp_(20);
-            // //     break;
-            // // }
-            // if (obj == 'v'); // move down by 1 and stop
-            // {
-            //     AlienY_ = i + 1;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == '^'); // move up by 1 and stop
-            // {
-            //     AlienY_ = i - 1;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == '<'); // move to the left by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ - 1;
-            //     setalienX_(AlienX_);
-            //     AlienY_ = i;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == '>'); // move to the right by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ + 1;
-            //     setalienX_(AlienX_);
-            //     AlienY_ = i;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == 'p'); // attack nearby Zombie
-            // {
-            //     cout << "Pod detected, searching for alien to attack" << endl;
-            //     Pause();
-            //     break;
+            if (obj == 'h') // Health (+20 health to Alien)
+            {
+                cout << " Gained 20 Health " << endl;
+                Pause();
+                getalhp_();
+                setalhp_(20);
+                break;
+            }
+            else if (obj == 'v') // move down by 1 and stop
+            {
+                if (i+2 <= y)
+                {
+                    AlienY_ = i + 2;
+                    setalienY_(AlienY_);
+                    i = y;
+                    break;
+                }
+                else
+                {
+                    AlienY_ = i + 1;
+                    setalienY_(AlienY_);
+                    i = y;
+                    break;
+                }
+            }
+            else if (obj == '^') // move up by 1 and stop
+            {
+                AlienY_ = i ;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else if (obj == '<') // move to the left by 1 and stop
+            {
+                AlienX_ = AlienX_ - 1;
+                setalienX_(AlienX_);
+                AlienY_ = i + 1;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else if (obj == '>') // move to the right by 1 and stop
+            {
+                AlienX_ = AlienX_ + 1;
+                setalienX_(AlienX_);
+                AlienY_ = i + 1;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else if (obj == 'p') // attack nearby Zombie
+            {
+                cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
+                break;
 
-            // }
-            // if (obj == 'r');
-            // {
-            //     AlienY_ = i - 1;
-            //     setalienY_(AlienY_);
-            //     i = y;
-            //     break;
-            // }
-            // if (obj == ' ');
-            // {
+            }
+            else if (obj == 'r')
+            {
+                AlienY_ = i - 1;
+                setalienY_(AlienY_);
+                i = y;
+                break;
+            }
+            else 
+            {
                 setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
-            //     break;
-            // }
+                // break;
+            }
         }
         // AlienY_ =  y;
         // setalienY_(AlienY_);
@@ -234,83 +254,91 @@ void movement::move_up()
         int x = getDimX() - 1; // 9 - 1 = 8, 
         char trail[] = {'.'};
         cout << "AlienY_ =" << AlienY_ << endl;
-        for(int i = x - AlienX_; i > 0; --i) // 8 - 4 = 4
+        for(int i = AlienX_; i > 0; --i) // 8 - 4 = 4
         {
             int temp = i;
-            cout << "temp = " ;
-            cout << temp << endl;
-            cout << "AlienY_ =" << AlienY_ << endl;
-            // char obj = getObject(AlienY_ , temp - 1);
+            // cout << "temp = " ;
+            // cout << temp << endl;
+            // cout << "AlienY_ =" << AlienY_ << endl;
+            char obj = getObject(AlienY_ , temp - 1);
             // cout << "obj" ;
             // cout << obj << endl;
             // cout << "i = " ;
             // cout << i << endl;
             // cout << "AlienY_ = " ;
             // cout << AlienY_ << endl;
-            // // if (obj == 'h'); // Health (+20 health to Alien)
-            // // {
-            // //     cout << " Gained 20 Health " << endl;
-            // //     Pause();
-            // //     getalhp_();
-            // //     setalhp_(20);
-            // //     break;
-            // // }
-            // if (obj == 'v'); // move down by 1 and stop
-            // {
-            //     AlienY_ = i + 1;
-            //     setalienY_(AlienY_);
-            //     AlienX_ = i;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == '^'); // move up by 1 and stop
-            // {
-            //     AlienY_ = i - 1;
-            //     setalienY_(AlienY_);
-            //     AlienX_ = i;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == '<'); // move to the left by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ - 1;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == '>'); // move to the right by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ + 1;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == 'p'); // attack nearby Zombie
-            // {
-            //     cout << "Pod detected, searching for alien to attack" << endl;
-            //     Pause();
-            //     break;
+            if (obj == 'h') // Health (+20 health to Alien)
+            {
+                cout << " Gained 20 Health " << endl;
+                Pause();
+                getalhp_();
+                setalhp_(20);
+                break;
+            }
+            else if (obj == 'v') // move down by 1 and stop
+            {
+                AlienY_ = AlienY_ + 1;
+                setalienY_(AlienY_);
+                AlienX_ = i - 1;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else if (obj == '^') // move up by 1 and stop
+            {
+                AlienY_ = AlienY_ - 1;
+                setalienY_(AlienY_);
+                AlienX_ = i - 1 ;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else if (obj == '<') // move to the left by 1 and stop
+            {
+                if (i-2>=0)
+                {
+                    AlienX_ = AlienX_ - 2;
+                    setalienX_(AlienX_);
+                    i = 0;
+                    break;
+                }
+                else 
+                {
+                    AlienX_ = AlienX_ - 1;
+                    setalienX_(AlienX_);
+                    i = 0;
+                    break;
+                }
+            }
+            else if (obj == '>') // move to the right by 1 and stop
+            {
+                AlienX_ = AlienX_;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else if (obj == 'p') // attack nearby Zombie
+            {
+                cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
+                break;
 
-            // }
-            // if (obj == 'r');
-            // {
-            //     AlienX_ = i + 1;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == ' ');
-            // {
+            }
+            else if (obj == 'r')
+            {
+                AlienX_ = i + 1;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else 
+            {
                 setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
-            //     break;
-            // }
+                // break;
+            }
         }
-        // AlienX_ = 0;
-        // setalienX_(AlienX_);
         Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
@@ -327,81 +355,90 @@ void movement::move_up()
         for(int i = AlienX_; i < x; ++i)
         {
             int temp = i;
-            cout << "temp = " ;
-            cout << temp << endl;
-            cout << "AlienY_ =" << AlienY_ << endl;
-            // char obj = getObject(AlienY_ , temp + 1);
+            // cout << "temp = " ;
+            // cout << temp << endl;
+            // cout << "AlienY_ =" << AlienY_ << endl;
+            char obj = getObject(AlienY_ , temp + 1);
             // cout << "obj" ;
             // cout << obj << endl;
             // cout << "i = " ;
             // cout << i << endl;
             // cout << "AlienY_ = " ;
             // cout << AlienY_ << endl;
-            // // if (obj == 'h'); // Health (+20 health to Alien)
-            // // {
-            // //     cout << " Gained 20 Health " << endl;
-            // //     Pause();
-            // //     getalhp_();
-            // //     setalhp_(20);
-            // //     break;
-            // // }
-            // if (obj == 'v'); // move down by 1 and stop
-            // {
-            //     AlienY_ = i + 1;
-            //     setalienY_(AlienY_);
-            //     AlienX_ = i;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == '^'); // move up by 1 and stop
-            // {
-            //     AlienY_ = i - 1;
-            //     setalienY_(AlienY_);
-            //     AlienX_ = i;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == '<'); // move to the left by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ - 1;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == '>'); // move to the right by 1 and stop
-            // {
-            //     AlienX_ = AlienX_ + 1;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == 'p'); // attack nearby Zombie
-            // {
-            //     cout << "Pod detected, searching for alien to attack" << endl;
-            //     Pause();
-            //     break;
+            if (obj == 'h') // Health (+20 health to Alien)
+            {
+                cout << " Gained 20 Health " << endl;
+                Pause();
+                getalhp_();
+                setalhp_(20);
+                break;
+            }
+            else if (obj == 'v') // move down by 1 and stop
+            {
+                AlienY_ = AlienY_ + 1;
+                setalienY_(AlienY_);
+                AlienX_ = i + 1;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else if (obj == '^') // move up by 1 and stop
+            {
+                AlienY_ = AlienY_ - 1;
+                setalienY_(AlienY_);
+                AlienX_ = i + 1;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else if (obj == '<') // move to the left by 1 and stop
+            {
+                AlienX_ = AlienX_;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else if (obj == '>') // move to the right by 1 and stop
+            {
+                if (i+2 <= x)
+                {
+                    AlienX_ = AlienX_ + 2;
+                    setalienX_(AlienX_);
+                    i = 0;
+                    break;
+                }
+                else
+                {
+                    AlienX_ = AlienX_ + 1;
+                    setalienX_(AlienX_);
+                    i = 0;
+                    break;
+                }
 
-            // }
-            // if (obj == 'r');
-            // {
-            //     AlienX_ = i - 1;
-            //     setalienX_(AlienX_);
-            //     i = 0;
-            //     break;
-            // }
-            // if (obj == ' ');
-            // {
+            }
+            else if (obj == 'p') // attack nearby Zombie
+            {
+                cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
+                break;
+
+            }
+            else if (obj == 'r')
+            {
+                AlienX_ = i - 1;
+                setalienX_(AlienX_);
+                i = 0;
+                break;
+            }
+            else 
+            {
                 cout << "AlienY_ =" << AlienY_ << endl;
                 setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
-            //     break;
-            // }
+                // break;
+            }
         }
-        // AlienX_ = x;
-        // setalienX_(AlienX_);
         Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
