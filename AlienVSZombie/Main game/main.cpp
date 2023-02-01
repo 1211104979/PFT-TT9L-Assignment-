@@ -49,12 +49,11 @@
 
 using namespace std;
 
-// Alien alien;
 Enemy zombie;
 movement alien;
 
-vector<vector<char>> map_; // convention to put trailing underscore
-int dimX_ = 9, dimY_ = 3, zomB_ = 1;   // to indicate private data // liEn
+vector<vector<char>> map_; // Gameboard vector
+int dimX_ = 9, dimY_ = 3, zomB_ = 1;   // variables for the initial gameboard
 
 char h, x;
 
@@ -74,7 +73,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
     zomB_ = zomb;
 
     char zomBie[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'}; // liEn 
-    int noOfObjects = 10;                                          // number of objects in the objects array
+    int noOfObjects = 10;  // number of objects in the objects array
 
     // create dynamic 2D array using vector
     emptymap(dimX_, dimY_);
@@ -97,6 +96,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
         map_[randY][randX] = zomBie[i];
     }
 
+    // Alien in the middle of the gameboard
     int y = dimY_ / 2;
     int x = dimX_ / 2;
     char Alien[] = "A";
@@ -106,7 +106,6 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 
 void display() // liEn & Afiq (from tutorial)
 {
-    // comment this out during testing
     ClearScreen();
     cout << " ****************************** " << endl;
     cout << " *    .:'Alien vs Zombie':.   * " << endl;
@@ -162,50 +161,52 @@ void display() // liEn & Afiq (from tutorial)
          << endl;
 }
 
+// set the number of column
 int setDimX(int x)
 {
     dimX_ = x;
     return dimX_;
 }
-
+// set the number of row
 int setDimY(int y)
 {
     dimY_ = y;
     return dimY_;
 }
-
+// set the object into map_
 vector<vector<char>> setmap(int y, int x, char obj)
 {
     map_[y][x] = obj;
     return map_;
 }
-
-int setZomB(int z) // liEn -> add new function
+// set the number of zombies
+int setZomB(int z) // liEn 
 {
     zomB_ = z;
     return zomB_;
 }
-
+// get the number of column
 int getDimX() 
 {
     return dimX_;
 }
-
+// get the number of row
 int getDimY() 
 {
     return dimY_;
 }
-
-int getZomB()  // le -> add new function
+// get the number of zombies
+int getZomB()  // le 
 {
     return zomB_;
 }
-
+// get object from the map_
 char getObject(int y, int x) 
 {
     return map_[y][x];
 }
 
+// game setting screen
 void changesetting() // liEn & Afiq
 {
     ClearScreen();
@@ -252,6 +253,7 @@ void changesetting() // liEn & Afiq
     }
 }
 
+// initial gameboard initialization
 void Board()
 {
     ClearScreen();
@@ -262,7 +264,7 @@ void Board()
 	zombie.zombiegen(no); 
 	play();
 }
-
+// zombie display GUI
 void zomdisplay(int no)
 {
     int b = no;
@@ -310,7 +312,7 @@ int *getZomRge(int numofZ)
     return Zrge;
 }
 
-
+// Main function
 int main() 
 {
 	init(dimX_, dimY_, zomB_);

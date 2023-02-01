@@ -12,10 +12,8 @@
 
 using namespace std;
 
-//Alien move
-// obj detection and effect
-
-void movement::alienstat() // Shows Alien stats
+// Shows Alien stats
+void movement::alienstat() 
     {
         cout << "  Alien    ";
         cout << "| Health point :" << alhp_ << "| Attack :" << alatk_;
@@ -52,6 +50,7 @@ int movement::getalienY_() const
         return AlienY_;
     }
 //====================================================
+// Alien movement function
 void movement::move_up() 
     {
 
@@ -143,8 +142,6 @@ void movement::move_up()
                 // break;
             }
         }
-        // AlienY_ = 0;
-        // setalienY_(AlienY_);
         Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
@@ -167,7 +164,7 @@ void movement::move_up()
             // cout << obj << endl;
             // cout << "i = " ;
             // cout << i << endl;
-            if (obj == 'h') // Health (+20 health to Alien)
+            if (obj == 'h')
             {
                 cout << " Gained 20 Health " << endl;
                 Pause();
@@ -220,7 +217,7 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
-                Pause();
+                Pause(); // not yet implemented
                 break;
 
             }
@@ -239,8 +236,6 @@ void movement::move_up()
                 // break;
             }
         }
-        // AlienY_ =  y;
-        // setalienY_(AlienY_);
         Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
@@ -320,8 +315,8 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
-                Pause();
-                break;
+                Pause(); // not yet implemented
+                break; 
 
             }
             else if (obj == 'r')
@@ -419,8 +414,8 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
-                Pause();
-                break;
+                Pause(); // not yet implemented
+                break; 
 
             }
             else if (obj == 'r')
@@ -448,12 +443,27 @@ void movement::move_up()
 
     }
 
-    void movement::move_arrow()
+    void movement::move_arrow(int y, int x, string z)
     {
 
-    }
+        int dimy = getDimX() - y;
+        int dimx = x - 1;
+        string dir = z;
+        if ( dir == "up")
+        {
+            setmap(dimy, dimx, '^');
+        }
+        if ( dir == "down")
+        {
+            setmap(dimy, dimx, 'v');
+        }
+        if ( dir == "left")
+        {
+            setmap(dimy, dimx, '<');
+        }
+        if ( dir == "right")
+        {
+            setmap(dimy, dimx, '>');
+        }
 
-    void movement::get_arrow()
-    {
-        // return map_[dimY_-y][x-1];
     }

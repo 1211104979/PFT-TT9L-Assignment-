@@ -12,7 +12,7 @@
 
 using namespace std;
 
-    int ClearScreen()
+    int ClearScreen() // clear screen
     {
         #if defined(_WIN32)
             return std::system("cls");
@@ -21,7 +21,7 @@ using namespace std;
         #endif
     }
 
-    int Pause()
+    int Pause() // Pause the game
     {
         #if defined(_WIN32)
             return std::system("pause");
@@ -29,30 +29,31 @@ using namespace std;
             return std::system(R"(read -p "Press any key to continue . . . " dummy)");
         #endif
     }
-
-char randObject(char x)
+    
+// randomise object for gameboard
+char randObject(char x) 
 {
     int Num = rand() % 11 + 1;
     switch (Num)             
     {
     case 1:
-        x = 'h'; // Health (+20 health to Alien)
+        x = 'h'; 
         break;
 
     case 2:
-        x = 'v'; // Move alien down 1 unit and stop
+        x = 'v'; 
         break;
 
     case 3:
-        x = '^'; // Move alien up 1 unit and stop
+        x = '^'; 
         break;
 
     case 4:
-        x = '<'; // Move alien left 1 unit and stop
+        x = '<'; 
         break;
 
     case 5:
-        x = '>'; // Move alien right 1 unit and stop
+        x = '>'; 
         break;
 
     case 6:

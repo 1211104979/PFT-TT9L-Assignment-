@@ -91,7 +91,7 @@ class movement
         void move_down();
         void move_left();
         void move_right();
-        void move_arrow();
+        void move_arrow(int y, int x, string z);
         void get_arrow();
 
 };

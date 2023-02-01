@@ -11,6 +11,7 @@
 
 using namespace std;
 
+// Command of the game
 void play()
 {
     movement move;
@@ -45,6 +46,15 @@ void play()
         {
             move.move_right();
         }
+
+        // if (con == "arrow")
+        // {
+        //     cout << "Pls input based on the format, x y direction(up/down/left/right)";
+        //     int arY, arX;
+        //     string ardir;
+        //     cin >> arY, arX, ardir;
+        //     move.move_arrow( arY,  arX,  ardir);
+        // }
 
         if (con == "help")
         {
