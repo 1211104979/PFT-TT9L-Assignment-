@@ -15,6 +15,7 @@ Please provide the YouTube link to your [Video Demo](https://youtube.com).
 7. Arrow direction control command <-
 8. Save function
 9. Load function
+10. Alien movement
 
 ### Completed
 List all the features completed.
@@ -27,6 +28,7 @@ List all the features completed.
 6. Quit option
 7. Save function
 8. Alien generated in the middle
+9. Alien movement
 
 
 ### To Do
