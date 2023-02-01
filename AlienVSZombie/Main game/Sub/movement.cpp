@@ -303,9 +303,9 @@ void movement::move_up()
             // }
             // if (obj == ' ');
             // {
-                //setmap(AlienY_, temp, trail[0]);
-                AlienX_ = i ;
-                setalienY_(AlienX_);
+                setmap(AlienY_, temp, trail[0]);
+                AlienX_ = i - 1;
+                setalienX_(AlienX_);
             //     break;
             // }
         }
@@ -329,6 +329,7 @@ void movement::move_up()
             int temp = i;
             cout << "temp = " ;
             cout << temp << endl;
+            cout << "AlienY_ =" << AlienY_ << endl;
             // char obj = getObject(AlienY_ , temp + 1);
             // cout << "obj" ;
             // cout << obj << endl;
@@ -394,8 +395,8 @@ void movement::move_up()
             // {
                 cout << "AlienY_ =" << AlienY_ << endl;
                 setmap(AlienY_, temp, trail[0]);
-                AlienX_ = i ;
-                setalienY_(AlienX_);
+                AlienX_ = i + 1;
+                setalienX_(AlienX_);
             //     break;
             // }
         }
