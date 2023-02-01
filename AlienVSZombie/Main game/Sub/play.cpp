@@ -8,10 +8,6 @@
 // Phones: 011-1026 0985                 | 011-3174 2235                      //
 // ************************************************************************** //
 #include "MainHeader.h"
-#include <iostream>
-#include <string>
-#include <ctime>   // for time() in srand( time(NULL) );
-#include <iomanip> // for setw()
 
 using namespace std;
 

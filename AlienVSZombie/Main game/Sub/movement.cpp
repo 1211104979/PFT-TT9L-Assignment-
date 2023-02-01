@@ -9,7 +9,6 @@
 // ************************************************************************** //
 
 #include "MainHeader.h"
-#include <iostream>
 
 using namespace std;
 
@@ -60,9 +59,13 @@ void movement::move_up()
         cout << "y = " ;
         cout << y << endl;
         char trail[] = {'.'};
+        cout << "AlienY_ = " ;
+        cout << AlienY_ << endl;
         for(int i = y - AlienY_; i > 0; --i) // 2 - 1 = 1
         {
             int temp = i;
+            cout << "temp = " ;
+            cout << temp << endl;
             // char obj = getObject(temp - 1, AlienX_);
             // cout << "obj" ;
             // cout << obj << endl;
@@ -125,11 +128,14 @@ void movement::move_up()
             // if (obj == ' ');
             // {
                 setmap(temp, AlienX_, trail[0]);
+                AlienY_ = i - 1;
+                setalienY_(AlienY_);
             //     break;
             // }
         }
         // AlienY_ = 0;
         // setalienY_(AlienY_);
+        Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
         int no = getZomB(); // Afiq
@@ -141,6 +147,8 @@ void movement::move_up()
     {
         int y = getDimY() - 1; // 3 -1 = 2 , Alien = 1
         char trail[] = {'.'};
+        cout << "y = " ;
+        cout << y << endl;
         for(int i = AlienY_; i < y; ++i)
         {
             int temp = i;
@@ -206,11 +214,14 @@ void movement::move_up()
             // if (obj == ' ');
             // {
                 setmap(temp, AlienX_, trail[0]);
+                AlienY_ = i + 1;
+                setalienY_(AlienY_);
             //     break;
             // }
         }
         // AlienY_ =  y;
         // setalienY_(AlienY_);
+        Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
         int no = getZomB(); // Afiq
@@ -222,9 +233,13 @@ void movement::move_up()
     {
         int x = getDimX() - 1; // 9 - 1 = 8, 
         char trail[] = {'.'};
+        cout << "AlienY_ =" << AlienY_ << endl;
         for(int i = x - AlienX_; i > 0; --i) // 8 - 4 = 4
         {
             int temp = i;
+            cout << "temp = " ;
+            cout << temp << endl;
+            cout << "AlienY_ =" << AlienY_ << endl;
             // char obj = getObject(AlienY_ , temp - 1);
             // cout << "obj" ;
             // cout << obj << endl;
@@ -288,12 +303,15 @@ void movement::move_up()
             // }
             // if (obj == ' ');
             // {
-                setmap(AlienY_, temp, trail[0]);
+                //setmap(AlienY_, temp, trail[0]);
+                AlienX_ = i ;
+                setalienY_(AlienX_);
             //     break;
             // }
         }
         // AlienX_ = 0;
         // setalienX_(AlienX_);
+        Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
         int no = getZomB(); // Afiq
@@ -305,9 +323,12 @@ void movement::move_up()
     {
         int x = getDimX() - 1;
         char trail[] = {'.'};
+        cout << "AlienY_ =" << AlienY_ << endl;
         for(int i = AlienX_; i < x; ++i)
         {
             int temp = i;
+            cout << "temp = " ;
+            cout << temp << endl;
             // char obj = getObject(AlienY_ , temp + 1);
             // cout << "obj" ;
             // cout << obj << endl;
@@ -371,12 +392,16 @@ void movement::move_up()
             // }
             // if (obj == ' ');
             // {
+                cout << "AlienY_ =" << AlienY_ << endl;
                 setmap(AlienY_, temp, trail[0]);
+                AlienX_ = i ;
+                setalienY_(AlienX_);
             //     break;
             // }
         }
         // AlienX_ = x;
         // setalienX_(AlienX_);
+        Pause();
         setmap(AlienY_, AlienX_, 'A');
         display(); 
         int no = getZomB(); // Afiq

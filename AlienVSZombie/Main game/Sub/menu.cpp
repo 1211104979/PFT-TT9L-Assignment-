@@ -11,8 +11,6 @@
 //Afiq--------------------------------------------------------------------
 
 #include "MainHeader.h"
-#include <iostream>
-#include <cstdlib>
 
 using namespace std;
 
@@ -24,8 +22,9 @@ using namespace std;
 			cout <<  " |     Alien VS Zombie     |" << endl;
 			cout <<  " -------------------------- " << endl;
 			cout <<  " 1.	PLAY      	          " << endl;
-			cout <<  " 2.	CONTROLS	          " << endl;
-			cout <<  " 3.	QUIT			      " << endl;
+			cout <<  " 2.	CONTINUE      	      " << endl;
+			cout <<  " 3.	CONTROLS	          " << endl;
+			cout <<  " 4.	QUIT			      " << endl;
 			cout << endl;
 			cout <<  ">>> CHOICE:		          " << endl;
 			char op;
@@ -36,9 +35,12 @@ using namespace std;
 					playmenu();
 					break;
 				case '2':
-					controls();
+					;   //To add load function later
 					break;
 				case '3':
+					controls();
+					break;
+				case '4':
 					exit(0);
 					break;
 				default:
