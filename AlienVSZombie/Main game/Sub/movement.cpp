@@ -77,6 +77,9 @@ void movement::move_up()
                 Pause();
                 getalhp_();
                 setalhp_(20);
+                setmap(temp, AlienX_, trail[0]); // good 
+                AlienY_ = i - 1; // good
+                setalienY_(AlienY_); // good
                 break;
             }
             else if (obj == 'v') // move down by 1 and stop
@@ -90,6 +93,7 @@ void movement::move_up()
             {
                 if (i-2>=0)
                 {
+                    // setmap(temp, AlienX_, trail[0]);
                     AlienY_ = i - 2;
                     setalienY_(AlienY_);
                     i = y;
@@ -125,10 +129,14 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause();
+                // put effect of searching alien here
+                setmap(temp, AlienX_, trail[0]); // good 
+                AlienY_ = i - 1; // good
+                setalienY_(AlienY_); // good
                 break;
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
             {
                 AlienY_ = i;
                 setalienY_(AlienY_);
@@ -171,6 +179,9 @@ void movement::move_up()
                 Pause();
                 getalhp_();
                 setalhp_(20);
+                setmap(temp, AlienX_, trail[0]);
+                AlienY_ = i + 1;
+                setalienY_(AlienY_);
                 break;
             }
             else if (obj == 'v') // move down by 1 and stop
@@ -219,12 +230,16 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause(); // not yet implemented
+                // put effect of searching alien here
+                setmap(temp, AlienX_, trail[0]);
+                AlienY_ = i + 1;
+                setalienY_(AlienY_);
                 break;
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
             {
-                AlienY_ = i - 1;
+                AlienY_ = i;
                 setalienY_(AlienY_);
                 i = y;
                 break;
@@ -257,18 +272,22 @@ void movement::move_up()
             // cout << temp << endl;
             // cout << "AlienY_ =" << AlienY_ << endl;
             char obj = getObject(AlienY_ , temp - 1);
-            // cout << "obj" ;
-            // cout << obj << endl;
+            cout << "obj" ;
+            cout << obj << endl;
             // cout << "i = " ;
             // cout << i << endl;
             // cout << "AlienY_ = " ;
             // cout << AlienY_ << endl;
+            Pause();
             if (obj == 'h') // Health (+20 health to Alien)
             {
                 cout << " Gained 20 Health " << endl;
                 Pause();
                 getalhp_();
                 setalhp_(20);
+                setmap(AlienY_, temp, trail[0]);
+                AlienX_ = i - 1;
+                setalienX_(AlienX_);
                 break;
             }
             else if (obj == 'v') // move down by 1 and stop
@@ -317,12 +336,16 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause(); // not yet implemented
+                // put effect of searching alien here
+                setmap(AlienY_, temp, trail[0]);
+                AlienX_ = i - 1;
+                setalienX_(AlienX_);
                 break; 
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
             {
-                AlienX_ = i + 1;
+                AlienX_ = i;
                 setalienX_(AlienX_);
                 i = 0;
                 break;
@@ -367,6 +390,9 @@ void movement::move_up()
                 Pause();
                 getalhp_();
                 setalhp_(20);
+                setmap(AlienY_, temp, trail[0]);
+                AlienX_ = i + 1;
+                setalienX_(AlienX_);
                 break;
             }
             else if (obj == 'v') // move down by 1 and stop
@@ -416,12 +442,16 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause(); // not yet implemented
+                // put effect of searching alien here
+                setmap(AlienY_, temp, trail[0]);
+                AlienX_ = i + 1;
+                setalienX_(AlienX_);
                 break; 
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
             {
-                AlienX_ = i - 1;
+                AlienX_ = i;
                 setalienX_(AlienX_);
                 i = 0;
                 break;
