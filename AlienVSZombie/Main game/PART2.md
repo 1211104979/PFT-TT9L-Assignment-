@@ -29,15 +29,7 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 8. Alien generated in the middle
 9. Alien movement (simple movement)
 
-### To Do
-
-List all the features not yet done. Remove this section if there is no incomplete requirements.
-
-1. Cool Feature #1
-2. *add more*
-
 ## Additional Features
-
 Describe the additional features that has been implemented.
 
 ## Contributions

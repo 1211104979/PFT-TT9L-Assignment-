@@ -13,6 +13,7 @@ Provide instructions on how to compile your program, especially when it is non-t
 Type <g++ Sub\*.cpp main.cpp> in the command to open the game file.  
 
 ## User Manual
+
 Commands
  up    - Move up.
  down  - Move down.
