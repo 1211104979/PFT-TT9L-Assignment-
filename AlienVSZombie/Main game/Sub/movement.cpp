@@ -84,6 +84,7 @@ void movement::move_up()
             }
             else if (obj == 'v') // move down by 1 and stop
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i ;
                 setalienY_(AlienY_);
                 i = y;
@@ -93,7 +94,7 @@ void movement::move_up()
             {
                 if (i-2>=0)
                 {
-                    // setmap(temp, AlienX_, trail[0]);
+                    setmap(temp, AlienX_, trail[0]);
                     AlienY_ = i - 2;
                     setalienY_(AlienY_);
                     i = y;
@@ -101,6 +102,7 @@ void movement::move_up()
                 }
                 else
                 {
+                    setmap(temp, AlienX_, trail[0]);
                     AlienY_ = i - 1;
                     setalienY_(AlienY_);
                     i = y;
@@ -109,6 +111,7 @@ void movement::move_up()
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienX_ = AlienX_ - 1;
                 setalienX_(AlienX_);
                 AlienY_ = i - 1;
@@ -118,6 +121,7 @@ void movement::move_up()
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienX_ = AlienX_ + 1;
                 setalienX_(AlienX_);
                 AlienY_ = i - 1;
@@ -136,7 +140,7 @@ void movement::move_up()
                 break;
 
             }
-            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
+            else if (obj == 'r')
             {
                 AlienY_ = i;
                 setalienY_(AlienY_);
@@ -188,6 +192,7 @@ void movement::move_up()
             {
                 if (i+2 <= y)
                 {
+                    setmap(temp, AlienX_, trail[0]);
                     AlienY_ = i + 2;
                     setalienY_(AlienY_);
                     i = y;
@@ -195,6 +200,7 @@ void movement::move_up()
                 }
                 else
                 {
+                    setmap(temp, AlienX_, trail[0]);
                     AlienY_ = i + 1;
                     setalienY_(AlienY_);
                     i = y;
@@ -203,6 +209,7 @@ void movement::move_up()
             }
             else if (obj == '^') // move up by 1 and stop
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i ;
                 setalienY_(AlienY_);
                 i = y;
@@ -210,6 +217,7 @@ void movement::move_up()
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienX_ = AlienX_ - 1;
                 setalienX_(AlienX_);
                 AlienY_ = i + 1;
@@ -219,6 +227,7 @@ void movement::move_up()
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienX_ = AlienX_ + 1;
                 setalienX_(AlienX_);
                 AlienY_ = i + 1;
@@ -237,7 +246,7 @@ void movement::move_up()
                 break;
 
             }
-            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
+            else if (obj == 'r')
             {
                 AlienY_ = i;
                 setalienY_(AlienY_);
@@ -292,6 +301,7 @@ void movement::move_up()
             }
             else if (obj == 'v') // move down by 1 and stop
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienY_ = AlienY_ + 1;
                 setalienY_(AlienY_);
                 AlienX_ = i - 1;
@@ -301,6 +311,7 @@ void movement::move_up()
             }
             else if (obj == '^') // move up by 1 and stop
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienY_ = AlienY_ - 1;
                 setalienY_(AlienY_);
                 AlienX_ = i - 1 ;
@@ -312,6 +323,7 @@ void movement::move_up()
             {
                 if (i-2>=0)
                 {
+                    setmap(AlienY_, temp, trail[0]);
                     AlienX_ = AlienX_ - 2;
                     setalienX_(AlienX_);
                     i = 0;
@@ -319,6 +331,7 @@ void movement::move_up()
                 }
                 else 
                 {
+                    setmap(AlienY_, temp, trail[0]);
                     AlienX_ = AlienX_ - 1;
                     setalienX_(AlienX_);
                     i = 0;
@@ -327,6 +340,7 @@ void movement::move_up()
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = AlienX_;
                 setalienX_(AlienX_);
                 i = 0;
@@ -343,7 +357,7 @@ void movement::move_up()
                 break; 
 
             }
-            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
+            else if (obj == 'r')
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
@@ -397,6 +411,7 @@ void movement::move_up()
             }
             else if (obj == 'v') // move down by 1 and stop
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienY_ = AlienY_ + 1;
                 setalienY_(AlienY_);
                 AlienX_ = i + 1;
@@ -406,6 +421,7 @@ void movement::move_up()
             }
             else if (obj == '^') // move up by 1 and stop
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienY_ = AlienY_ - 1;
                 setalienY_(AlienY_);
                 AlienX_ = i + 1;
@@ -415,6 +431,7 @@ void movement::move_up()
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = AlienX_;
                 setalienX_(AlienX_);
                 i = 0;
@@ -424,6 +441,7 @@ void movement::move_up()
             {
                 if (i+2 <= x)
                 {
+                    setmap(AlienY_, temp, trail[0]);
                     AlienX_ = AlienX_ + 2;
                     setalienX_(AlienX_);
                     i = 0;
@@ -431,6 +449,7 @@ void movement::move_up()
                 }
                 else
                 {
+                    setmap(AlienY_, temp, trail[0]);
                     AlienX_ = AlienX_ + 1;
                     setalienX_(AlienX_);
                     i = 0;
@@ -449,7 +468,7 @@ void movement::move_up()
                 break; 
 
             }
-            else if (obj == 'r' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9')
+            else if (obj == 'r')
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
@@ -498,3 +517,5 @@ void movement::move_up()
         }
 
     }
+
+// Zombie movement
