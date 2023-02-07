@@ -10,9 +10,9 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 
 List all the features completed.
 
-1. Cool Feature #1
-2. Cool Feature #2
-3. *add more*
+1. 
+2. 
+3. 
 
 ### To Do
 
