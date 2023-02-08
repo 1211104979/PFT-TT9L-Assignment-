@@ -70,13 +70,15 @@ class Enemy // Afiq
 
 };
 
-class movement 
+class movement : public Enemy
 {
     public:
         int alhp_ = 100;
         int alatk_ = 0;
         int AlienX_;
         int AlienY_;
+        vector<int> zomXVec;
+        vector<int> zomYVec;
 
         void alienstat();
         int getalhp_();
@@ -94,6 +96,16 @@ class movement
         void move_arrow(int y, int x, string z);
         void get_arrow();
 
+        // int getzomhp_();
+        // int setzomhp_(int hp);
+        // int setzomX_(int x);
+        // int setzomY_(int y);
+        // int getzomX_() const;
+        // int getzomY_() const;
+        // void zomup(int zomY_,int zomX_)
+        // void zomdown(int zomY_,int zomX_)
+        // void zomleft(int zomY_,int zomX_)
+        // void zomright(int zomY_,int zomX_)
 };
 
 //Class-----------------------------------------------------------------------------------------

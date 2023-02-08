@@ -49,6 +49,39 @@ int movement::getalienY_() const
     {
         return AlienY_;
     }
+
+// Zombie stat
+
+// int movement::getzomhp_()
+//     {
+//         return 0;
+//     }
+
+// int movement::setzomhp_(int hp)
+//     {
+//         zomhp_ = zomhp_ + hp;
+//         return zomhp_;
+//     }
+
+// int movement::setzomX_(int x)
+//     {
+//         return zomX_ = x;
+//     }
+
+// int movement::setzomY_(int y)
+//     {
+//         return zomY_ = y;
+//     }
+
+// int movement::getzomX_() const
+//     {
+//         return zomX_;
+//     }
+
+// int movement::getzomY_() const
+//     {
+//         return zomY_;
+//     }
 //====================================================
 
 // Alien movement function
@@ -281,13 +314,13 @@ void movement::move_up()
             // cout << temp << endl;
             // cout << "AlienY_ =" << AlienY_ << endl;
             char obj = getObject(AlienY_ , temp - 1);
-            cout << "obj" ;
-            cout << obj << endl;
+            // cout << "obj" ;
+            // cout << obj << endl;
             // cout << "i = " ;
             // cout << i << endl;
             // cout << "AlienY_ = " ;
             // cout << AlienY_ << endl;
-            Pause();
+            // Pause();
             if (obj == 'h') // Health (+20 health to Alien)
             {
                 cout << " Gained 20 Health " << endl;
@@ -519,3 +552,248 @@ void movement::move_up()
     }
 
 // Zombie movement
+void zommove()
+{
+    for (int i = 0; i < 1; ++i)
+    {
+        //get zombie coordinate
+        //get alien coordinate
+        //zombie coordinate - alien coordinate
+        // if (x>0)
+            // {}
+        // else if (x<0)
+            // {}
+        // else if (y>0)
+            // {}
+        // else if (y<0)
+            // {}
+    }
+}
+
+// void movement::zomup(int zomY_,int zomX_)
+// {
+//             char obj = getObject(zomY_ - 1, zomX_);
+//             // cout << "obj" ;
+//             // cout << obj << endl;
+//             // cout << "i = " ;
+//             // cout << i << endl;
+//             if (obj == 'h') // Health (+20 health to Alien)
+//             {
+//                 cout << " Gained 20 Health " << endl;
+//                 Pause();
+//                 getzomhp_();
+//                 setzomhp_(20);
+//                 zomY_ = zomY_ - 1; // good
+//                 setzomX_(zomY_); // good
+//             }
+//             else if (obj == 'v') // move down by 1 and stop
+//             {
+//                 zomY_ = zomY_ ;
+//                 setzomY_(zomY_);
+//             }
+//             else if (obj == '^') // move up by 1 and stop
+//             {
+//                 if (zomY_-2>=0)
+//                 {
+//                     zomY_ = zomY_ - 2;
+//                     setzomY_(zomY_);
+//                 }
+//                 else
+//                 {
+//                     zomY_ = zomY_ - 1;
+//                     setzomY_(zomY_);
+//                 }
+//             }
+//             else if (obj == '<') // move to the left by 1 and stop
+//             {
+//                 zomX_ = zomX_ - 1;
+//                 setzomX_(zomX_);
+//                 zomY_ = zomY_ - 1;
+//                 setzomY_(zomY_);
+//             }
+//             else if (obj == '>') // move to the right by 1 and stop
+//             {
+//                 zomX_ = zomX_ + 1;
+//                 setzomX_(zomX_);
+//                 zomY_ = zomY_ - 1;
+//                 setzomY_(zomY_);
+//             }
+//             else if (obj == 'r' || 'p')
+//             {
+//                 zomY_ = zomY_;
+//                 setzomY_(zomY_);
+//             }
+
+// }
+
+// void movement::zomdown(int zomY_,int zomX_)
+// {
+//             char obj = getObject(zomY_ + 1, zomX_);
+//             // cout << "obj" ;
+//             // cout << obj << endl;
+//             // cout << "i = " ;
+//             // cout << i << endl;
+//             if (obj == 'h')
+//             {
+//                 cout << " Gained 20 Health " << endl;
+//                 Pause();
+//                 getzomhp_();
+//                 setzomhp_(20);
+//                 zomY_ = zomY_ + 1;
+//                 setzomY_(zomY_);
+
+//             }
+//             else if (obj == 'v') // move down by 1 and stop
+//             {
+//                 if (zomY_+2 <= y)
+//                 {
+//                     zomY_ = zomY_ + 2;
+//                     setzomY_(zomY_);
+//                 }
+//                 else
+//                 {
+//                     zomY_ = zomY_ + 1;
+//                     setzomY_(zomY_);
+//                 }
+//             }
+//             else if (obj == '^') // move up by 1 and stop
+//             {
+//                 zomY_ = zomY_ ;
+//                 setzomY_(zomY_);
+//             }
+//             else if (obj == '<') // move to the left by 1 and stop
+//             {
+//                 zomX_ = zomX_ - 1;
+//                 setzomX_(zomX_);
+//                 zomY_ = zomY_ + 1;
+//                 setzomY_(zomY_);
+//             }
+//             else if (obj == '>') // move to the right by 1 and stop
+//             {
+//                 zomX_ = zomX_ + 1;
+//                 setzomX_(zomX_);
+//                 zomY_ = zomY_ + 1;
+//                 setzomY_(zomY_);
+//             }
+//             else if (obj == 'r' || 'p')
+//             {
+//                 zomY_ = zomY_;
+//                 setzomY_(zomY_);
+//             }
+// }
+
+// void movement::zomleft(int zomY_,int zomX_)
+// {
+//             char obj = getObject(zomY_ , zomX_ - 1);
+//             // cout << "obj" ;
+//             // cout << obj << endl;
+//             // cout << "i = " ;
+//             // cout << i << endl;
+//             // cout << "AlienY_ = " ;
+//             // cout << AlienY_ << endl;
+//             // Pause();
+//             if (obj == 'h') // Health (+20 health to Alien)
+//             {
+//                 cout << " Gained 20 Health " << endl;
+//                 Pause();
+//                 getalhp_();
+//                 setalhp_(20);
+//                 zomX_ = zomX_ - 1;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == 'v') // move down by 1 and stop
+//             {
+//                 zomY_ = zomY_ + 1;
+//                 setzomY_(zomY_);
+//                 zomX_ = zomX_ - 1;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == '^') // move up by 1 and stop
+//             {
+//                 zomY_ = zomY_ - 1;
+//                 setzomY_(zomY_);
+//                 zomX_ = zomX_ - 1 ;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == '<') // move to the left by 1 and stop
+//             {
+//                 if (zomX_-2>=0)
+//                 {
+//                     zomX_ = zomX_ - 2;
+//                     setzomX_(zomX_);
+//                 }
+//                 else 
+//                 {
+//                     zomX_ = zomX_ - 1;
+//                     setzomX_(zomX_);
+//                 }
+//             }
+//             else if (obj == '>') // move to the right by 1 and stop
+//             {
+//                 zomX_ = zomX_;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == 'r'||'p')
+//             {
+//                 zomX_ = zomX_;
+//                 setzomX_(zomX_);
+//             }
+// }
+
+// void movement::zomright(int zomY_,int zomX_)
+// {
+//             char obj = getObject(zomY_ , zomX_ + 1);
+//             // cout << "obj" ;
+//             // cout << obj << endl;
+//             // cout << "i = " ;
+//             // cout << i << endl;
+//             // cout << "AlienY_ = " ;
+//             // cout << AlienY_ << endl;
+//             if (obj == 'h') // Health (+20 health to Alien)
+//             {
+//                 cout << " Gained 20 Health " << endl;
+//                 Pause();
+//                 getalhp_();
+//                 setalhp_(20);
+//                 zomX_ = zomX_ + 1;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == 'v') // move down by 1 and stop
+//             {
+//                 zomY_ = zomY_ + 1;
+//                 setzomY_(zomY_);
+//                 zomX_ = zomX_ + 1;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == '^') // move up by 1 and stop
+//             {
+//                 zomY_ = zomY_ - 1;
+//                 setzomY_(zomY_);
+//                 zomX_ = zomX_ + 1;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == '<') // move to the left by 1 and stop
+//             {
+//                 zomX_ = zomX_;
+//                 setzomX_(zomX_);
+//             }
+//             else if (obj == '>') // move to the right by 1 and stop
+//             {
+//                 if (zomX_+2 <= x)
+//                 {
+//                     zomX_ = zomX_ + 2;
+//                     setzomX_(zomX_);
+//                 }
+//                 else
+//                 {
+//                     zomX_ = zomX_ + 1;
+//                     setzomX_(zomX_);
+//                 }
+
+//             }
+//             else if (obj == 'r'||'p')
+//             {
+//                 zomX_ = zomX_;
+//                 setzomX_(zomX_);
+//             }
+// }
