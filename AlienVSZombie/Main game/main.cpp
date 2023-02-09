@@ -37,7 +37,7 @@ movement alien;
 vector<vector<char>> map_; // Gameboard vector
 int dimX_ = 9, dimY_ = 3, zomB_ = 1;   // variables for the initial gameboard
 
-char h, x;
+char ranobj, x;
 
 void emptymap(int dX, int dY)
 {
@@ -65,8 +65,8 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
     {
         for (int j = 0; j < dimX_; ++j)
         {
-			h = randObject(x);
-            map_[i][j] = h;
+			ranobj = randObject(x);
+            map_[i][j] = ranobj;
         }
     }
 

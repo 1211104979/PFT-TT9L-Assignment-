@@ -89,21 +89,12 @@ void movement::move_up()
     {
 
         int y = getDimY() - 1; // 3 - 1 = 2,
-        // cout << "y = " ;
-        // cout << y << endl;
         char trail[] = {'.'};
-        // cout << "AlienY_ = " ;
-        // cout << AlienY_ << endl;
+
         for(int i = AlienY_; i > 0; --i) // 2 - 1 = 1
         {
             int temp = i;
-            // cout << "temp = " ;
-            // cout << temp << endl;
             char obj = getObject(temp - 1, AlienX_);
-            // cout << "obj" ;
-            // cout << obj << endl;
-            // cout << "i = " ;
-            // cout << i << endl;
             if (obj == 'h') // Health (+20 health to Alien)
             {
                 cout << " Gained 20 Health " << endl;
@@ -200,16 +191,10 @@ void movement::move_up()
     {
         int y = getDimY() - 1; // 3 -1 = 2 , Alien = 1
         char trail[] = {'.'};
-        // cout << "y = " ;
-        // cout << y << endl;
         for(int i = AlienY_; i < y; ++i)
         {
             int temp = i;
             char obj = getObject(temp + 1, AlienX_);
-            // cout << "obj" ;
-            // cout << obj << endl;
-            // cout << "i = " ;
-            // cout << i << endl;
             if (obj == 'h')
             {
                 cout << " Gained 20 Health " << endl;
@@ -291,7 +276,6 @@ void movement::move_up()
                 setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
-                // break;
             }
         }
         Pause();
@@ -310,17 +294,7 @@ void movement::move_up()
         for(int i = AlienX_; i > 0; --i) // 8 - 4 = 4
         {
             int temp = i;
-            // cout << "temp = " ;
-            // cout << temp << endl;
-            // cout << "AlienY_ =" << AlienY_ << endl;
             char obj = getObject(AlienY_ , temp - 1);
-            // cout << "obj" ;
-            // cout << obj << endl;
-            // cout << "i = " ;
-            // cout << i << endl;
-            // cout << "AlienY_ = " ;
-            // cout << AlienY_ << endl;
-            // Pause();
             if (obj == 'h') // Health (+20 health to Alien)
             {
                 cout << " Gained 20 Health " << endl;
@@ -402,7 +376,6 @@ void movement::move_up()
                 setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
-                // break;
             }
         }
         Pause();
@@ -417,20 +390,12 @@ void movement::move_up()
     {
         int x = getDimX() - 1;
         char trail[] = {'.'};
-        // cout << "AlienY_ =" << AlienY_ << endl;
         for(int i = AlienX_; i < x; ++i)
         {
             int temp = i;
-            // cout << "temp = " ;
-            // cout << temp << endl;
-            // cout << "AlienY_ =" << AlienY_ << endl;
+
             char obj = getObject(AlienY_ , temp + 1);
-            // cout << "obj" ;
-            // cout << obj << endl;
-            // cout << "i = " ;
-            // cout << i << endl;
-            // cout << "AlienY_ = " ;
-            // cout << AlienY_ << endl;
+
             if (obj == 'h') // Health (+20 health to Alien)
             {
                 cout << " Gained 20 Health " << endl;
@@ -536,15 +501,15 @@ void movement::move_up()
         {
             setmap(dimy, dimx, '^');
         }
-        if ( dir == "down")
+        else if ( dir == "down")
         {
             setmap(dimy, dimx, 'v');
         }
-        if ( dir == "left")
+        else if ( dir == "left")
         {
             setmap(dimy, dimx, '<');
         }
-        if ( dir == "right")
+        else if ( dir == "right")
         {
             setmap(dimy, dimx, '>');
         }

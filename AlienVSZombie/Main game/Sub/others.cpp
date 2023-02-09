@@ -82,3 +82,66 @@ char randObject(char x)
     }
     return x;
 }
+
+char refreshObj(char x) 
+{
+    int Num = rand() % 6 + 1;
+    switch (Num)             
+    {
+    case 1:
+        x = 'h'; 
+        break;
+
+    case 2:
+        x = 'p';
+        break;
+
+    case 3:
+        x = ' ';
+        break;
+
+    case 4:
+        x = ' ';
+        break;
+
+    case 5:
+        x = ' ';
+        break;
+
+    case 6:
+        x = ' ';
+        break;
+    }
+    return x;
+}
+
+
+void ranobjX()
+{
+    char ranobj, x;
+    int dimY = getDimY();
+    int dimX = getDimX();
+    for (int i = 0; i < dimX; ++i)
+    {
+        if (map_[dimY][i] == '.')
+        {
+            ranobj = refreshObj(x);
+            map_[dimY][i] = ranobj;
+        }
+    }
+}
+
+void ranobjY()
+{
+    char ranobj, x;
+    int dimY = getDimY();
+    int dimX = getDimX();
+    for (int i = 0; i < dimY; ++i)
+    {
+        if (map_[i][dimX] == '.')
+        {
+            ranobj = refreshObj(x);
+            map_[i][dimX] = ranobj;
+        }
+    }
+}
