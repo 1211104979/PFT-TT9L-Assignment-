@@ -62,6 +62,9 @@ using namespace std;
     int *getZomRge(int numofZ);
     int fileExist();
     void loadmap();
+    int GetLoad();
+    int GetAlienX();
+    int GetAlienY();
 // Global---------------------------------------------------------------------------------------
 //Class-----------------------------------------------------------------------------------------
 
