@@ -27,6 +27,8 @@ using namespace std;
     // int move_up();
 
     extern vector<vector<char>> map_; 
+    extern vector<int> ZomY_;
+    extern vector<int> ZomX_;
     void emptymap(int dX, int dY);
     void getMenu(); // Afiq
     void controls(); // Afiq
@@ -94,8 +96,8 @@ class movement : public Enemy
         void move_left();
         void move_right();
         void move_arrow(int y, int x, string z);
-        void get_arrow();
-
+        // void get_arrow();
+        void zommove();
         // int getzomhp_();
         // int setzomhp_(int hp);
         // int setzomX_(int x);

@@ -35,6 +35,8 @@ Enemy zombie;
 movement alien;
 
 vector<vector<char>> map_; // Gameboard vector
+vector<int> ZomY_;
+vector<int> ZomX_;
 int dimX_ = 9, dimY_ = 3, zomB_ = 1;   // variables for the initial gameboard
 
 char ranobj, x;
@@ -76,6 +78,8 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
         int randY = rand() % dimY_;
         int randX = rand() % dimX_;
         map_[randY][randX] = zomBie[i];
+        ZomY_.push_back(randY);
+        ZomX_.push_back(randX);
     }
 
     // Alien in the middle of the gameboard

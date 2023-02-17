@@ -156,7 +156,6 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
-                Pause();
                 // put effect of searching alien here
                 setmap(temp, AlienX_, trail[0]); // good 
                 AlienY_ = i - 1; // good
@@ -164,7 +163,7 @@ void movement::move_up()
                 break;
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 AlienY_ = i;
                 setalienY_(AlienY_);
@@ -256,7 +255,7 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
-                Pause(); // not yet implemented
+                // not yet implemented
                 // put effect of searching alien here
                 setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i + 1;
@@ -264,7 +263,7 @@ void movement::move_up()
                 break;
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 AlienY_ = i;
                 setalienY_(AlienY_);
@@ -356,7 +355,7 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
-                Pause(); // not yet implemented
+                // not yet implemented
                 // put effect of searching alien here
                 setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i - 1;
@@ -364,7 +363,7 @@ void movement::move_up()
                 break; 
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
@@ -458,7 +457,7 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
-                Pause(); // not yet implemented
+                // not yet implemented
                 // put effect of searching alien here
                 setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i + 1;
@@ -466,7 +465,7 @@ void movement::move_up()
                 break; 
 
             }
-            else if (obj == 'r')
+            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
@@ -517,13 +516,16 @@ void movement::move_up()
     }
 
 // Zombie movement
-void zommove()
+void movement::zommove()
 {
     for (int i = 0; i < 1; ++i)
     {
-        //get zombie coordinate
-        //get alien coordinate
-        //zombie coordinate - alien coordinate
+        int Zy = ZomY_[i];
+        int Zx = ZomX_[i];
+        int Ay = getalienY_();
+        int Ax = getalienX_();
+        int DisY = Zy - Ay;
+        int DisX = Zx - Ax;
         // if (x>0)
             // {}
         // else if (x<0)
@@ -583,7 +585,7 @@ void zommove()
 //                 zomY_ = zomY_ - 1;
 //                 setzomY_(zomY_);
 //             }
-//             else if (obj == 'r' || 'p')
+//             else if (obj == 'r' || obj == 'p')
 //             {
 //                 zomY_ = zomY_;
 //                 setzomY_(zomY_);
