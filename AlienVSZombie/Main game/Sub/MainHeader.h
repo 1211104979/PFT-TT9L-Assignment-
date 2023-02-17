@@ -65,6 +65,8 @@ using namespace std;
     int GetLoad();
     int GetAlienX();
     int GetAlienY();
+    void saveHP(int hp);
+    void saveATK(int atk);
 // Global---------------------------------------------------------------------------------------
 //Class-----------------------------------------------------------------------------------------
 
