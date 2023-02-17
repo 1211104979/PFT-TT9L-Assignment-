@@ -16,9 +16,20 @@ using namespace std;
 void play()
 {
     movement move;
+    int x, y;
+    int ChkLoadSta = GetLoad();
+    if (ChkLoadSta == 1)
+    {
+        x = GetAlienX();
+        y = GetAlienY();
+    }
 
-    int x = getDimX()/2;
-    int y = getDimY()/2;
+    else
+    {
+        x = getDimX() / 2;
+        y = getDimY() / 2;
+    }
+
     move.setalienX_(x);
     move.setalienY_(y);
     while(1)
