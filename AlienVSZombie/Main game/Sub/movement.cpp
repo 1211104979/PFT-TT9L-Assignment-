@@ -14,24 +14,18 @@ using namespace std;
 
 // Shows Alien stats
 void movement::alienstat()
+{
+    if (GetLoad() == 1)
     {
-        if (GetLoad() == 1)
-        {
-            alhp_ = GetAlienHP();
-            alatk_ = GetAlienATK();
-            saveHP(alhp_);
-            saveATK(alatk_);
-        }
-
-        else
-        {
-            alhp_ = 100;
-            alatk_ = 0;
-            saveHP(alhp_);
-        }
-        cout << "  Alien    ";
-        cout << "| Health point :" << alhp_ << "| Attack :" << alatk_;
+        alhp_ = GetAlienHP();
+        alatk_ = GetAlienATK();
     }
+
+    cout << "  Alien    ";
+    cout << "| Health point :" << alhp_ << "| Attack :" << alatk_;
+    saveHP(alhp_);
+    saveATK(alatk_);
+}
 
 
 int movement::getalhp_()
