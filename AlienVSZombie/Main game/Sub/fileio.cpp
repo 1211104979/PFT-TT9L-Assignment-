@@ -15,6 +15,9 @@
 #include <fstream>
 using namespace std;
 
+int Loadstatus = 0;
+int LoadAlien_X, LoadAlien_Y;
+
 string split(string stence, char del)
 {
     string temp = "";
@@ -181,6 +184,21 @@ int getLoadZom(string file)
     return numZom;
 }
 
+int GetLoad()
+{
+    return Loadstatus;
+}
+
+int GetAlienX()
+{
+    return LoadAlien_X;
+}
+
+int GetAlienY()
+{
+    return LoadAlien_Y;
+}
+
 void loadmap()
 {
     ifstream gameFile;
@@ -221,6 +239,11 @@ void loadmap()
                             char item = readLine[j + 1];
                             cout << item;
                             map_[i][j] = item;
+                            if (item == 'A')
+                            {
+                                LoadAlien_X = j;
+                                LoadAlien_Y = i;
+                            }
                         }
                         ++i;
                     }
@@ -228,6 +251,7 @@ void loadmap()
             }
         }
         gameFile.close();
+        Loadstatus = 1;
     }
     else
     {
