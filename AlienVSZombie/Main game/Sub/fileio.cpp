@@ -16,8 +16,9 @@
 using namespace std;
 
 int Loadstatus = 0;
-int LoadAlien_X, LoadAlien_Y;
+int LoadAlien_X, LoadAlien_Y, HP_Alien, ATK_Alien;
 
+// split string by finding the delimiter
 string split(string stence, char del)
 {
     string temp = "";
@@ -37,6 +38,17 @@ string split(string stence, char del)
     return temp;
 }
 
+string getFileName()
+{
+    string fileName;
+
+    cout << "Name your file -> ";
+    cin >> fileName;
+    cout << endl;
+    return fileName;
+}
+
+// check the existence of the file
 int fileExisting(string fileNme)
 {
     ifstream gameFile;
@@ -55,24 +67,14 @@ int fileExisting(string fileNme)
     }
 }
 
-string getFileName()
+void saveHP(int hp)
 {
-    string fileName;
-
-    cout << "Name your file -> ";
-    cin >> fileName;
-    cout << endl;
-    return fileName;
+    HP_Alien = hp;
 }
 
-string getLoadFname()
+void saveATK(int atk)
 {
-    string loadName;
-
-    cout << "Enter the file name to load -> ";
-    cin >> loadName;
-    cout << endl;
-    return loadName;
+    ATK_Alien = atk;
 }
 
 void saveFile(string nameFile)
@@ -102,28 +104,88 @@ void saveFile(string nameFile)
             }
         }
 
-        int *hp = getZomHP(Znum);
-        int *atk = getZomAtk(Znum);
-        int *rge = getZomRge(Znum);
+        int ahp = HP_Alien;
+        int aAtk = ATK_Alien;
+        // int aAtk = alien.alatk_;
+        gameFile << "\nEH" << ahp << "\nEA" << aAtk;
+
+        int *zhp = getZomHP(Znum);
+        int *zatk = getZomAtk(Znum);
+        int *zrge = getZomRge(Znum);
 
         for (int i = 0; i < Znum; i++)
         {
-            gameFile << '\n'
-                     << "Z" << i + 1 << ", H" << hp[i] << ", A" << atk[i] << ", R" << rge[i];
+            int ZBnum = i + 1;
+            gameFile << "\nZ" << ZBnum << "\nB" << ZBnum << "H" << zhp[i] << "\nB" << ZBnum << "A" << zatk[i] << "\nB" << ZBnum << "R" << zrge[i];
         }
+
         gameFile.close();
         cout << "Game saved successfully." << endl;
     }
 }
+
+// menu for existed fike
+int fileExist()
+{
+    ifstream gameFile;
+    string fname, name;
+    char oWrite;
+    int i, Exist;
+
+    name = getFileName();
+    Exist = fileExisting(name);
+
+    do
+    {
+        i = 0;
+        if (Exist == 1)
+        {
+            cout << "The file is existed before. Do you want to overwrite the previous history?\n Y/N -->";
+            cin >> oWrite;
+            if (oWrite == 'Y' || oWrite == 'y')
+            {
+                saveFile(name);
+            }
+            else if (oWrite == 'N' || oWrite == 'n')
+            {
+                fileExist();
+            }
+
+            else
+            {
+                cout << "Invalid input. Please try again." << endl;
+                i = 1;
+            }
+        }
+        else
+        {
+            saveFile(name);
+        }
+    } while (i == 1);
+    return 0;
+}
+
+// convert the string to integer
 int loadDim(string Line, char dim)
 {
 
     string content = split(Line, dim);
-    int dimNum = stoi(content);
+    int dimNum = stoi(content); // turn string into integer
 
     return dimNum;
 }
 
+string getLoadFname()
+{
+    string loadName;
+
+    cout << "Enter the file name to load -> ";
+    cin >> loadName;
+    cout << endl;
+    return loadName;
+}
+
+// find the x-axis value in the txt file
 int getLoadDimX(string file)
 {
     ifstream gameFile;
@@ -144,6 +206,7 @@ int getLoadDimX(string file)
     return dim_x;
 }
 
+// Find the y-axis value in the txt file
 int getLoadDimY(string file)
 {
     ifstream gameFile;
@@ -164,6 +227,7 @@ int getLoadDimY(string file)
     return dim_y;
 }
 
+// count the number of zombies in the txt file
 int getLoadZom(string file)
 {
     ifstream gameFile;
@@ -199,12 +263,24 @@ int GetAlienY()
     return LoadAlien_Y;
 }
 
+int GetAlienHP()
+{
+    return HP_Alien;
+}
+
+int GetAlienATK()
+{
+    return ATK_Alien;
+}
+
+// load all the objects inside the file
 void loadmap()
 {
+    movement AliZom;
     ifstream gameFile;
     string existFile, LoadFname;
-    int testExist, i, j, strLength, nZom, dim_x, dim_y;
-    char del = ':';
+    int testExist, i, j, k, m, strLength, nZom, dim_x, dim_y;
+    char del = ',';
     i = 0;
     nZom = 0;
     dim_x = 0;
@@ -248,53 +324,33 @@ void loadmap()
                         ++i;
                     }
                 }
+
+                else if (readLine[0] == 'E')
+                {
+                    if (readLine[1] == 'H')
+                    {
+                        string temp = split(readLine, 'E');
+                        string temp1 = split(temp, 'H');
+                        int Ali_HP = stoi(temp1);
+                        HP_Alien = Ali_HP;
+                    }
+
+                    else if (readLine[1] == 'A')
+                    {
+                        string temp = split(readLine, 'E');
+                        string temp1 = split(temp, 'A');
+                        int Ali_ATK = stoi(temp1);
+                        ATK_Alien = Ali_ATK;
+                    }
+                }
             }
         }
         gameFile.close();
         Loadstatus = 1;
     }
+
     else
     {
         cout << "The file does not exist." << endl;
     }
-}
-
-int fileExist()
-{
-    ifstream gameFile;
-    string fname, name;
-    char oWrite;
-    int i, Exist;
-
-    name = getFileName();
-    Exist = fileExisting(name);
-
-    do
-    {
-        i = 0;
-        if (Exist == 1)
-        {
-            cout << "The file is existed before. Do you want to overwrite the previous history?\n Y/N -->";
-            cin >> oWrite;
-            if (oWrite == 'Y' || oWrite == 'y')
-            {
-                saveFile(name);
-            }
-            else if (oWrite == 'N' || oWrite == 'n')
-            {
-                fileExist();
-            }
-
-            else
-            {
-                cout << "Invalid input. Please try again." << endl;
-                i = 1;
-            }
-        }
-        else
-        {
-            saveFile(name);
-        }
-    } while (i == 1);
-    return 0;
 }
