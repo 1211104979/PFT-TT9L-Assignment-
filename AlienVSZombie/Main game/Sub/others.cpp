@@ -116,32 +116,30 @@ char refreshObj(char x)
 }
 
 
-void ranobjX()
+void ranobjX(int AlY)
 {
     char ranobj, x;
-    int dimY = getDimY();
     int dimX = getDimX();
     for (int i = 0; i < dimX; ++i)
     {
-        if (map_[dimY][i] == '.')
+        if (map_[AlY][i] == '.')
         {
             ranobj = refreshObj(x);
-            map_[dimY][i] = ranobj;
+            map_[AlY][i] = ranobj;
         }
     }
 }
 
-void ranobjY()
+void ranobjY(int AlX)
 {
     char ranobj, x;
     int dimY = getDimY();
-    int dimX = getDimX();
     for (int i = 0; i < dimY; ++i)
     {
-        if (map_[i][dimX] == '.')
+        if (map_[i][AlX] == '.')
         {
             ranobj = refreshObj(x);
-            map_[i][dimX] = ranobj;
+            map_[i][AlX] = ranobj;
         }
     }
 }

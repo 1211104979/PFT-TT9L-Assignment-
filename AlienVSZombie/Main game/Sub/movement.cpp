@@ -175,7 +175,6 @@ void movement::move_up()
                 setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
-                // break;
             }
         }
         Pause();
@@ -490,27 +489,44 @@ void movement::move_up()
 
     }
 
-    void movement::move_arrow(int y, int x, string z)
+    void movement::move_arrow(int x, int y, string z)
     {
 
-        int dimy = getDimY() - y;
-        int dimx = x - 1;
+        int ary = getDimY() - y;
+        int arx = x - 1;
         string dir = z;
-        if ( dir == "up")
+        Pause();
+        if ( dir.compare("up") == 0)
         {
-            setmap(dimy, dimx, '^');
+            setmap(ary, arx, '^');
+            display(); 
+            int no = getZomB(); // Afiq
+            alienstat(); // Afiq
+            zomdisplay(no);
         }
-        else if ( dir == "down")
+        else if ( dir.compare("down") == 0)
         {
-            setmap(dimy, dimx, 'v');
+            setmap(ary, arx, 'v');
+            display(); 
+            int no = getZomB(); // Afiq
+            alienstat(); // Afiq
+            zomdisplay(no);
         }
-        else if ( dir == "left")
+        else if ( dir.compare("left") == 0)
         {
-            setmap(dimy, dimx, '<');
+            setmap(ary, arx, '<');
+            display(); 
+            int no = getZomB(); // Afiq
+            alienstat(); // Afiq
+            zomdisplay(no);
         }
-        else if ( dir == "right")
+        else if ( dir.compare("right") == 0)
         {
-            setmap(dimy, dimx, '>');
+            setmap(ary, arx, '>');
+            display(); 
+            int no = getZomB(); // Afiq
+            alienstat(); // Afiq
+            zomdisplay(no);
         }
 
     }

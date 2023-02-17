@@ -213,13 +213,17 @@ void changesetting() // liEn & Afiq
     if (x % 2 == 0 || y % 2 == 0) // liEn  -> //restriction for only accepting odd numbers and range of zombies within 1 until 9
     {
         cout << "Rows and Columns must be odd numbers.\n\n";
+        Pause();
+        ClearScreen();
     }
 
     else
     {
         if (z < 1 || z > 9)
         {
-            cout << "Zombies can only within the range of 1 until 9. " << std::endl;
+            cout << "Zombies can only within the range of 1 until 9. " << endl;
+            Pause();
+            ClearScreen();
         }
 
         else

@@ -53,8 +53,8 @@ void play()
             cout << "Pls input based on the format, x y direction(up/down/left/right)";
             int arY, arX;
             string ardir;
-            cin >> arY, arX, ardir;
-            move.move_arrow( arY,  arX,  ardir);
+            cin >> arX >> arY >> ardir;
+            move.move_arrow( arX,  arY,  ardir);
         }
 
         if (con == "help")
@@ -85,8 +85,7 @@ void play()
 
         // else
         // {
-        //     std::cout << "invalid input" << std::endl;
-            
+        //     cout << "invalid input" << endl;
         // }
     }
 }
