@@ -11,8 +11,8 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 3. Alien generated in the middle
 4. Random Zombie position
 5. Alien control command
-6. Game object interaction <-
-7. Arrow direction control command <-
+6. Game object interaction 
+7. Arrow direction control command 
 8. Save function
 9. Load function
 10. Alien movement
@@ -27,7 +27,8 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 6. Quit option
 7. Save function
 8. Alien generated in the middle
-9. Alien movement (simple movement)
+9. Alien movement 
+10. Arrow direction control command
 
 ## Additional Features
 Describe the additional features that has been implemented.
