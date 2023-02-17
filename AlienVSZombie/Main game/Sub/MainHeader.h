@@ -37,6 +37,7 @@ using namespace std;
     void playmenu(); // Afiq
     char randObject(char x);
     char refreshObj(char x);
+    void ranobjupdate();
     void ranobjX(int AlY);
     void ranobjY(int AlX);
     void changesetting(); // liEn

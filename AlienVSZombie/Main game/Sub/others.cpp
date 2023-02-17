@@ -143,3 +143,22 @@ void ranobjY(int AlX)
         }
     }
 }
+void ranobjupdate()
+{
+    char ranobj, x;
+    int dimY = getDimY();
+    int dimX = getDimX();
+    for (int i = 0; i < dimY; ++i)
+    {
+        for (int j = 0; j < dimX; ++j)
+        {
+            if(map_[i][j] == '.')
+            {
+                ranobj = randObject(x);
+                map_[i][j] = ranobj;
+            }
+        }
+    }
+}
+
+

@@ -190,7 +190,7 @@ void movement::move_up()
         setmap(AlienY_, AlienX_, 'A');
         display();
         Pause();
-        ranobjY(AlX);
+        ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
@@ -295,7 +295,7 @@ void movement::move_up()
         setmap(AlienY_, AlienX_, 'A');
         display();
         Pause();
-        ranobjY(AlX);
+        ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
@@ -400,7 +400,7 @@ void movement::move_up()
         setmap(AlienY_, AlienX_, 'A');
         display();
         Pause();
-        ranobjX(AlY);
+        ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
@@ -508,7 +508,7 @@ void movement::move_up()
         setmap(AlienY_, AlienX_, 'A');
         display();
         Pause();
-        ranobjX(AlY);
+        ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
