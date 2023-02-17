@@ -17,6 +17,8 @@ using namespace std;
 
 int Loadstatus = 0;
 int LoadAlien_X, LoadAlien_Y, HP_Alien, ATK_Alien;
+vector<vector<int>> ZB_atrr;
+char num[9] = {'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'};
 
 // split string by finding the delimiter
 string split(string stence, char del)
@@ -115,8 +117,8 @@ void saveFile(string nameFile)
 
         for (int i = 0; i < Znum; i++)
         {
-            int ZBnum = i + 1;
-            gameFile << "\nZ" << ZBnum << "\nB" << ZBnum << "H" << zhp[i] << "\nB" << ZBnum << "A" << zatk[i] << "\nB" << ZBnum << "R" << zrge[i];
+            char ZBnum = num[i];
+            gameFile << "\nZ" << i << "\nB" << ZBnum << "H" << zhp[i] << "\nB" << ZBnum << "A" << zatk[i] << "\nB" << ZBnum << "R" << zrge[i];
         }
 
         gameFile.close();
@@ -273,16 +275,63 @@ int GetAlienATK()
     return ATK_Alien;
 }
 
+void loadZBAtrr(string LoadFname)
+{
+    ifstream gameFile;
+    string existFile;
+    int testExisting, nZB;
+
+    existFile = ".\\savefiles\\" + LoadFname;
+    nZB = getLoadZom(existFile);
+
+    gameFile.open(existFile, ios::in); // read the file
+    if (gameFile.is_open())
+    {
+        string readLine;
+        while (getline(gameFile, readLine))
+        {
+            if (readLine[0] == 'B') // Find the line related to Zombie
+            {
+                char numChar = num[nZB];
+                if (readLine[1] == numChar)
+                {
+                    if (readLine[2] == 'H')
+                    {
+                        string temp = split(readLine, 'B');
+                        string temp1 = split(temp, numChar);
+                        string temp2 = split(temp1, 'H');
+                        int ZB_hp = stoi(temp2);
+                    }
+
+                    else if (readLine[2] == 'A')
+                    {
+                        string temp = split(readLine, 'B');
+                        string temp1 = split(readLine, numChar);
+                        string temp2 = split(temp1, 'A');
+                    }
+
+                    else if (readLine[2] == 'R')
+                    {
+                        string temp = split(readLine, 'B');
+                        string temp1 = split(readLine, numChar);
+                        string temp2 = split(temp1, 'R');
+                    }
+                }
+            }
+            nZB++;
+        }
+    }
+}
 // load all the objects inside the file
 void loadmap()
 {
-    movement AliZom;
     ifstream gameFile;
     string existFile, LoadFname;
-    int testExist, i, j, k, m, strLength, nZom, dim_x, dim_y;
+    int testExist, i, j, k, m, strLength, nZom, dim_x, dim_y, NoZB;
     char del = ',';
     i = 0;
     nZom = 0;
+    NoZB = 1;
     dim_x = 0;
     dim_y = 0;
 
@@ -298,6 +347,7 @@ void loadmap()
         init(dim_x, dim_y, nZom);
         map_.clear();
         emptymap(dim_x, dim_y);
+        loadZBAtrr(LoadFname);
 
         gameFile.open(existFile, ios::in); // read the file
         if (gameFile.is_open())
@@ -325,7 +375,7 @@ void loadmap()
                     }
                 }
 
-                else if (readLine[0] == 'E')
+                else if (readLine[0] == 'E') // Find the line related to Alien
                 {
                     if (readLine[1] == 'H')
                     {
