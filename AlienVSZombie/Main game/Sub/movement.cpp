@@ -13,11 +13,26 @@
 using namespace std;
 
 // Shows Alien stats
-void movement::alienstat() 
+void movement::alienstat()
     {
+        if (GetLoad() == 1)
+        {
+            alhp_ = GetAlienHP();
+            alatk_ = GetAlienATK();
+            saveHP(alhp_);
+            saveATK(alatk_);
+        }
+
+        else
+        {
+            alhp_ = 100;
+            alatk_ = 0;
+            saveHP(alhp_);
+        }
         cout << "  Alien    ";
         cout << "| Health point :" << alhp_ << "| Attack :" << alatk_;
     }
+
 
 int movement::getalhp_()
     {
@@ -186,6 +201,8 @@ void movement::move_up()
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);
+        saveHP(alhp_);
+        saveATK(alatk_);
     }
 
     void movement::move_down()
@@ -289,6 +306,8 @@ void movement::move_up()
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);
+        saveHP(alhp_);
+        saveATK(alatk_);
     }
 
     void movement::move_left()
@@ -392,6 +411,8 @@ void movement::move_up()
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);
+        saveHP(alhp_);
+        saveATK(alatk_);
     }
 
     void movement::move_right()
@@ -498,6 +519,8 @@ void movement::move_up()
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);
+        saveHP(alhp_);
+        saveATK(alatk_);
 
     }
 
