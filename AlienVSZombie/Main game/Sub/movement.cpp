@@ -493,7 +493,7 @@ void movement::move_up()
     void movement::move_arrow(int y, int x, string z)
     {
 
-        int dimy = getDimX() - y;
+        int dimy = getDimY() - y;
         int dimx = x - 1;
         string dir = z;
         if ( dir == "up")
@@ -526,14 +526,26 @@ void movement::zommove()
         int Ax = getalienX_();
         int DisY = Zy - Ay;
         int DisX = Zx - Ax;
-        // if (x>0)
-            // {}
-        // else if (x<0)
-            // {}
-        // else if (y>0)
-            // {}
-        // else if (y<0)
-            // {}
+        if (DisX>0)
+            {
+                // zomright
+                // zomright(Zy,Zx);
+            }
+        else if (DisX<0)
+            {
+                // zomleft
+                // zomleft(Zy,Zx);
+            }
+        else if (DisY>0)
+            {
+                // zomdown
+                // zomdown(Zy,Zx);
+            }
+        else if (DisY<0)
+            {
+                // zomup
+                // zomup(Zy,Zx);
+            }
     }
 }
 
