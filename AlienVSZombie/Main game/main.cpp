@@ -72,22 +72,23 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
         }
     }
 
-    // put random zombies into the vector array // liEn 
-    for (int i = 0; i < zomB_; ++i)
+    int Getstatus = GetLoad();
+    if (Getstatus == 0)
     {
-        int randY = rand() % dimY_;
-        int randX = rand() % dimX_;
-        map_[randY][randX] = zomBie[i];
-        ZomY_.push_back(randY);
-        ZomX_.push_back(randX);
+        // put random zombies into the vector array // liEn
+        for (int i = 0; i < zomB_; ++i)
+        {
+            int randY = rand() % dimY_;
+            int randX = rand() % dimX_;
+            map_[randY][randX] = zomBie[i];
+        }
+
+        // Alien in the middle of the gameboard
+        int y = dimY_ / 2;
+        int x = dimX_ / 2;
+        char Alien[] = "A";
+        map_[y][x] = Alien[0];
     }
-
-    // Alien in the middle of the gameboard
-    int y = dimY_ / 2;
-    int x = dimX_ / 2;
-    char Alien[] = "A";
-    map_[y][x] = Alien[0];
-
 }
 
 void display() // liEn & Afiq (from tutorial)
