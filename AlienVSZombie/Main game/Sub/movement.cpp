@@ -90,7 +90,7 @@ void movement::move_up()
 
         int y = getDimY() - 1; // 3 - 1 = 2,
         char trail[] = {'.'};
-
+        int AlX = AlienX_;
         for(int i = AlienY_; i > 0; --i) // 2 - 1 = 1
         {
             int temp = i;
@@ -179,6 +179,9 @@ void movement::move_up()
         }
         Pause();
         setmap(AlienY_, AlienX_, 'A');
+        display();
+        Pause();
+        ranobjY(AlX);
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
@@ -189,6 +192,7 @@ void movement::move_up()
     {
         int y = getDimY() - 1; // 3 -1 = 2 , Alien = 1
         char trail[] = {'.'};
+        int AlX = AlienX_;
         for(int i = AlienY_; i < y; ++i)
         {
             int temp = i;
@@ -278,6 +282,9 @@ void movement::move_up()
         }
         Pause();
         setmap(AlienY_, AlienX_, 'A');
+        display();
+        Pause();
+        ranobjY(AlX);
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
@@ -288,7 +295,7 @@ void movement::move_up()
     {
         int x = getDimX() - 1; // 9 - 1 = 8, 
         char trail[] = {'.'};
-        // cout << "AlienY_ =" << AlienY_ << endl;
+        int AlY = AlienY_;
         for(int i = AlienX_; i > 0; --i) // 8 - 4 = 4
         {
             int temp = i;
@@ -378,6 +385,9 @@ void movement::move_up()
         }
         Pause();
         setmap(AlienY_, AlienX_, 'A');
+        display();
+        Pause();
+        ranobjX(AlY);
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
@@ -388,12 +398,11 @@ void movement::move_up()
     {
         int x = getDimX() - 1;
         char trail[] = {'.'};
+        int AlY = AlienY_;
         for(int i = AlienX_; i < x; ++i)
         {
             int temp = i;
-
             char obj = getObject(AlienY_ , temp + 1);
-
             if (obj == 'h') // Health (+20 health to Alien)
             {
                 cout << " Gained 20 Health " << endl;
@@ -482,6 +491,9 @@ void movement::move_up()
         }
         Pause();
         setmap(AlienY_, AlienX_, 'A');
+        display();
+        Pause();
+        ranobjX(AlY);
         display(); 
         int no = getZomB(); // Afiq
         alienstat(); // Afiq

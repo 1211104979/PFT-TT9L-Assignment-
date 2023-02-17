@@ -36,6 +36,9 @@ using namespace std;
     void gameover(); // Afiq
     void playmenu(); // Afiq
     char randObject(char x);
+    char refreshObj(char x);
+    void ranobjX(int AlY);
+    void ranobjY(int AlX);
     void changesetting(); // liEn
     void Board(); // liEn
     void zomdisplay(int no);
@@ -96,7 +99,6 @@ class movement : public Enemy
         void move_left();
         void move_right();
         void move_arrow(int y, int x, string z);
-        // void get_arrow();
         void zommove();
         // int getzomhp_();
         // int setzomhp_(int hp);
