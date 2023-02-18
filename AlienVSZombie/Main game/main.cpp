@@ -260,8 +260,8 @@ void changesetting() // liEn & Afiq
             init(x, y, z); // liEn
             display(); 
             int no = zomB_; // Afiq
-            alien.alienstat(); // Afiq
-			zombie.zombiegen(no); 
+            alien.alienturndisplay(); // Afiq  
+            zombie.zombiegen(no); 
 			play();
         }
     }
@@ -274,7 +274,7 @@ void Board()
     // srand(1);
     display();
     int no = zomB_; // Afiq
-    alien.alienstat(); // Afiq  
+    alien.alienturndisplay(); // Afiq  
 	zombie.zombiegen(no); 
 	play();
 }
@@ -286,6 +286,46 @@ void zomdisplay(int no)
     for (int i = 0; i < b; i++)
     {
         cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+    }
+    cout << endl;
+}
+
+void zomturndisplay(int no, int num)
+{
+    int b = no;
+    if(num == 0)
+    {
+        cout << '\n' << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+        for (int i = num + 1; i < no; i++)
+        {
+            if(num!=i)
+            {        
+                cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+            }    
+        }
+    }
+    else if(num>0 && num<no)
+    {
+        for (int i = 0; i < num; i++)
+        {     
+            cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+        }
+        cout << '\n' << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+        for (int i = num + 1; i < no; i++)
+        {
+            if(num!=i)
+            {        
+                cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+            }    
+        }
+    }
+    else
+    {
+        for (int i = 0; i < num; i++)
+        {        
+            cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+        }
+        cout << '\n' << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
     }
     cout << endl;
 }

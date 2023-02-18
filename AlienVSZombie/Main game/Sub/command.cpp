@@ -42,21 +42,25 @@ void play()
         if (con == "up")
         {
             move.move_up();
+            move.zommove();
         }
 
         if (con == "down")
         {
             move.move_down();
+            move.zommove();
         }
 
         if (con == "left")
         {
             move.move_left();
+            move.zommove();
         }
 
         if (con == "right")
         {
             move.move_right();
+            move.zommove();
         }
 
         if (con == "arrow")
@@ -74,7 +78,7 @@ void play()
             Pause();
             display(); 
             int no = getZomB(); // Afiq
-            move.alienstat(); // Afiq
+            move.alienturndisplay(); // Afiq
             zomdisplay(no);
         }
 

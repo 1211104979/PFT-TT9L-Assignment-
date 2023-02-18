@@ -46,6 +46,7 @@ using namespace std;
     void changesetting(); // liEn
     void Board(); // liEn
     void zomdisplay(int no);
+    void zomturndisplay(int no, int num);
     void play();
 
 
@@ -106,9 +107,12 @@ class movement : public Enemy
         vector<int> zomYVec;
 
         void Alienturn();
-        void alienstat();
+        void Zombieturn(int num);
+        void alienturndisplay();
+        void aliendisplay();
         int getalhp_();
-        int setalhp_(int hp);
+        int setplusalhp_(int hp);
+        int setminusalhp_(int hp);
         int getalatk_();
         int setalatk_(int atk);
         int resetatk_();

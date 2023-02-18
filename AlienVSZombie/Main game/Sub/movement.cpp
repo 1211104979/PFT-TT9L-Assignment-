@@ -13,7 +13,7 @@
 using namespace std;
 
 // Shows Alien stats
-void movement::alienstat()
+void movement::alienturndisplay()
 {
     if (GetLoad() == 1)
     {
@@ -27,12 +27,26 @@ void movement::alienstat()
     saveATK(alatk_);
 }
 
+void movement::aliendisplay()
+{
+    if (GetLoad() == 1)
+    {
+        alhp_ = GetAlienHP();
+        alatk_ = GetAlienATK();
+    }
+
+    cout << "  Alien    ";
+    cout << "| Health point :" << alhp_ << "| Attack :" << alatk_;
+    saveHP(alhp_);
+    saveATK(alatk_);
+}
+
 int movement::getalhp_()
     {
         return alhp_;
     }
 
-int movement::setalhp_(int hp)
+int movement::setplusalhp_(int hp)
     {
         if (alhp_ < 100)
         {
@@ -40,6 +54,16 @@ int movement::setalhp_(int hp)
         }
         return alhp_;
     }
+
+int movement::setminusalhp_(int hp)
+    {
+        if (alhp_ < 100)
+        {
+            alhp_ = alhp_ - hp;
+        }
+        return alhp_;
+    }
+
 int movement::resetatk_()
     {
         return alatk_ = 0;
@@ -76,45 +100,20 @@ int movement::getalienY_() const
         return AlienY_;
     }
 
-// Zombie stat
-
-// int movement::getzomhp_()
-//     {
-//         return 0;
-//     }
-
-// int movement::setzomhp_(int hp)
-//     {
-//         zomhp_ = zomhp_ + hp;
-//         return zomhp_;
-//     }
-
-// int movement::setzomX_(int x)
-//     {
-//         return zomX_ = x;
-//     }
-
-// int movement::setzomY_(int y)
-//     {
-//         return zomY_ = y;
-//     }
-
-// int movement::getzomX_() const
-//     {
-//         return zomX_;
-//     }
-
-// int movement::getzomY_() const
-//     {
-//         return zomY_;
-//     }
 //====================================================
 // Gui
 // Alien turn
 void movement::Alienturn()
 {
     int no = getZomB();
-    alienstat(); 
+    alienturndisplay(); 
+    zomdisplay(no);
+}
+// Zombie turn
+void movement::Zombieturn(int num)
+{
+    int no = getZomB();
+    aliendisplay(); 
     zomdisplay(no);
 }
 
@@ -136,7 +135,7 @@ void movement::move_up()
                 cout << "Gained 20 Health." << endl;
                 Pause();
                 getalhp_();
-                setalhp_(20);
+                setplusalhp_(20);
                 AlienY_ = i - 1; // good
                 setalienY_(AlienY_); // good
             }
@@ -236,9 +235,7 @@ void movement::move_up()
         ranobjupdate();
         display(); 
         resetatk_();
-        int no = getZomB(); // Afiq
-        alienstat(); // Afiq
-        zomdisplay(no);
+        Alienturn();
         saveHP(alhp_);
         saveATK(alatk_);
     }
@@ -258,7 +255,7 @@ void movement::move_up()
                 cout << "Gained 20 Health." << endl;
                 Pause();
                 getalhp_();
-                setalhp_(20);
+                setplusalhp_(20);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
@@ -362,9 +359,7 @@ void movement::move_up()
         ranobjupdate();
         display(); 
         resetatk_();
-        int no = getZomB(); // Afiq
-        alienstat(); // Afiq
-        zomdisplay(no);
+        Alienturn();
         saveHP(alhp_);
         saveATK(alatk_);
     }
@@ -384,7 +379,7 @@ void movement::move_up()
                 cout << "Gained 20 Health." << endl;
                 Pause();
                 getalhp_();
-                setalhp_(20);
+                setplusalhp_(20);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
             }
@@ -487,9 +482,7 @@ void movement::move_up()
         ranobjupdate();
         display(); 
         resetatk_();
-        int no = getZomB(); // Afiq
-        alienstat(); // Afiq
-        zomdisplay(no);
+        Alienturn();
         saveHP(alhp_);
         saveATK(alatk_);
     }
@@ -509,7 +502,7 @@ void movement::move_up()
                 cout << " Gained 20 Health. " << endl;
                 Pause();
                 getalhp_();
-                setalhp_(20);
+                setplusalhp_(20);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
@@ -613,9 +606,7 @@ void movement::move_up()
         ranobjupdate();
         display(); 
         resetatk_();
-        int no = getZomB(); // Afiq
-        alienstat(); // Afiq
-        zomdisplay(no);
+        Alienturn();
         saveHP(alhp_);
         saveATK(alatk_);
     }
@@ -631,33 +622,25 @@ void movement::move_up()
         {
             setmap(ary, arx, '^');
             display(); 
-            int no = getZomB(); // Afiq
-            alienstat(); // Afiq
-            zomdisplay(no);
+            Alienturn();
         }
         else if ( dir.compare("down") == 0)
         {
             setmap(ary, arx, 'v');
             display(); 
-            int no = getZomB(); // Afiq
-            alienstat(); // Afiq
-            zomdisplay(no);
+            Alienturn();
         }
         else if ( dir.compare("left") == 0)
         {
             setmap(ary, arx, '<');
             display(); 
-            int no = getZomB(); // Afiq
-            alienstat(); // Afiq
-            zomdisplay(no);
+            Alienturn();
         }
         else if ( dir.compare("right") == 0)
         {
             setmap(ary, arx, '>');
             display(); 
-            int no = getZomB(); // Afiq
-            alienstat(); // Afiq
-            zomdisplay(no);
+            Alienturn();
         }
 
     }
@@ -668,6 +651,8 @@ void movement::zommove()
     int no = getZomB();
     for (int i = 0; i < no; ++i)
     {
+        cout << "  Zombie " << i+1 << " is making a move." << endl;
+        Pause();
         fesetround(FE_UPWARD);
         char Zombody[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         int Zy = getZomY(i);
@@ -687,17 +672,25 @@ void movement::zommove()
         int ZtoAX = abs(DisX);
         if (Distance <= Zrng)
         {
-            getalhp_();
-            setalhp_(-1*Zatk);
+            int dmg = -1*Zatk;
+            setminusalhp_(dmg);
             cout << "Alien in range" << endl;
             Pause();
-            cout << "Alien take " << Zatk << " damage from zombie "<< i << endl;
+            cout << "Alien take " << Zatk << " damage from zombie "<< i + 1 << endl;
             Pause();
-            cout << "Zombie recover " << Zatk << " Health from attacking Alien "<< i << endl;
+            cout << "Zombie recover " << Zatk << " Health from attacking Alien "<< endl;
+            Zhp = Zhp + Zatk;
+            setZomHP(i, Zhp);
+            display();
+            Zombieturn(i);
             Pause();
         }
         else if (ZtoAX > ZtoAY)   
         {        
+            cout << "  Zombie" << i+1 << "cannot find Alien in range." << endl;
+            Pause();
+            cout << "  Zombie" << i+1 << "is moving towards Alien." << endl;
+            Pause();
             if(DisX<0)    
             {
                 // zomright
@@ -708,16 +701,24 @@ void movement::zommove()
                     Pause();
                     Zhp = Zhp + 20;
                     setZomHP(i, Zhp);
+                    setmap(Zy, Zx, ' ');
                     Zx = Zx + 1; 
                     setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
 
                 else 
                 {
+                    setmap(Zy, Zx, ' ');
                     Zx = Zx + 1; 
                     setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
             }
             else 
@@ -730,21 +731,33 @@ void movement::zommove()
                     Pause();
                     Zhp = Zhp + 20;
                     setZomHP(i, Zhp);
+                    setmap(Zy, Zx, ' ');
                     Zx = Zx - 1; 
                     setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
 
                 else 
                 {
+                    setmap(Zy, Zx, ' ');
                     Zx = Zx - 1; 
                     setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
             }
         }
         else 
         {
+            cout << "  Zombie" << i+1 << "cannot find Alien in range." << endl;
+            Pause();
+            cout << "  Zombie" << i+1 << "is moving towards Alien." << endl;
+            Pause();
             if (DisY<0)
             {
                 // zomdown
@@ -755,16 +768,24 @@ void movement::zommove()
                     Pause();
                     Zhp = Zhp + 20;
                     setZomHP(i, Zhp);
+                    setmap(Zy, Zx, ' ');
                     Zy = Zy + 1; 
                     setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
 
                 else 
                 {
+                    setmap(Zy, Zx, ' ');
                     Zy = Zy + 1;
                     setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
             }
             else 
@@ -777,16 +798,24 @@ void movement::zommove()
                     Pause();
                     Zhp = Zhp + 20;
                     setZomHP(i, Zhp);
+                    setmap(Zy, Zx, ' ');
                     Zy = Zy - 1; 
                     setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
 
                 else 
                 {
+                    setmap(Zy, Zx, ' ');
                     Zy = Zy - 1;
                     setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
+                    display();
+                    Zombieturn(i);
+                    Pause();
                 }
             }
         }
