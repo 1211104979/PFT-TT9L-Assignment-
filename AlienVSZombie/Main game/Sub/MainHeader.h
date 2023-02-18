@@ -101,7 +101,7 @@ class movement : public Enemy
         int getalatk_();
         int setalatk_(int atk);
         int resetatk_();
-        void podatk();
+        void podatk(int podY, int podX);
 
         int setalienX_(int x);
         int setalienY_(int y);

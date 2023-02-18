@@ -194,7 +194,9 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause();
-                // put effect of searching alien here
+                int podY = temp - 1;
+                int podX = AlienX_;
+                podatk(podY , podX);
                 AlienY_ = i - 1; // good
                 setalienY_(AlienY_); // good
             }
@@ -316,8 +318,9 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause();
-                // not yet implemented
-                // put effect of searching alien here
+                int podY = temp + 1;
+                int podX = AlienX_;
+                podatk(podY , podX);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
@@ -436,8 +439,9 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause();
-                // not yet implemented
-                // put effect of searching alien here
+                int podY = AlienY_;
+                int podX = temp - 1;
+                podatk(podY , podX);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
             }
@@ -557,8 +561,9 @@ void movement::move_up()
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 Pause();
-                // not yet implemented
-                // put effect of searching alien here
+                int podY = AlienY_;
+                int podX = temp + 1;
+                podatk(podY , podX);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
@@ -774,26 +779,33 @@ void movement::zommove()
     }
 }
 
-void movement::podatk()
+void movement::podatk(int podY, int podX)
 {
-        int no = getZomB();
+    int no = getZomB();
+    int Dispod[no] = {};
     for (int i = 0; i < no; ++i)
     {
         fesetround(FE_UPWARD);
-        char Zombody[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         int Zy = ZomY_[i];
         int Zx = ZomX_[i];
-        int Ay = getalienY_();
-        int Ax = getalienX_();
 
-        int DisY = Zy - Ay;
-        int DisX = Zx - Ax;
+        int DisY = Zy - podY;
+        int DisX = Zx - podX;
         float DisTemp = pow(DisY,2) + pow(DisX,2);
         float Distance = llrint(sqrt(DisTemp));
-        int Zhp  = ZHpVec[i];
-        int Zatk = ZAtkVec[i];     
-        int Zrng = ZRngVec[i];
-
-        int ZtoAY = abs(DisY);
-        int ZtoAX = abs(DisX);
+        Dispod[i] = Distance;
+    }
+    int near = Dispod[0];
+    int zomnum;
+    for (int i = 0; i < no; ++i)
+    {
+        if(Dispod[i] < near)
+        {
+            near = Dispod[i];
+            zomnum = i;
+        }
+    }
+    int Zhp  = ZHpVec[zomnum];
+    Zhp = Zhp - 10;
+    ZHpVec.at(zomnum) = Zhp;
 }
