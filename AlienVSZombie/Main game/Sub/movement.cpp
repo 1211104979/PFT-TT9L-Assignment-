@@ -857,3 +857,77 @@ void movement::podatk(int podY, int podX)
     Zhp = Zhp - 10;
     setZomHP(zomnum, Zhp);
 }
+
+void movement::subalatk(int num)
+{
+    int Zy_ = getZomY(num);
+    int Zx_ = getZomX(num);
+
+    int ZomHp_ = getZHP(num);
+    int Alatk_ = getalatk_();
+    ZomHp_ = ZomHp_ - Alatk_;
+    if (ZomHp_<=0)
+    {
+        ZomHp_ = 0;
+        setZomHP(num, ZomHp_);
+        setmap(Zy_, Zx_, ' ');
+        display();
+        Alienturn();
+        cout << " Zombie " << num+1 << ", defeated." << endl;
+        Pause();
+    }
+    else
+    {
+        cout << " Zombie " << num+1 << " is still alive." << endl;
+        Pause();
+    }
+}
+
+void movement::Alienattack(char obj)
+{
+    if (obj == '1')
+    {
+        int num = 0;
+        subalatk(num);
+    }
+    else if (obj == '2')
+    {
+        int num = 1;
+        subalatk(num);
+    }
+    else if (obj == '3')
+    {
+        int num = 2;
+        subalatk(num);
+    }
+    else if (obj == '4')
+    {
+        int num = 3;
+        subalatk(num);
+    }
+    else if (obj == '5')
+    {
+        int num = 4;
+        subalatk(num);
+    }
+    else if (obj == '6')
+    {
+        int num = 5;
+        subalatk(num);
+    }
+    else if (obj == '7')
+    {
+        int num = 6;
+        subalatk(num);
+    }
+    else if (obj == '8')
+    {
+        int num = 7;
+        subalatk(num);
+    }
+    else if (obj == '9')
+    {
+        int num = 8;
+        subalatk(num);
+    }
+}

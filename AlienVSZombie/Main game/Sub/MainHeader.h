@@ -117,6 +117,8 @@ class movement : public Enemy
         int setalatk_(int atk);
         int resetatk_();
         void podatk(int podY, int podX);
+        void subalatk(int num);
+        void Alienattack(char obj);
 
         int setalienX_(int x);
         int setalienY_(int y);
