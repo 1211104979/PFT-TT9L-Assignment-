@@ -262,11 +262,6 @@ void changesetting() // liEn & Afiq
             setDimY(y);
             setZomB(z); // liEn 
             init(x, y, z); // liEn
-            for(int i = 0; i < ZomX_.size(); i++)
-            {
-                cout << ZomX_[i] << endl;
-            }
-            Pause();
             display(); 
             int no = zomB_; // Afiq
             alien.alienturndisplay(); // Afiq  

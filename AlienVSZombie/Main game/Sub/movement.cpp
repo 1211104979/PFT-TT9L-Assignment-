@@ -145,6 +145,7 @@ void movement::move_up()
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
                 Pause();
+                setalatk_(20);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
@@ -159,6 +160,7 @@ void movement::move_up()
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
                 Pause();
+                setalatk_(20);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
             }
@@ -167,6 +169,7 @@ void movement::move_up()
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
                 Pause();
+                setalatk_(20);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
@@ -181,6 +184,7 @@ void movement::move_up()
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
                 Pause();
+                setalatk_(20);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
@@ -428,6 +432,7 @@ void movement::move_up()
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
                 Pause();
+                setalatk_(20);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
