@@ -17,8 +17,9 @@ using namespace std;
 
 int Loadstatus = 0;
 int LoadAlien_X, LoadAlien_Y, HP_Alien, ATK_Alien;
-vector<vector<int>> ZB_atrr;
-char num[9] = {'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'};
+vector<vector<int>> ZB_atrr(10, vector<int>(10));
+
+char num[9] = {'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'}; // number of zombies replaced by char o = 1, p = 2,...
 
 // split string by finding the delimiter
 string split(string stence, char del)
@@ -279,10 +280,11 @@ void loadZBAtrr(string LoadFname)
 {
     ifstream gameFile;
     string existFile;
-    int testExisting, nZB;
+    int testExisting, nZB, i, j;
+    i = 0;
+    j = 0;
 
     existFile = ".\\savefiles\\" + LoadFname;
-    nZB = getLoadZom(existFile);
 
     gameFile.open(existFile, ios::in); // read the file
     if (gameFile.is_open())
@@ -290,35 +292,44 @@ void loadZBAtrr(string LoadFname)
         string readLine;
         while (getline(gameFile, readLine))
         {
-            if (readLine[0] == 'B') // Find the line related to Zombie
+            char theNum = num[i];
+
+            if (readLine[0] == 'B' && readLine[1] == theNum) // Find the line related to Zombie
             {
-                char numChar = num[nZB];
-                if (readLine[1] == numChar)
+
+                if (readLine[2] == 'H')
                 {
-                    if (readLine[2] == 'H')
-                    {
-                        string temp = split(readLine, 'B');
-                        string temp1 = split(temp, numChar);
-                        string temp2 = split(temp1, 'H');
-                        int ZB_hp = stoi(temp2);
-                    }
+                    string temp = split(readLine, 'B');
+                    string temp1 = split(temp, theNum);
+                    string temp2 = split(temp1, 'H');
+                    int ZB_hp = stoi(temp2);
+                    ZB_atrr[i][0] = ZB_hp;
+                }
 
-                    else if (readLine[2] == 'A')
-                    {
-                        string temp = split(readLine, 'B');
-                        string temp1 = split(readLine, numChar);
-                        string temp2 = split(temp1, 'A');
-                    }
+                else if (readLine[2] == 'A')
+                {
+                    string temp = split(readLine, 'B');
+                    string temp1 = split(temp, theNum);
+                    string temp2 = split(temp1, 'A');
+                    int ZB_atk = stoi(temp2);
+                    ZB_atrr[i][1] = ZB_atk;
+                }
 
-                    else if (readLine[2] == 'R')
-                    {
-                        string temp = split(readLine, 'B');
-                        string temp1 = split(readLine, numChar);
-                        string temp2 = split(temp1, 'R');
-                    }
+                else if (readLine[2] == 'R')
+                {
+                    string temp = split(readLine, 'B');
+                    string temp1 = split(temp, theNum);
+                    string temp2 = split(temp1, 'R');
+                    int ZB_rge = stoi(temp2);
+                    ZB_atrr[i][2] = ZB_rge;
+                }
+
+                j++;
+                if (j == 3)
+                {
+                    i++;
                 }
             }
-            nZB++;
         }
     }
 }
