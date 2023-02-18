@@ -46,6 +46,7 @@ List down the contribution of each group members.
 3. Randomly generate Zombie position
 4. save function
 5. Load function
+6. Game testing and bugs fixing
 
 ### Muhammad Afiq Ikhwan Bin Aminuddin
 
