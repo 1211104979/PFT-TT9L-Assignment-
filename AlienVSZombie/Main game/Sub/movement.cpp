@@ -116,39 +116,50 @@ void movement::move_up()
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
+
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_down();
+                break;
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
+
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
+
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_left();
+                break;
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
+
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_right();
+                break;
             }
             else if (obj == 'p') // attack nearby Zombie
             {
@@ -159,6 +170,8 @@ void movement::move_up()
             }
             else if (obj == 'r')
             {
+                cout << "Alien finds a rock." << endl;
+                cout << "Breaking the rock." << endl;
                 // random object in (temp - 1, AlienX_)
                 AlienY_ = i;
                 setalienY_(AlienY_);
@@ -172,6 +185,7 @@ void movement::move_up()
             }
             else 
             {
+                cout << "Alien finds an empty space." << endl;
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
             }
@@ -211,39 +225,46 @@ void movement::move_up()
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_up();
+                break;
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_left();
+                break;
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_right();
+                break;
             }
             else if (obj == 'p') // attack nearby Zombie
             {
@@ -306,39 +327,46 @@ void movement::move_up()
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_down();
+                break;
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_up();
+                break;
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = AlienX_ - 1;
                 setalienX_(AlienX_);
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_right();
+                break;
             }
             else if (obj == 'p') // attack nearby Zombie
             {
@@ -400,37 +428,44 @@ void movement::move_up()
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_down();
+                break;
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_up();
+                break;
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
                 Pause();
                 move_left();
+                break;
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                cout << "arrow detected" << endl;
+                cout << "Alien finds an arrow." << endl;
+                cout << "Alien's attack is increased by 20." << endl;
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
