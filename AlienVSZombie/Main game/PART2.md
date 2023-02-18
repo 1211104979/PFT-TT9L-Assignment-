@@ -29,6 +29,7 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 8. Alien generated in the middle
 9. Alien movement 
 10. Arrow direction control command
+11. Load function
 
 ## Additional Features
 Describe the additional features that has been implemented.
@@ -43,7 +44,8 @@ List down the contribution of each group members.
 1. Randomly generate gameboard.
 2. Alien generation
 3. Randomly generate Zombie position
-4. save file
+4. save function
+5. Load function
 
 ### Muhammad Afiq Ikhwan Bin Aminuddin
 
