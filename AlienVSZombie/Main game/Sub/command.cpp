@@ -32,12 +32,12 @@ void play()
 
     move.setalienX_(x);
     move.setalienY_(y);
-    while(1)
+    while (1)
     {
 
         string con;
-        cout << " Command " ;
-        cin >> con ;
+        cout << " Command ";
+        cin >> con;
 
         if (con == "up")
         {
@@ -69,15 +69,15 @@ void play()
             int arY, arX;
             string ardir;
             cin >> arX >> arY >> ardir;
-            move.move_arrow( arX,  arY,  ardir);
+            move.move_arrow(arX, arY, ardir);
         }
 
         if (con == "help")
         {
             help();
             Pause();
-            display(); 
-            int no = getZomB(); // Afiq
+            display();
+            int no = getZomB();      // Afiq
             move.alienturndisplay(); // Afiq
             zomdisplay(no);
         }
@@ -90,7 +90,11 @@ void play()
         if (con == "load")
         {
             loadmap();
-            Board();
+        }
+
+        if (con == "menu")
+        {
+            getMenu();
         }
 
         if (con == "quit")
