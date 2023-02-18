@@ -17,7 +17,7 @@
 using namespace std;
 
 int Loadstatus = 0;
-int LoadAlien_X, LoadAlien_Y, HP_Alien, ATK_Alien;
+int LoadAlien_X, LoadAlien_Y, HP_Alien, ATK_Alien, numberofZom;
 vector<vector<int>> ZB_atrr(9, vector<int>(3));
 
 char num[9] = {'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'}; // number of zombies replaced by char o = 1, p = 2,...
@@ -263,12 +263,22 @@ int getLoadZom(string file)
         }
         gameFile.close();
     }
+    numberofZom = numZom;
     return numZom;
 }
 
+int GetLZom()
+{
+    return numberofZom;
+}
 int GetLoad()
 {
     return Loadstatus;
+}
+
+void resetLoad()
+{
+    Loadstatus = 0;
 }
 
 int GetAlienX()
@@ -455,10 +465,12 @@ void loadmap()
         }
         gameFile.close();
         Loadstatus = 1;
+        Board();
     }
 
     else
     {
         cout << "The file does not exist." << endl;
+        Pause();
     }
 }
