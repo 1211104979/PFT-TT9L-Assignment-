@@ -487,11 +487,21 @@ void movement::move_up()
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 cout << "Attacking Zombie." << endl;
-                // 
                 Pause();
-                AlienX_ = i;
-                setalienX_(AlienX_);
-                i = 0;
+                Alienattack(obj);
+                Pause();
+                char obj2 = getObject(AlienY_, temp - 1);
+                if (obj2 == ' ')
+                {
+                    AlienX_ = i - 1;
+                    setalienX_(AlienX_);
+                }
+                else
+                {
+                    AlienX_ = i;
+                    setalienX_(AlienX_);
+                    i = 0;
+                }
             }
             else 
             {
@@ -610,12 +620,23 @@ void movement::move_up()
             }
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
-                AlienX_ = i;
-                setalienX_(AlienX_);
                 cout << "Attacking Zombie." << endl;
-                // 
+                cout << "Attacking Zombie." << endl;
                 Pause();
-                i = x;
+                Alienattack(obj);
+                Pause();
+                char obj2 = getObject(AlienY_, temp + 1);
+                if (obj2 == ' ')
+                {
+                    AlienX_ = i + 1;
+                    setalienX_(AlienX_);
+                }
+                else
+                {
+                    AlienX_ = i;
+                    setalienX_(AlienX_);
+                    i = x;
+                }
             }
             else 
             {
