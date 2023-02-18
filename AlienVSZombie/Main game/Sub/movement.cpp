@@ -858,6 +858,7 @@ void movement::podatk(int podY, int podX)
     setZomHP(zomnum, Zhp);
 }
 
+
 void movement::subalatk(int num)
 {
     int Zy_ = getZomY(num);
