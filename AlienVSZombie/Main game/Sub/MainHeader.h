@@ -33,7 +33,7 @@ using namespace std;
     extern vector<int> ZomX_;
     extern vector<vector<int>> ZB_atrr;
     void emptymap(int dX, int dY);
-    // void emptyZomvec(int Zom);
+    void emptyZomvec(int Zom);
     void getMenu(); // Afiq
     void controls(); // Afiq
     void help(); // Afiq

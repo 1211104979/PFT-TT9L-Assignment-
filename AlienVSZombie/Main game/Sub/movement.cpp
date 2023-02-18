@@ -57,9 +57,10 @@ int movement::setplusalhp_(int hp)
 
 int movement::setminusalhp_(int hp)
     {
-        if (alhp_ < 100)
+        alhp_ = alhp_ - hp;
+        if (alhp_ <= 0)
         {
-            alhp_ = alhp_ - hp;
+            alhp_ = 0;
         }
         return alhp_;
     }
@@ -672,7 +673,7 @@ void movement::zommove()
         int ZtoAX = abs(DisX);
         if (Distance <= Zrng)
         {
-            int dmg = -1*Zatk;
+            int dmg = Zatk;
             setminusalhp_(dmg);
             cout << "Alien in range" << endl;
             Pause();

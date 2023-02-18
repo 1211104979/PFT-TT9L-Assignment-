@@ -50,6 +50,12 @@ void emptymap(int dX, int dY)
     }
 }
 
+void emptyZomvec()
+{
+    ZomY_.clear();
+    ZomX_.clear();
+}
+
 void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 {
     dimX_ = dimX;
@@ -61,7 +67,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 
     // create dynamic 2D array using vector
     emptymap(dimX_, dimY_);
-    // emptyZomvec(zomB_);
+    emptyZomvec();
 
     // put random characters into the vector array
     for (int i = 0; i < dimY_; ++i)
@@ -255,9 +261,12 @@ void changesetting() // liEn & Afiq
             setDimX(x);
             setDimY(y);
             setZomB(z); // liEn 
-            cout << "z " ;
-            cout << z << endl;
             init(x, y, z); // liEn
+            for(int i = 0; i < ZomX_.size(); i++)
+            {
+                cout << ZomX_[i] << endl;
+            }
+            Pause();
             display(); 
             int no = zomB_; // Afiq
             alien.alienturndisplay(); // Afiq  
