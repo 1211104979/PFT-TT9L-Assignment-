@@ -33,7 +33,8 @@ using namespace std;
 					playmenu();
 					break;
 				case '2':
-					;   //To add load function later
+					loadmap();
+					Board();
 					break;
 				case '3':
 					controls();
