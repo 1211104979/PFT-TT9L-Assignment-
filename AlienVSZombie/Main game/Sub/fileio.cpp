@@ -325,7 +325,7 @@ void loadZBAtrr(string LoadFname)
                 }
 
                 j++;
-                if (j == 3)
+                if (j % 3 == 0 && j != 0)
                 {
                     i++;
                 }
