@@ -25,10 +25,22 @@ void Enemy::zombiegen(int no)
         int ZHp = 100 + (randhp * 50);
         int ZAtk = 5 + (randatk  * 5);
         int ZRng = randrng ;
-        ZHpVec.push_back(ZHp);
-        ZAtkVec.push_back(ZAtk);
-        ZRngVec.push_back(ZRng);
-        cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << ZHp << "| Attack :" << ZAtk << "| Range :" << ZRng;
+        if (GetLoad() == 1)
+        {
+            ZHpVec.push_back(ZB_atrr[i][0]);
+            ZAtkVec.push_back(ZB_atrr[i][1]);
+            ZRngVec.push_back(ZB_atrr[i][2]);
+            cout << '\n'
+                 << "  Zombie " << i + 1 << " | Health point :" << ZB_atrr[i][0] << "| Attack :" << ZB_atrr[i][1] << "| Range :" << ZB_atrr[i][2];
+        }
+        else
+        {
+            ZHpVec.push_back(ZHp);
+            ZAtkVec.push_back(ZAtk);
+            ZRngVec.push_back(ZRng);
+            cout << '\n'
+                 << "  Zombie " << i + 1 << " | Health point :" << ZHp << "| Attack :" << ZAtk << "| Range :" << ZRng;
+        }
     }
     cout << endl;
 }
