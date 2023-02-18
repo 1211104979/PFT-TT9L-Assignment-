@@ -1,10 +1,12 @@
 Y3
 X9
 T   v pp v
-T^  pAr > 
-T <    r 1
+T^  p<r > 
+T <  A r1 
 EH100
 EA0
+x 7,
+y 2,
 Z0
 BoH200
 BoA15
