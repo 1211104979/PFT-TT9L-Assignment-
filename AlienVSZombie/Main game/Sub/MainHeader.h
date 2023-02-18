@@ -38,8 +38,7 @@ using namespace std;
     char randObject(char x);
     char refreshObj(char x);
     void ranobjupdate();
-    void ranobjX(int AlY);
-    void ranobjY(int AlX);
+    void rockobjupdate(int y, int x);
     void changesetting(); // liEn
     void Board(); // liEn
     void zomdisplay(int no);
@@ -93,9 +92,13 @@ class movement : public Enemy
         vector<int> zomXVec;
         vector<int> zomYVec;
 
+        void Alienturn();
         void alienstat();
         int getalhp_();
         int setalhp_(int hp);
+        int getalatk_();
+        int setalatk_(int atk);
+        int resetatk_();
 
         int setalienX_(int x);
         int setalienY_(int y);

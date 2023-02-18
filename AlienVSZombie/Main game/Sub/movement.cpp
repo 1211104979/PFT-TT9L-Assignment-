@@ -21,12 +21,11 @@ void movement::alienstat()
         alatk_ = GetAlienATK();
     }
 
-    cout << "  Alien    ";
+    cout << "> Alien    ";
     cout << "| Health point :" << alhp_ << "| Attack :" << alatk_;
     saveHP(alhp_);
     saveATK(alatk_);
 }
-
 
 int movement::getalhp_()
     {
@@ -35,8 +34,26 @@ int movement::getalhp_()
 
 int movement::setalhp_(int hp)
     {
-        alhp_ = alhp_ + hp;
-        return alhp_;
+        if (alhp_ < 100)
+        {
+            alhp_ = alhp_ + hp;
+            return alhp_;
+        }
+    }
+int movement::resetatk_()
+    {
+        return alatk_ = 0;
+    }  
+
+int movement::getalatk_()
+    {
+        return alatk_;
+    }
+
+int movement::setalatk_(int atk)
+    {
+        alatk_ = alatk_ + atk;
+        return alatk_;
     }
 
 int movement::setalienX_(int x)
@@ -92,7 +109,16 @@ int movement::getalienY_() const
 //         return zomY_;
 //     }
 //====================================================
+// Gui
+// Alien turn
+void movement::Alienturn()
+{
+    int no = getZomB();
+    alienstat(); 
+    zomdisplay(no);
+}
 
+//====================================================
 // Alien movement function
 void movement::move_up() 
     {
@@ -118,11 +144,12 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
-
+                Pause();
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_down();
                 break;
@@ -131,7 +158,7 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
-
+                Pause();
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
             }
@@ -139,11 +166,12 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
-
+                Pause();
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_left();
                 break;
@@ -152,11 +180,12 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
-
+                Pause();
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_right();
                 break;
@@ -164,6 +193,7 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
                 // put effect of searching alien here
                 AlienY_ = i - 1; // good
                 setalienY_(AlienY_); // good
@@ -172,13 +202,17 @@ void movement::move_up()
             {
                 cout << "Alien finds a rock." << endl;
                 cout << "Breaking the rock." << endl;
-                // random object in (temp - 1, AlienX_)
+                Pause();
+                rockobjupdate(temp - 1, AlienX_);
                 AlienY_ = i;
                 setalienY_(AlienY_);
-                i = y;
+                i = 0;
             }
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
+                cout << "attacking zombie" << endl;
+                // 
+                Pause();
                 AlienY_ = i;
                 setalienY_(AlienY_);
                 i = y;
@@ -186,17 +220,18 @@ void movement::move_up()
             else 
             {
                 cout << "Alien finds an empty space." << endl;
+                Pause();
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
             }
-            Pause();
             setmap(AlienY_, AlienX_, 'A');
             display();
-            cout << "Alien moved" << endl;
+            Alienturn();
             Pause();
         }
         ranobjupdate();
         display(); 
+        resetatk_();
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);
@@ -227,6 +262,8 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
@@ -234,10 +271,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_up();
                 break;
@@ -246,10 +286,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_left();
                 break;
@@ -258,10 +301,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_right();
                 break;
@@ -269,6 +315,7 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
                 // not yet implemented
                 // put effect of searching alien here
                 AlienY_ = i + 1;
@@ -276,12 +323,19 @@ void movement::move_up()
             }
             else if (obj == 'r')
             {
+                cout << "Alien finds a rock." << endl;
+                cout << "Breaking the rock." << endl;
+                Pause();
+                rockobjupdate(temp + 1, AlienX_);
                 AlienY_ = i;
                 setalienY_(AlienY_);
                 i = y;
             }
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
+                cout << "attacking zombie" << endl;
+                // 
+                Pause();
                 AlienY_ = i;
                 setalienY_(AlienY_);
                 i = y;
@@ -291,14 +345,14 @@ void movement::move_up()
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
-            Pause();
             setmap(AlienY_, AlienX_, 'A');
             display();
-            cout << "Alien moved" << endl;
+            Alienturn();
             Pause();
         }
         ranobjupdate();
         display(); 
+        resetatk_();
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);
@@ -329,10 +383,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_down();
                 break;
@@ -341,10 +398,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_up();
                 break;
@@ -353,6 +413,8 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienX_ = AlienX_ - 1;
                 setalienX_(AlienX_);
             }
@@ -360,10 +422,12 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_right();
                 break;
@@ -371,6 +435,7 @@ void movement::move_up()
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
                 // not yet implemented
                 // put effect of searching alien here
                 AlienX_ = i - 1;
@@ -378,12 +443,19 @@ void movement::move_up()
             }
             else if (obj == 'r')
             {
+                cout << "Alien finds a rock." << endl;
+                cout << "Breaking the rock." << endl;
+                Pause();
+                rockobjupdate(AlienY_ , temp - 1);
                 AlienX_ = i;
                 setalienX_(AlienX_);
                 i = 0;
             }
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
+                cout << "attacking zombie" << endl;
+                // 
+                Pause();
                 AlienX_ = i;
                 setalienX_(AlienX_);
                 i = 0;
@@ -395,11 +467,12 @@ void movement::move_up()
             }
             setmap(AlienY_, AlienX_, 'A');
             display();
-            cout << "Alien moved" << endl;
+            Alienturn();
             Pause();
         }
         ranobjupdate();
         display(); 
+        resetatk_();
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);
@@ -430,10 +503,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_down();
                 break;
@@ -442,10 +518,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_up();
                 break;
@@ -454,10 +533,13 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
                 setmap(AlienY_, AlienX_, 'A');
                 display();
+                Alienturn();
                 Pause();
                 move_left();
                 break;
@@ -466,12 +548,15 @@ void movement::move_up()
             {
                 cout << "Alien finds an arrow." << endl;
                 cout << "Alien's attack is increased by 20." << endl;
+                Pause();
+                setalatk_(20);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
+                Pause();
                 // not yet implemented
                 // put effect of searching alien here
                 AlienX_ = i + 1;
@@ -479,6 +564,10 @@ void movement::move_up()
             }
             else if (obj == 'r')
             {
+                cout << "Alien finds a rock." << endl;
+                cout << "Breaking the rock." << endl;
+                Pause();
+                rockobjupdate(AlienY_ , temp + 1);
                 AlienX_ = i;
                 setalienX_(AlienX_);
                 i = x;
@@ -487,6 +576,9 @@ void movement::move_up()
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
+                cout << "attacking zombie" << endl;
+                // 
+                Pause();
                 i = x;
             }
             else 
@@ -494,14 +586,14 @@ void movement::move_up()
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
-            Pause();
             setmap(AlienY_, AlienX_, 'A');
             display();
-            cout << "Alien moved" << endl;
+            Alienturn();
             Pause();
         }
         ranobjupdate();
         display(); 
+        resetatk_();
         int no = getZomB(); // Afiq
         alienstat(); // Afiq
         zomdisplay(no);

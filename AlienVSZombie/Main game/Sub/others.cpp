@@ -115,34 +115,16 @@ char refreshObj(char x)
     return x;
 }
 
-
-void ranobjX(int AlY)
+void rockobjupdate(int y, int x)
 {
-    char ranobj, x;
-    int dimX = getDimX();
-    for (int i = 0; i < dimX; ++i)
+    char ranobj, obj;
+    if(map_[y][x] == 'r')
     {
-        if (map_[AlY][i] == '.')
-        {
-            ranobj = refreshObj(x);
-            map_[AlY][i] = ranobj;
-        }
+        ranobj = randObject(obj);
+        map_[y][x] = ranobj;
     }
 }
 
-void ranobjY(int AlX)
-{
-    char ranobj, x;
-    int dimY = getDimY();
-    for (int i = 0; i < dimY; ++i)
-    {
-        if (map_[i][AlX] == '.')
-        {
-            ranobj = refreshObj(x);
-            map_[i][AlX] = ranobj;
-        }
-    }
-}
 void ranobjupdate()
 {
     char ranobj, x;
