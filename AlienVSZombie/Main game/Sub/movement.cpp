@@ -646,9 +646,11 @@ void movement::move_up()
 // Zombie movement
 void movement::zommove()
 {
-    for (int i = 0; i < 1; ++i)
+    int no = getZomB();
+    for (int i = 0; i < no; ++i)
     {
         fesetround(FE_UPWARD);
+        char Zombody[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         int Zy = ZomY_[i];
         int Zx = ZomX_[i];
         int Ay = getalienY_();
@@ -669,19 +671,57 @@ void movement::zommove()
             getalhp_();
             setalhp_(-1*Zatk);
             cout << "Alien in range" << endl;
+            Pause();
             cout << "Alien take " << Zatk << " damage from zombie "<< i << endl;
+            Pause();
+            cout << "Zombie recover " << Zatk << " Health from attacking Alien "<< i << endl;
+            Pause();
         }
         else if (ZtoAX > ZtoAY)   
         {        
             if(DisX<0)    
             {
                 // zomright
-                // zomright(Zy,Zx);
+                char obj = getObject(Zy, Zx + 1);
+                if (obj == 'h') // Health (+20 health to Alien)
+                {
+                    cout << " Zombie Gained 20 Health " << endl;
+                    Pause();
+                    Zhp = Zhp + 20;
+                    ZHpVec.at(i) = Zhp;
+                    Zx = Zx + 1; 
+                    ZomX_[i] = Zx;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
+
+                else 
+                {
+                    Zx = Zx + 1; 
+                    ZomX_[i] = Zx;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
             }
             else 
             {
                 // zomleft
-                // zomleft(Zy,Zx);
+                char obj = getObject(Zy, Zx - 1);
+                if (obj == 'h') // Health (+20 health to Alien)
+                {
+                    cout << " Zombie Gained 20 Health " << endl;
+                    Pause();
+                    Zhp = Zhp + 20;
+                    ZHpVec.at(i) = Zhp;
+                    Zx = Zx - 1; 
+                    ZomX_[i] = Zx;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
+
+                else 
+                {
+                    Zx = Zx - 1; 
+                    ZomX_[i] = Zx;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
             }
         }
         else 
@@ -689,92 +729,71 @@ void movement::zommove()
             if (DisY<0)
             {
                 // zomdown
-                // zomdown(Zy,Zx);
+                char obj = getObject(Zy + 1, Zx);
+                if (obj == 'h') // Health (+20 health to Alien)
+                {
+                    cout << " Zombie Gained 20 Health " << endl;
+                    Pause();
+                    Zhp = Zhp + 20;
+                    ZHpVec.at(i) = Zhp;
+                    Zy = Zy + 1; 
+                    ZomY_[i] = Zy;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
+
+                else 
+                {
+                    Zy = Zy + 1;
+                    ZomY_[i] = Zy;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
             }
             else 
             {
                 // zomup
-                // zomup(Zy,Zx);
+                char obj = getObject(Zy - 1, Zx);
+                if (obj == 'h') // Health (+20 health to Alien)
+                {
+                    cout << " Zombie Gained 20 Health " << endl;
+                    Pause();
+                    Zhp = Zhp + 20;
+                    ZHpVec.at(i) = Zhp;
+                    Zy = Zy - 1; 
+                    ZomY_[i] = Zy;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
+
+                else 
+                {
+                    Zy = Zy - 1;
+                    ZomY_[i] = Zy;
+                    setmap(Zy, Zx, Zombody[i]);
+                }
             }
         }
     }
 }
 
-// void movement::zomup(int zomY_,int zomX_)
-// {
-//             char obj = getObject(zomY_ - 1, zomX_);
-//             if (obj == 'h') // Health (+20 health to Alien)
-//             {
-//                 cout << " Gained 20 Health " << endl;
-//                 Pause();
-//                 getzomhp_();
-//                 setzomhp_(20);
-//                 zomY_ = zomY_ - 1; // good
-//                 setzomX_(zomY_); // good
-//             }
+void movement::podatk()
+{
+        int no = getZomB();
+    for (int i = 0; i < no; ++i)
+    {
+        fesetround(FE_UPWARD);
+        char Zombody[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        int Zy = ZomY_[i];
+        int Zx = ZomX_[i];
+        int Ay = getalienY_();
+        int Ax = getalienX_();
 
-//             else if (obj == '^') // move up by 1 and stop
-//             {
-//                 zomY_ = zomY_ - 1;
-//                 setzomY_(zomY_);
-//             }
-// }
+        int DisY = Zy - Ay;
+        int DisX = Zx - Ax;
+        float DisTemp = pow(DisY,2) + pow(DisX,2);
+        float Distance = llrint(sqrt(DisTemp));
+        int Zhp  = ZHpVec[i];
+        int Zatk = ZAtkVec[i];     
+        int Zrng = ZRngVec[i];
 
-// void movement::zomdown(int zomY_,int zomX_)
-// {
-//             char obj = getObject(zomY_ + 1, zomX_);
-
-//             if (obj == 'h')
-//             {
-//                 cout << " Gained 20 Health " << endl;
-//                 Pause();
-//                 getzomhp_();
-//                 setzomhp_(20);
-//                 zomY_ = zomY_ + 1;
-//                 setzomY_(zomY_);
-
-//             }
-//             else if (obj == 'v') // move down by 1 and stop
-//             {
-//                 zomY_ = zomY_ + 1;
-//                 setzomY_(zomY_);
-//             }
-// }
-
-// void movement::zomleft(int zomY_,int zomX_)
-// {
-//             char obj = getObject(zomY_ , zomX_ - 1);
-//             if (obj == 'h') // Health (+20 health to Alien)
-//             {
-//                 cout << " Gained 20 Health " << endl;
-//                 Pause();
-//                 getalhp_();
-//                 setalhp_(20);
-//                 zomX_ = zomX_ - 1;
-//                 setzomX_(zomX_);
-//             }
-//             else if (obj == '<') // move to the left by 1 and stop
-//             {
-//                 zomX_ = zomX_ - 1;
-//                 setzomX_(zomX_);
-//             }
-// }
-
-// void movement::zomright(int zomY_,int zomX_)
-// {
-//             char obj = getObject(zomY_ , zomX_ + 1);
-//             if(obj == 'h') // Health (+20 health )
-//             {
-//                 cout << " Gained 20 Health " << endl;
-//                 Pause();
-//                 // getalhp_();
-//                 // setalhp_(20);
-//                 zomX_ = zomX_ + 1;
-//                 setzomX_(zomX_);
-//             }
-//             else 
-//             {
-//                     zomX_ = zomX_ + 1;
-//                     setzomX_(zomX_);
-//             }
-// }
+        int ZtoAY = abs(DisY);
+        int ZtoAX = abs(DisX);
+}

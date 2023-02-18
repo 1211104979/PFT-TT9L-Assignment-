@@ -101,6 +101,7 @@ class movement : public Enemy
         int getalatk_();
         int setalatk_(int atk);
         int resetatk_();
+        void podatk();
 
         int setalienX_(int x);
         int setalienY_(int y);
@@ -113,12 +114,6 @@ class movement : public Enemy
         void move_right();
         void move_arrow(int y, int x, string z);
         void zommove();
-        // int getzomhp_();
-        // int setzomhp_(int hp);
-        // int setzomX_(int x);
-        // int setzomY_(int y);
-        // int getzomX_() const;
-        // int getzomY_() const;
 };
 
 //Class-----------------------------------------------------------------------------------------
