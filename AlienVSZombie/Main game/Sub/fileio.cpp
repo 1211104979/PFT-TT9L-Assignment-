@@ -114,10 +114,27 @@ void saveFile(string nameFile)
         int *zhp = getZomHP(Znum);
         int *zatk = getZomAtk(Znum);
         int *zrge = getZomRge(Znum);
+        gameFile << "\nx ";
+        for (int j = 0; j < Znum; j++)
+        {
+            int Z_x = getZomX(j);
+
+            gameFile << Z_x << ",";
+        }
+
+        gameFile << "\ny ";
+        for (int k = 0; k < Znum; k++)
+        {
+            int Z_y = getZomY(k);
+
+            gameFile << Z_y << ",";
+        }
 
         for (int i = 0; i < Znum; i++)
         {
+
             char ZBnum = num[i];
+
             gameFile << "\nZ" << i << "\nB" << ZBnum << "H" << zhp[i] << "\nB" << ZBnum << "A" << zatk[i] << "\nB" << ZBnum << "R" << zrge[i];
         }
 
@@ -276,7 +293,7 @@ int GetAlienATK()
 
 // load zombies' attributes
 // B -> Zombie, H -> HP, A -> Attack, R -> Range
-void loadZBAtrr(string LoadFname)
+void loadZB(string LoadFname)
 {
     ifstream gameFile;
     string existFile;
@@ -289,6 +306,8 @@ void loadZBAtrr(string LoadFname)
     gameFile.open(existFile, ios::in); // read the file
     if (gameFile.is_open())
     {
+        nZB = getLoadZom(existFile);
+        int max = nZB * 2 + 2;
         string readLine;
         while (getline(gameFile, readLine))
         {
@@ -330,6 +349,32 @@ void loadZBAtrr(string LoadFname)
                     i++;
                 }
             }
+            else if (readLine[0] == 'x')
+            {
+                ZomX_.clear();
+                for (int n = 0; n < max; n++)
+                {
+                    if (readLine[n] == ',')
+                    {
+                        int numX_ = readLine[n - 1];
+                        int actualX = numX_ - 48;
+                        ZomX_.push_back(actualX);
+                    }
+                }
+            }
+            else if (readLine[0] == 'y')
+            {
+                ZomY_.clear();
+                for (int m = 0; m < max; m++)
+                {
+                    if (readLine[m] == ',')
+                    {
+                        int numY_ = readLine[m - 1];
+                        int actualY = numY_ - 48;
+                        ZomY_.push_back(actualY);
+                    }
+                }
+            }
         }
     }
 }
@@ -360,7 +405,7 @@ void loadmap()
         init(dim_x, dim_y, nZom);
         map_.clear();
         emptymap(dim_x, dim_y);
-        loadZBAtrr(LoadFname);
+        loadZB(LoadFname);
 
         gameFile.open(existFile, ios::in); // read the file
         if (gameFile.is_open())
