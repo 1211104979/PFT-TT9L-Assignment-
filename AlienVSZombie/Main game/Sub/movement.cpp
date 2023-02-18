@@ -219,11 +219,21 @@ void movement::move_up()
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 cout << "Attacking Zombie." << endl;
-                // 
                 Pause();
-                AlienY_ = i;
-                setalienY_(AlienY_);
-                i = y;
+                Alienattack(obj);
+                Pause();
+                char obj2 = getObject(temp - 1, AlienX_);
+                if (obj2 == ' ')
+                {
+                    AlienY_ = i - 1;
+                    setalienY_(AlienY_);
+                }
+                else
+                {
+                    AlienY_ = i;
+                    setalienY_(AlienY_);
+                    i = 0;
+                }
             }
             else 
             {
@@ -343,11 +353,21 @@ void movement::move_up()
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 cout << "Attacking Zombie." << endl;
-                // 
                 Pause();
-                AlienY_ = i;
-                setalienY_(AlienY_);
-                i = y;
+                Alienattack(obj);
+                Pause();
+                char obj2 = getObject(temp + 1, AlienX_);
+                if (obj2 == ' ')
+                {
+                    AlienY_ = i + 1;
+                    setalienY_(AlienY_);
+                }
+                else
+                {
+                    AlienY_ = i;
+                    setalienY_(AlienY_);
+                    i = y;
+                }
             }
             else 
             {
@@ -867,6 +887,8 @@ void movement::subalatk(int num)
     int ZomHp_ = getZHP(num);
     int Alatk_ = getalatk_();
     ZomHp_ = ZomHp_ - Alatk_;
+    cout << "Alien attack " << Alatk_ << endl;
+    Pause();
     if (ZomHp_<=0)
     {
         ZomHp_ = 0;
