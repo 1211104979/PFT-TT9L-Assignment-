@@ -17,11 +17,11 @@ using namespace std;
 
 int Loadstatus = 0;
 int LoadAlien_X, LoadAlien_Y, HP_Alien, ATK_Alien;
-vector<vector<int>> ZB_atrr(10, vector<int>(10));
+vector<vector<int>> ZB_atrr(9, vector<int>(3));
 
 char num[9] = {'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'}; // number of zombies replaced by char o = 1, p = 2,...
 
-// split string by finding the delimiter
+// delete the character inside the string
 string split(string stence, char del)
 {
     string temp = "";
@@ -109,7 +109,6 @@ void saveFile(string nameFile)
 
         int ahp = HP_Alien;
         int aAtk = ATK_Alien;
-        // int aAtk = alien.alatk_;
         gameFile << "\nEH" << ahp << "\nEA" << aAtk;
 
         int *zhp = getZomHP(Znum);
@@ -168,12 +167,11 @@ int fileExist()
     return 0;
 }
 
-// convert the string to integer
 int loadDim(string Line, char dim)
 {
 
     string content = split(Line, dim);
-    int dimNum = stoi(content); // turn string into integer
+    int dimNum = stoi(content);
 
     return dimNum;
 }
@@ -276,6 +274,8 @@ int GetAlienATK()
     return ATK_Alien;
 }
 
+// load zombies' attributes
+// B -> Zombie, H -> HP, A -> Attack, R -> Range
 void loadZBAtrr(string LoadFname)
 {
     ifstream gameFile;
@@ -294,7 +294,7 @@ void loadZBAtrr(string LoadFname)
         {
             char theNum = num[i];
 
-            if (readLine[0] == 'B' && readLine[1] == theNum) // Find the line related to Zombie
+            if (readLine[0] == 'B' && readLine[1] == theNum) // Find the line related to Zombies' Attributes
             {
 
                 if (readLine[2] == 'H')
@@ -325,7 +325,7 @@ void loadZBAtrr(string LoadFname)
                 }
 
                 j++;
-                if (j % 3 == 0 && j != 0)
+                if (j % 3 == 0 && j != 0) // conditions checked 3 times then i increases by 1
                 {
                     i++;
                 }
@@ -333,7 +333,9 @@ void loadZBAtrr(string LoadFname)
         }
     }
 }
+
 // load all the objects inside the file
+// T -> map objects, E -> Alien's attributes, H -> HP, A -> Attack
 void loadmap()
 {
     ifstream gameFile;
@@ -376,7 +378,7 @@ void loadmap()
                             char item = readLine[j + 1];
                             cout << item;
                             map_[i][j] = item;
-                            if (item == 'A')
+                            if (item == 'A') // Find the axis of Alien
                             {
                                 LoadAlien_X = j;
                                 LoadAlien_Y = i;
@@ -386,13 +388,13 @@ void loadmap()
                     }
                 }
 
-                else if (readLine[0] == 'E') // Find the line related to Alien
+                else if (readLine[0] == 'E') // Find the line related to Alien's attributes
                 {
                     if (readLine[1] == 'H')
                     {
                         string temp = split(readLine, 'E');
                         string temp1 = split(temp, 'H');
-                        int Ali_HP = stoi(temp1);
+                        int Ali_HP = stoi(temp1); // convert string to numeric
                         HP_Alien = Ali_HP;
                     }
 
