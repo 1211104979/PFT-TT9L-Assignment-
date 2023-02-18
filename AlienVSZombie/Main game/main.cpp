@@ -61,6 +61,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 
     // create dynamic 2D array using vector
     emptymap(dimX_, dimY_);
+    // emptyZomvec(zomB_);
 
     // put random characters into the vector array
     for (int i = 0; i < dimY_; ++i)
@@ -81,6 +82,8 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
             int randY = rand() % dimY_;
             int randX = rand() % dimX_;
             map_[randY][randX] = zomBie[i];
+            ZomY_.push_back(randY);
+            ZomX_.push_back(randX);
         }
 
         // Alien in the middle of the gameboard
@@ -148,6 +151,17 @@ void display() // liEn & Afiq (from tutorial)
          << endl;
 }
 
+int setZomY(int num, int newnum)
+{
+    ZomY_[num] = newnum;
+    return ZomY_[num];
+}
+
+int setZomX(int num, int newnum)
+{
+    ZomX_[num] = newnum;
+    return ZomX_[num];
+}
 // set the number of column
 int setDimX(int x)
 {
@@ -171,6 +185,15 @@ int setZomB(int z) // liEn
 {
     zomB_ = z;
     return zomB_;
+}
+// get zombie column
+int getZomY(int num)
+{
+    return ZomY_[num];
+}
+int getZomX(int num)
+{
+    return ZomX_[num];
 }
 // get the number of column
 int getDimX() 
@@ -248,7 +271,7 @@ void changesetting() // liEn & Afiq
 void Board()
 {
     ClearScreen();
-    srand(1);
+    // srand(1);
     display();
     int no = zomB_; // Afiq
     alien.alienstat(); // Afiq  
@@ -265,6 +288,26 @@ void zomdisplay(int no)
         cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
     }
     cout << endl;
+}
+
+void setZomHP(int num, int Zhp)
+{
+    zombie.ZHpVec.at(num) = Zhp;
+}
+
+int getZHP(int num)
+{
+    return zombie.ZHpVec[num];
+}
+
+int getZATK(int num)
+{
+    return zombie.ZAtkVec[num];
+}
+
+int getZRNG(int num)
+{
+    return zombie.ZRngVec[num];
 }
 
 int *getZomHP(int num)

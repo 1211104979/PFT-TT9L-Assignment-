@@ -28,10 +28,11 @@ using namespace std;
     int Pause(); // (from tutorial)
     // int move_up();
 
-    extern vector<vector<char>> map_; 
+    extern vector<vector<char>> map_;
     extern vector<int> ZomY_;
     extern vector<int> ZomX_;
     void emptymap(int dX, int dY);
+    // void emptyZomvec(int Zom);
     void getMenu(); // Afiq
     void controls(); // Afiq
     void help(); // Afiq
@@ -52,11 +53,20 @@ using namespace std;
         int setDimX(int x); // liEn 
         int setDimY(int y); // liEn 
         int setZomB(int z); // liEn 
+        int setZomY(int num, int newnum);
+        int setZomX(int num, int newnum);
+        void setZomHP(int num, int Zhp);
+
         std::vector<std::vector<char>> setmap(int y, int x, char obj);
 
         int getDimX();  // Afiq 
         int getDimY();  // Afiq 
         int getZomB();  // liEn 
+        int getZomY(int num);
+        int getZomX(int num);
+        int getZHP(int num);
+        int getZATK(int num);
+        int getZRNG(int num);
         char getObject(int dimX, int dimY);  // Afiq 
 
     int *getZomHP(int num);

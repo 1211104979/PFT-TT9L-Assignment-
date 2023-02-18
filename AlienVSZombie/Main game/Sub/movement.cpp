@@ -37,8 +37,8 @@ int movement::setalhp_(int hp)
         if (alhp_ < 100)
         {
             alhp_ = alhp_ + hp;
-            return alhp_;
         }
+        return alhp_;
     }
 int movement::resetatk_()
     {
@@ -133,7 +133,7 @@ void movement::move_up()
             char obj = getObject(temp - 1, AlienX_);
             if (obj == 'h') // Health (+20 health to Alien)
             {
-                cout << " Gained 20 Health " << endl;
+                cout << "Gained 20 Health." << endl;
                 Pause();
                 getalhp_();
                 setalhp_(20);
@@ -192,11 +192,13 @@ void movement::move_up()
             }
             else if (obj == 'p') // attack nearby Zombie
             {
-                cout << "Pod detected, searching for alien to attack" << endl;
+                cout << "Pod detected, searching nearby Zombie to attack." << endl;
                 Pause();
                 int podY = temp - 1;
                 int podX = AlienX_;
                 podatk(podY , podX);
+                cout << "Zombie received 10 damage." << endl;
+                Pause();
                 AlienY_ = i - 1; // good
                 setalienY_(AlienY_); // good
             }
@@ -212,7 +214,7 @@ void movement::move_up()
             }
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
-                cout << "attacking zombie" << endl;
+                cout << "Attacking Zombie." << endl;
                 // 
                 Pause();
                 AlienY_ = i;
@@ -253,7 +255,7 @@ void movement::move_up()
             char obj = getObject(temp + 1, AlienX_);
             if (obj == 'h')
             {
-                cout << " Gained 20 Health " << endl;
+                cout << "Gained 20 Health." << endl;
                 Pause();
                 getalhp_();
                 setalhp_(20);
@@ -316,11 +318,13 @@ void movement::move_up()
             }
             else if (obj == 'p') // attack nearby Zombie
             {
-                cout << "Pod detected, searching for alien to attack" << endl;
+                cout << "Pod detected, searching neraby Zombie to attack." << endl;
                 Pause();
                 int podY = temp + 1;
                 int podX = AlienX_;
                 podatk(podY , podX);
+                cout << "Zombie received 10 damage." << endl;
+                Pause();
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
@@ -336,7 +340,7 @@ void movement::move_up()
             }
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
-                cout << "attacking zombie" << endl;
+                cout << "Attacking Zombie." << endl;
                 // 
                 Pause();
                 AlienY_ = i;
@@ -345,6 +349,8 @@ void movement::move_up()
             }
             else 
             {
+                cout << "Alien finds an empty space." << endl;
+                Pause();
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
@@ -375,7 +381,7 @@ void movement::move_up()
             char obj = getObject(AlienY_ , temp - 1);
             if (obj == 'h') // Health (+20 health to Alien)
             {
-                cout << " Gained 20 Health " << endl;
+                cout << "Gained 20 Health." << endl;
                 Pause();
                 getalhp_();
                 setalhp_(20);
@@ -437,11 +443,13 @@ void movement::move_up()
             }
             else if (obj == 'p') // attack nearby Zombie
             {
-                cout << "Pod detected, searching for alien to attack" << endl;
+                cout << "Pod detected, searching nearby Zombie to Attack" << endl;
                 Pause();
                 int podY = AlienY_;
                 int podX = temp - 1;
                 podatk(podY , podX);
+                cout << "Zombie received 10 damage." << endl;
+                Pause();
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
             }
@@ -457,7 +465,7 @@ void movement::move_up()
             }
             else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
-                cout << "attacking zombie" << endl;
+                cout << "Attacking Zombie." << endl;
                 // 
                 Pause();
                 AlienX_ = i;
@@ -466,6 +474,8 @@ void movement::move_up()
             }
             else 
             {
+                cout << "Alien finds an empty space." << endl;
+                Pause();                
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
             }
@@ -496,7 +506,7 @@ void movement::move_up()
             char obj = getObject(AlienY_ , temp + 1);
             if (obj == 'h') // Health (+20 health to Alien)
             {
-                cout << " Gained 20 Health " << endl;
+                cout << " Gained 20 Health. " << endl;
                 Pause();
                 getalhp_();
                 setalhp_(20);
@@ -559,11 +569,13 @@ void movement::move_up()
             }
             else if (obj == 'p') // attack nearby Zombie
             {
-                cout << "Pod detected, searching for alien to attack" << endl;
+                cout << "Pod detected, searching nearby Zombie to attack." << endl;
                 Pause();
                 int podY = AlienY_;
                 int podX = temp + 1;
                 podatk(podY , podX);
+                cout << "Zombie received 10 damage." << endl;
+                Pause();
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
@@ -581,13 +593,15 @@ void movement::move_up()
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
-                cout << "attacking zombie" << endl;
+                cout << "Attacking Zombie." << endl;
                 // 
                 Pause();
                 i = x;
             }
             else 
             {
+                cout << "Alien finds an empty space." << endl;
+                Pause();
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
@@ -656,8 +670,8 @@ void movement::zommove()
     {
         fesetround(FE_UPWARD);
         char Zombody[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-        int Zy = ZomY_[i];
-        int Zx = ZomX_[i];
+        int Zy = getZomY(i);
+        int Zx = getZomX(i);
         int Ay = getalienY_();
         int Ax = getalienX_();
 
@@ -665,9 +679,9 @@ void movement::zommove()
         int DisX = Zx - Ax;
         float DisTemp = pow(DisY,2) + pow(DisX,2);
         float Distance = llrint(sqrt(DisTemp));
-        int Zhp  = ZHpVec[i];
-        int Zatk = ZAtkVec[i];     
-        int Zrng = ZRngVec[i];
+        int Zhp  = getZHP(i);
+        int Zatk = getZATK(i);     
+        int Zrng = getZRNG(i);
 
         int ZtoAY = abs(DisY);
         int ZtoAX = abs(DisX);
@@ -693,16 +707,16 @@ void movement::zommove()
                     cout << " Zombie Gained 20 Health " << endl;
                     Pause();
                     Zhp = Zhp + 20;
-                    ZHpVec.at(i) = Zhp;
+                    setZomHP(i, Zhp);
                     Zx = Zx + 1; 
-                    ZomX_[i] = Zx;
+                    setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
                 }
 
                 else 
                 {
                     Zx = Zx + 1; 
-                    ZomX_[i] = Zx;
+                    setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
                 }
             }
@@ -715,16 +729,16 @@ void movement::zommove()
                     cout << " Zombie Gained 20 Health " << endl;
                     Pause();
                     Zhp = Zhp + 20;
-                    ZHpVec.at(i) = Zhp;
+                    setZomHP(i, Zhp);
                     Zx = Zx - 1; 
-                    ZomX_[i] = Zx;
+                    setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
                 }
 
                 else 
                 {
                     Zx = Zx - 1; 
-                    ZomX_[i] = Zx;
+                    setZomX(i,Zx);
                     setmap(Zy, Zx, Zombody[i]);
                 }
             }
@@ -740,16 +754,16 @@ void movement::zommove()
                     cout << " Zombie Gained 20 Health " << endl;
                     Pause();
                     Zhp = Zhp + 20;
-                    ZHpVec.at(i) = Zhp;
+                    setZomHP(i, Zhp);
                     Zy = Zy + 1; 
-                    ZomY_[i] = Zy;
+                    setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
                 }
 
                 else 
                 {
                     Zy = Zy + 1;
-                    ZomY_[i] = Zy;
+                    setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
                 }
             }
@@ -762,16 +776,16 @@ void movement::zommove()
                     cout << " Zombie Gained 20 Health " << endl;
                     Pause();
                     Zhp = Zhp + 20;
-                    ZHpVec.at(i) = Zhp;
+                    setZomHP(i, Zhp);
                     Zy = Zy - 1; 
-                    ZomY_[i] = Zy;
+                    setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
                 }
 
                 else 
                 {
                     Zy = Zy - 1;
-                    ZomY_[i] = Zy;
+                    setZomY(i,Zy);
                     setmap(Zy, Zx, Zombody[i]);
                 }
             }
@@ -782,13 +796,12 @@ void movement::zommove()
 void movement::podatk(int podY, int podX)
 {
     int no = getZomB();
-    int Dispod[no] = {};
+    int Dispod[] = {};
     for (int i = 0; i < no; ++i)
     {
         fesetround(FE_UPWARD);
-        int Zy = ZomY_[i];
-        int Zx = ZomX_[i];
-
+        int Zy = getZomY(i);
+        int Zx = getZomX(i);
         int DisY = Zy - podY;
         int DisX = Zx - podX;
         float DisTemp = pow(DisY,2) + pow(DisX,2);
@@ -796,7 +809,7 @@ void movement::podatk(int podY, int podX)
         Dispod[i] = Distance;
     }
     int near = Dispod[0];
-    int zomnum;
+    int zomnum = 0;
     for (int i = 0; i < no; ++i)
     {
         if(Dispod[i] < near)
@@ -805,7 +818,7 @@ void movement::podatk(int podY, int podX)
             zomnum = i;
         }
     }
-    int Zhp  = ZHpVec[zomnum];
+    int Zhp  = getZHP(zomnum); // problem
     Zhp = Zhp - 10;
-    ZHpVec.at(zomnum) = Zhp;
+    setZomHP(zomnum, Zhp);
 }
