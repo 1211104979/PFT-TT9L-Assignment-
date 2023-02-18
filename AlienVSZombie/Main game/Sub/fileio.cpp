@@ -9,6 +9,7 @@
 // ************************************************************************** //
 
 #include "MainHeader.h"
+#include <direct.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -88,22 +89,21 @@ void saveFile(string nameFile)
     int dimY_ = getDimY();
     int dimX_ = getDimX();
     int Znum = getZomB();
+    mkdir(".\\savefiles"); // create the folder if it doesn't exist
 
     userFile = ".\\savefiles\\" + nameFile;
     gameFile.open(userFile, ios::out);
     if (gameFile.is_open())
     {
-        gameFile << "Y" << dimY_ << "\nX" << dimX_;
+        gameFile << "Y" << dimY_ << "\nX" << dimX_; // save the dimension of the board
         for (int i = 0; i < dimY_; ++i)
-
         {
 
             gameFile << "\n";
             gameFile << 'T';
             for (int j = 0; j < dimX_; ++j)
             {
-
-                gameFile << map_[i][j];
+                gameFile << map_[i][j]; // save all the objects in the board to the txt file
             }
         }
 
@@ -117,7 +117,7 @@ void saveFile(string nameFile)
         gameFile << "\nx ";
         for (int j = 0; j < Znum; j++)
         {
-            int Z_x = getZomX(j);
+            int Z_x = getZomX(j); // location(x-axis) of each zombies
 
             gameFile << Z_x << ",";
         }
@@ -125,7 +125,7 @@ void saveFile(string nameFile)
         gameFile << "\ny ";
         for (int k = 0; k < Znum; k++)
         {
-            int Z_y = getZomY(k);
+            int Z_y = getZomY(k); // location(y-axis) of each zombies
 
             gameFile << Z_y << ",";
         }
@@ -134,7 +134,7 @@ void saveFile(string nameFile)
         {
 
             char ZBnum = num[i];
-
+            // Attributes of all zombies
             gameFile << "\nZ" << i << "\nB" << ZBnum << "H" << zhp[i] << "\nB" << ZBnum << "A" << zatk[i] << "\nB" << ZBnum << "R" << zrge[i];
         }
 
