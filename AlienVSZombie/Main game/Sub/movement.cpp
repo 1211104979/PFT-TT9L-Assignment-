@@ -103,6 +103,7 @@ void movement::move_up()
         for(int i = AlienY_; i > 0; --i) // 2 - 1 = 1
         {
             int temp = i;
+            setmap(temp, AlienX_, trail[0]);
             char obj = getObject(temp - 1, AlienX_);
             if (obj == 'h') // Health (+20 health to Alien)
             {
@@ -110,86 +111,76 @@ void movement::move_up()
                 Pause();
                 getalhp_();
                 setalhp_(20);
-                setmap(temp, AlienX_, trail[0]); // good 
                 AlienY_ = i - 1; // good
                 setalienY_(AlienY_); // good
-                break;
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                setmap(temp, AlienX_, trail[0]);
-                AlienY_ = i ;
+                cout << "arrow detected" << endl;
+                AlienY_ = i - 1;
                 setalienY_(AlienY_);
-                i = y;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_down();
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                if (i-2>=0)
-                {
-                    setmap(temp, AlienX_, trail[0]);
-                    AlienY_ = i - 2;
-                    setalienY_(AlienY_);
-                    i = y;
-                    break;
-                }
-                else
-                {
-                    setmap(temp, AlienX_, trail[0]);
-                    AlienY_ = i - 1;
-                    setalienY_(AlienY_);
-                    i = y;
-                    break;
-                }
+                cout << "arrow detected" << endl;
+                AlienY_ = i - 1;
+                setalienY_(AlienY_);
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                setmap(temp, AlienX_, trail[0]);
-                AlienX_ = AlienX_ - 1;
-                setalienX_(AlienX_);
+                cout << "arrow detected" << endl;
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
-                i = y;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_left();
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                setmap(temp, AlienX_, trail[0]);
-                AlienX_ = AlienX_ + 1;
-                setalienX_(AlienX_);
+                cout << "arrow detected" << endl;
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
-                i = y;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_right();
             }
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 // put effect of searching alien here
-                setmap(temp, AlienX_, trail[0]); // good 
                 AlienY_ = i - 1; // good
                 setalienY_(AlienY_); // good
-                break;
-
             }
-            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+            else if (obj == 'r')
+            {
+                // random object in (temp - 1, AlienX_)
+                AlienY_ = i;
+                setalienY_(AlienY_);
+                i = y;
+            }
+            else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
             {
                 AlienY_ = i;
                 setalienY_(AlienY_);
                 i = y;
-                break;
             }
             else 
             {
-                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
             }
+            Pause();
+            setmap(AlienY_, AlienX_, 'A');
+            display();
+            cout << "Alien moved" << endl;
+            Pause();
         }
-        Pause();
-        setmap(AlienY_, AlienX_, 'A');
-        display();
-        Pause();
         ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
@@ -207,6 +198,7 @@ void movement::move_up()
         for(int i = AlienY_; i < y; ++i)
         {
             int temp = i;
+            setmap(temp, AlienX_, trail[0]);
             char obj = getObject(temp + 1, AlienX_);
             if (obj == 'h')
             {
@@ -214,87 +206,76 @@ void movement::move_up()
                 Pause();
                 getalhp_();
                 setalhp_(20);
-                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
-                break;
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                if (i+2 <= y)
-                {
-                    setmap(temp, AlienX_, trail[0]);
-                    AlienY_ = i + 2;
-                    setalienY_(AlienY_);
-                    i = y;
-                    break;
-                }
-                else
-                {
-                    setmap(temp, AlienX_, trail[0]);
-                    AlienY_ = i + 1;
-                    setalienY_(AlienY_);
-                    i = y;
-                    break;
-                }
+                cout << "arrow detected" << endl;
+                AlienY_ = i + 1;
+                setalienY_(AlienY_);
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                setmap(temp, AlienX_, trail[0]);
-                AlienY_ = i ;
+                cout << "arrow detected" << endl;
+                AlienY_ = i + 1;
                 setalienY_(AlienY_);
-                i = y;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_up();
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                setmap(temp, AlienX_, trail[0]);
-                AlienX_ = AlienX_ - 1;
-                setalienX_(AlienX_);
+                cout << "arrow detected" << endl;
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
-                i = y;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_left();
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                setmap(temp, AlienX_, trail[0]);
-                AlienX_ = AlienX_ + 1;
-                setalienX_(AlienX_);
+                cout << "arrow detected" << endl;
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
-                i = y;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_right();
             }
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 // not yet implemented
                 // put effect of searching alien here
-                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
-                break;
-
             }
-            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+            else if (obj == 'r')
             {
                 AlienY_ = i;
                 setalienY_(AlienY_);
                 i = y;
-                break;
+            }
+            else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+            {
+                AlienY_ = i;
+                setalienY_(AlienY_);
+                i = y;
             }
             else 
             {
-                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
+            Pause();
+            setmap(AlienY_, AlienX_, 'A');
+            display();
+            cout << "Alien moved" << endl;
+            Pause();
         }
-        Pause();
-        setmap(AlienY_, AlienX_, 'A');
-        display();
-        Pause();
         ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
@@ -312,6 +293,7 @@ void movement::move_up()
         for(int i = AlienX_; i > 0; --i) // 8 - 4 = 4
         {
             int temp = i;
+            setmap(AlienY_, temp, trail[0]);
             char obj = getObject(AlienY_ , temp - 1);
             if (obj == 'h') // Health (+20 health to Alien)
             {
@@ -319,87 +301,75 @@ void movement::move_up()
                 Pause();
                 getalhp_();
                 setalhp_(20);
-                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
-                break;
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                setmap(AlienY_, temp, trail[0]);
-                AlienY_ = AlienY_ + 1;
-                setalienY_(AlienY_);
+                cout << "arrow detected" << endl;
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
-                i = 0;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_down();
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                setmap(AlienY_, temp, trail[0]);
-                AlienY_ = AlienY_ - 1;
-                setalienY_(AlienY_);
-                AlienX_ = i - 1 ;
+                cout << "arrow detected" << endl;
+                AlienX_ = i - 1;
                 setalienX_(AlienX_);
-                i = 0;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_up();
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                if (i-2>=0)
-                {
-                    setmap(AlienY_, temp, trail[0]);
-                    AlienX_ = AlienX_ - 2;
-                    setalienX_(AlienX_);
-                    i = 0;
-                    break;
-                }
-                else 
-                {
-                    setmap(AlienY_, temp, trail[0]);
-                    AlienX_ = AlienX_ - 1;
-                    setalienX_(AlienX_);
-                    i = 0;
-                    break;
-                }
+                cout << "arrow detected" << endl;
+                AlienX_ = AlienX_ - 1;
+                setalienX_(AlienX_);
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                setmap(AlienY_, temp, trail[0]);
-                AlienX_ = AlienX_;
+                cout << "arrow detected" << endl;
+                AlienX_ = i - 1;
                 setalienX_(AlienX_);
-                i = 0;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_right();
             }
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 // not yet implemented
                 // put effect of searching alien here
-                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
-                break; 
-
             }
-            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+            else if (obj == 'r')
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
                 i = 0;
-                break;
+            }
+            else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+            {
+                AlienX_ = i;
+                setalienX_(AlienX_);
+                i = 0;
             }
             else 
             {
-                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
             }
+            setmap(AlienY_, AlienX_, 'A');
+            display();
+            cout << "Alien moved" << endl;
+            Pause();
         }
-        Pause();
-        setmap(AlienY_, AlienX_, 'A');
-        display();
-        Pause();
         ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
@@ -417,6 +387,7 @@ void movement::move_up()
         for(int i = AlienX_; i < x; ++i)
         {
             int temp = i;
+            setmap(AlienY_, temp, trail[0]);
             char obj = getObject(AlienY_ , temp + 1);
             if (obj == 'h') // Health (+20 health to Alien)
             {
@@ -424,90 +395,76 @@ void movement::move_up()
                 Pause();
                 getalhp_();
                 setalhp_(20);
-                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
-                break;
             }
             else if (obj == 'v') // move down by 1 and stop
             {
-                setmap(AlienY_, temp, trail[0]);
-                AlienY_ = AlienY_ + 1;
-                setalienY_(AlienY_);
+                cout << "arrow detected" << endl;
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
-                i = 0;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_down();
             }
             else if (obj == '^') // move up by 1 and stop
             {
-                setmap(AlienY_, temp, trail[0]);
-                AlienY_ = AlienY_ - 1;
-                setalienY_(AlienY_);
+                cout << "arrow detected" << endl;
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
-                i = 0;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_up();
             }
             else if (obj == '<') // move to the left by 1 and stop
             {
-                setmap(AlienY_, temp, trail[0]);
-                AlienX_ = AlienX_;
+                cout << "arrow detected" << endl;
+                AlienX_ = i + 1;
                 setalienX_(AlienX_);
-                i = 0;
-                break;
+                setmap(AlienY_, AlienX_, 'A');
+                display();
+                Pause();
+                move_left();
             }
             else if (obj == '>') // move to the right by 1 and stop
             {
-                if (i+2 <= x)
-                {
-                    setmap(AlienY_, temp, trail[0]);
-                    AlienX_ = AlienX_ + 2;
-                    setalienX_(AlienX_);
-                    i = 0;
-                    break;
-                }
-                else
-                {
-                    setmap(AlienY_, temp, trail[0]);
-                    AlienX_ = AlienX_ + 1;
-                    setalienX_(AlienX_);
-                    i = 0;
-                    break;
-                }
-
+                cout << "arrow detected" << endl;
+                AlienX_ = i + 1;
+                setalienX_(AlienX_);
             }
             else if (obj == 'p') // attack nearby Zombie
             {
                 cout << "Pod detected, searching for alien to attack" << endl;
                 // not yet implemented
                 // put effect of searching alien here
-                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
-                break; 
-
             }
-            else if (obj == 'r' || obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+            else if (obj == 'r')
             {
                 AlienX_ = i;
                 setalienX_(AlienX_);
-                i = 0;
-                break;
+                i = x;
+            }
+            else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+            {
+                AlienX_ = i;
+                setalienX_(AlienX_);
+                i = x;
             }
             else 
             {
-                cout << "AlienY_ =" << AlienY_ << endl;
-                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
-                // break;
             }
+            Pause();
+            setmap(AlienY_, AlienX_, 'A');
+            display();
+            cout << "Alien moved" << endl;
+            Pause();
         }
-        Pause();
-        setmap(AlienY_, AlienX_, 'A');
-        display();
-        Pause();
         ranobjupdate();
         display(); 
         int no = getZomB(); // Afiq
@@ -515,7 +472,6 @@ void movement::move_up()
         zomdisplay(no);
         saveHP(alhp_);
         saveATK(alatk_);
-
     }
 
     void movement::move_arrow(int x, int y, string z)
