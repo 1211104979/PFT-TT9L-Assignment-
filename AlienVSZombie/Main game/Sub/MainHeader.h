@@ -11,6 +11,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
+#include <cfenv>
 #include <cstdlib> // for system()
 #include <ctime>   // for time() in srand( time(NULL) );
 #include <iomanip> // for setw()
@@ -117,10 +119,6 @@ class movement : public Enemy
         // int setzomY_(int y);
         // int getzomX_() const;
         // int getzomY_() const;
-        // void zomup(int zomY_,int zomX_)
-        // void zomdown(int zomY_,int zomX_)
-        // void zomleft(int zomY_,int zomX_)
-        // void zomright(int zomY_,int zomX_)
 };
 
 //Class-----------------------------------------------------------------------------------------
