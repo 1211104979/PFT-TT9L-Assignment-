@@ -93,7 +93,6 @@ class Enemy // Afiq
         vector<int> ZAtkVec;     
         vector<int> ZRngVec;
         void zombiegen(int no);
-
 };
 
 class movement : public Enemy
@@ -117,6 +116,7 @@ class movement : public Enemy
         int setalatk_(int atk);
         int resetatk_();
         void podatk(int podY, int podX);
+        void Alienattack(char obj);
 
         int setalienX_(int x);
         int setalienY_(int y);
