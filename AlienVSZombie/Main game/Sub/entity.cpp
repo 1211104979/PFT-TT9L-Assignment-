@@ -16,7 +16,9 @@ using namespace std;
 void Enemy::zombiegen(int no)
 {
     int b = no;
-
+    ZHpVec.clear();
+    ZHpVec.clear();
+    ZRngVec.clear();
     for (int i = 0; i < b; i++)
     {
         int randhp = rand() % 2 + 1;
@@ -25,9 +27,6 @@ void Enemy::zombiegen(int no)
         int ZHp = 100 + (randhp * 50);
         int ZAtk = 5 + (randatk * 5);
         int ZRng = randrng;
-        ZHpVec.clear();
-        ZHpVec.clear();
-        ZRngVec.clear();
         if (GetLoad() == 1)
         {
             ZHpVec.push_back(ZB_atrr[i][0]);
