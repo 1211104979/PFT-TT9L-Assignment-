@@ -2,28 +2,27 @@
 // Course: TCP1101 PROGRAMMING FUNDAMENTALS                                   //
 // Year  : Trimester 1, 2022/23 (T2215)                                       //
 // Lab   : TT9L                                                               //
-// Names : CHUA LI EN                    | MUHAMMAD AFIQ IKHWAN BIN AMINUDDIN // 
+// Names : CHUA LI EN                    | MUHAMMAD AFIQ IKHWAN BIN AMINUDDIN //
 // IDs   : 1211104335                    | 1211104979                         //
 // Emails: 1211104335@student.mmu.edu.my | 1211104979@student.mmu.edu.my      //
 // Phones: 011-1026 0985                 | 011-3174 2235                      //
 // ************************************************************************** //
 
-
 // Youtube video : https://www.youtube.com/watch?v=zEpa2YtSvnM
 //===========================================================================================================================
 // TODO:
 
-//Game Commands 
-    //Movement (up, down, left, right)
-    //Change direction of arrow (arrow)
-    //Load game (load)
+// Game Commands
+// Movement (up, down, left, right)
+// Change direction of arrow (arrow)
+// Load game (load)
 
-//Turns
-    //Display (who turn it is)
+// Turns
+// Display (who turn it is)
 
-//AI movement program
-    //Move towards Alien
-    //Attack when in range
+// AI movement program
+// Move towards Alien
+// Attack when in range
 //===========================================================================================================================
 
 #include "Sub/MainHeader.h"
@@ -37,7 +36,7 @@ movement alien;
 vector<vector<char>> map_; // Gameboard vector
 vector<int> ZomY_;
 vector<int> ZomX_;
-int dimX_ = 9, dimY_ = 3, zomB_ = 1;   // variables for the initial gameboard
+int dimX_ = 9, dimY_ = 3, zomB_ = 1; // variables for the initial gameboard
 
 char ranobj, x;
 
@@ -62,8 +61,8 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
     dimY_ = dimY;
     zomB_ = zomb;
 
-    char zomBie[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'}; // liEn 
-    int noOfObjects = 10;  // number of objects in the objects array
+    char zomBie[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'}; // liEn
+    int noOfObjects = 10;                                          // number of objects in the objects array
 
     // create dynamic 2D array using vector
     emptymap(dimX_, dimY_);
@@ -74,7 +73,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
     {
         for (int j = 0; j < dimX_; ++j)
         {
-			ranobj = randObject(x);
+            ranobj = randObject(x);
             map_[i][j] = ranobj;
         }
     }
@@ -186,8 +185,27 @@ vector<vector<char>> setmap(int y, int x, char obj)
     map_[y][x] = obj;
     return map_;
 }
+
+// change the arrow in the map_
+vector<vector<char>> setarrow(int y, int x, char obj)
+{
+    char arrow[] = {'>', '<', '^', 'v'};
+
+    if (map_[y][x] == '>' || map_[y][x] == '<' || map_[y][x] == '^' || map_[y][x] == 'v')
+    {
+        map_[y][x] = obj;
+    }
+    else
+    {
+        cout << "Invalid x & y value" << endl;
+        Pause();
+    }
+
+    return map_;
+}
+
 // set the number of zombies
-int setZomB(int z) // liEn 
+int setZomB(int z) // liEn
 {
     zomB_ = z;
     return zomB_;
@@ -202,22 +220,22 @@ int getZomX(int num)
     return ZomX_[num];
 }
 // get the number of column
-int getDimX() 
+int getDimX()
 {
     return dimX_;
 }
 // get the number of row
-int getDimY() 
+int getDimY()
 {
     return dimY_;
 }
 // get the number of zombies
-int getZomB()  // le 
+int getZomB() // le
 {
     return zomB_;
 }
 // get object from the map_
-char getObject(int y, int x) 
+char getObject(int y, int x)
 {
     return map_[y][x];
 }
@@ -226,7 +244,7 @@ char getObject(int y, int x)
 void changesetting() // liEn & Afiq
 {
     ClearScreen();
-    int x, y, z;  // liEn 
+    int x, y, z;  // liEn
     cout << endl; // liEn  -> next line when input 'y/n' entered
     cout << " Enter rows => ";
     cin >> y;
@@ -236,7 +254,7 @@ void changesetting() // liEn & Afiq
     cout << endl;
     cout << " Zombie Settings " << endl;
     cout << "-----------------" << endl;
-    cout << " Enter number of zombies => "; // liEn 
+    cout << " Enter number of zombies => "; // liEn
     cin >> z;
     cout << endl;
 
@@ -257,16 +275,16 @@ void changesetting() // liEn & Afiq
         }
 
         else
-        {  
+        {
             setDimX(x);
             setDimY(y);
-            setZomB(z); // liEn 
+            setZomB(z);    // liEn
             init(x, y, z); // liEn
-            display(); 
-            int no = zomB_; // Afiq
-            alien.alienturndisplay(); // Afiq  
-            zombie.zombiegen(no); 
-			play();
+            display();
+            int no = zomB_;           // Afiq
+            alien.alienturndisplay(); // Afiq
+            zombie.zombiegen(no);
+            play();
         }
     }
 }
@@ -277,10 +295,18 @@ void Board()
     ClearScreen();
     // srand(1);
     display();
-    int no = zomB_; // Afiq
-    alien.alienturndisplay(); // Afiq  
-	zombie.zombiegen(no); 
-	play();
+    int no;
+    if (GetLoad() == 1)
+    {
+        no = GetLZom();
+    }
+    else
+    {
+        no = zomB_;
+    }
+    alien.alienturndisplay(); // Afiq
+    zombie.zombiegen(no);
+    play();
 }
 // zombie display GUI
 void zomdisplay(int no)
@@ -289,7 +315,8 @@ void zomdisplay(int no)
 
     for (int i = 0; i < b; i++)
     {
-        cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+        cout << '\n'
+             << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
     }
     cout << endl;
 }
@@ -297,39 +324,46 @@ void zomdisplay(int no)
 void zomturndisplay(int no, int num)
 {
     int b = no;
-    if(num == 0)
+    if (num == 0)
     {
-        cout << '\n' << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+        cout << '\n'
+             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
         for (int i = num + 1; i < no; i++)
         {
-            if(num!=i)
-            {        
-                cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
-            }    
+            if (num != i)
+            {
+                cout << '\n'
+                     << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+            }
         }
     }
-    else if(num>0 && num<no)
+    else if (num > 0 && num < no)
     {
         for (int i = 0; i < num; i++)
-        {     
-            cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+        {
+            cout << '\n'
+                 << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
         }
-        cout << '\n' << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+        cout << '\n'
+             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
         for (int i = num + 1; i < no; i++)
         {
-            if(num!=i)
-            {        
-                cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
-            }    
+            if (num != i)
+            {
+                cout << '\n'
+                     << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+            }
         }
     }
     else
     {
         for (int i = 0; i < num; i++)
-        {        
-            cout << '\n' << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+        {
+            cout << '\n'
+                 << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
         }
-        cout << '\n' << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+        cout << '\n'
+             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
     }
     cout << endl;
 }
@@ -391,10 +425,10 @@ int *getZomRge(int numofZ)
 }
 
 // Main function
-int main() 
+int main()
 {
-	init(dimX_, dimY_, zomB_);
-	getMenu();
+    init(dimX_, dimY_, zomB_);
+    getMenu();
 }
 
-//execution < g++ Sub\*.cpp main.cpp >
+// execution < g++ Sub\*.cpp main.cpp >
