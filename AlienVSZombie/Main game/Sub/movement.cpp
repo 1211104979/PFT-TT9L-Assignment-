@@ -878,6 +878,7 @@ void movement::subalatk(int num)
     }
     else
     {
+        setZomHP(num, ZomHp_);
         cout << " Zombie " << num+1 << " is still alive." << endl;
         Pause();
     }
