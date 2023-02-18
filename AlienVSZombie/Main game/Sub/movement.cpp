@@ -908,7 +908,7 @@ void movement::subalatk(int num)
     int ZomHp_ = getZHP(num);
     int Alatk_ = getalatk_();
     ZomHp_ = ZomHp_ - Alatk_;
-    cout << "Alien attack " << Alatk_ << endl;
+    cout << " Alien, attack Zombie " << num+1 << " with " << Alatk_ << " damage. " << endl;
     Pause();
     if (ZomHp_<=0)
     {
@@ -917,12 +917,16 @@ void movement::subalatk(int num)
         setmap(Zy_, Zx_, ' ');
         display();
         Alienturn();
+        Pause();
         cout << " Zombie " << num+1 << ", defeated." << endl;
         Pause();
     }
     else
     {
         setZomHP(num, ZomHp_);
+        display();
+        Alienturn();
+        Pause();
         cout << " Zombie " << num+1 << " is still alive." << endl;
         Pause();
     }
