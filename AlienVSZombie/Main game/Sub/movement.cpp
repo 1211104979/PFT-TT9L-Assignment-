@@ -688,9 +688,9 @@ void movement::zommove()
         }
         else if (ZtoAX > ZtoAY)   
         {        
-            cout << "  Zombie" << i+1 << "cannot find Alien in range." << endl;
+            cout << "  Zombie " << i+1 << " cannot find Alien in range." << endl;
             Pause();
-            cout << "  Zombie" << i+1 << "is moving towards Alien." << endl;
+            cout << "  Zombie " << i+1 << " is moving towards Alien." << endl;
             Pause();
             if(DisX<0)    
             {
@@ -755,9 +755,9 @@ void movement::zommove()
         }
         else 
         {
-            cout << "  Zombie" << i+1 << "cannot find Alien in range." << endl;
+            cout << "  Zombie " << i+1 << " cannot find Alien in range." << endl;
             Pause();
-            cout << "  Zombie" << i+1 << "is moving towards Alien." << endl;
+            cout << "  Zombie " << i+1 << " is moving towards Alien." << endl;
             Pause();
             if (DisY<0)
             {
