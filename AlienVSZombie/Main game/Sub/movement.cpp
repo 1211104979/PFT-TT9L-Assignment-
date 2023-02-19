@@ -735,8 +735,6 @@ void movement::zommove()
     int no = getZomB();
     for (int i = 0; i < no; ++i)
     {
-        cout << "  Zombie " << i + 1 << " is making a move." << endl;
-        Pause();
         fesetround(FE_UPWARD);
         char Zombody[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         int Zy = getZomY(i);
@@ -756,6 +754,7 @@ void movement::zommove()
         int ZtoAX = abs(DisX);
         display();
         Zombieturn(i);
+        cout << "  Zombie " << i + 1 << " is making a move." << endl;
         Pause();
         if (Distance <= Zrng)
         {

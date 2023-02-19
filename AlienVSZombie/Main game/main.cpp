@@ -336,6 +336,7 @@ void zomturndisplay(int no, int num)
                      << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack :" << zombie.ZAtkVec[i] << "| Range :" << zombie.ZRngVec[i];
             }
         }
+        cout << endl;
     }
     else if (num > 0 && num < no)
     {
@@ -354,6 +355,7 @@ void zomturndisplay(int no, int num)
                      << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack :" << zombie.ZAtkVec[i] << "| Range :" << zombie.ZRngVec[i];
             }
         }
+        cout << endl;
     }
     else
     {
@@ -364,8 +366,8 @@ void zomturndisplay(int no, int num)
         }
         cout << '\n'
              << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack :" << zombie.ZAtkVec[num] << "| Range :" << zombie.ZRngVec[num];
+        cout << endl;
     }
-    cout << endl;
 }
 
 void setZomHP(int num, int Zhp)
