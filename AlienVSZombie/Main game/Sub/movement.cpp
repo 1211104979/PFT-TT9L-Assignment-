@@ -801,221 +801,224 @@ void movement::zommove()
         cout << endl;
         cout << "  Zombie " << i + 1 << " is making a move." << endl;
         Pause();
-        if (Distance <= Zrng)
+        if (Zhp != 0)
         {
-            int dmg = Zatk;
-            setminusalhp_(dmg);
-            cout << endl;
-            cout << " Alien in range" << endl;
-            Pause();
-            Zomdisplayupdate(i);
-            cout << endl;
-            cout << " Alien take " << Zatk << " damage from zombie " << i + 1 << endl;
-            Pause();
-            Zomdisplayupdate(i);
-            cout << endl;
-            cout << " Zombie recover " << Zatk << " Health from attacking Alien " << endl;
-            Zhp = Zhp + Zatk;
-            setZomHP(i, Zhp);
-            Zomdisplayupdate(i);
-            Pause();
-            if (alhp_ == 0)
+            if (Distance <= Zrng)
+            {
+                int dmg = Zatk;
+                setminusalhp_(dmg);
+                cout << endl;
+                cout << " Alien in range" << endl;
+                Pause();
+                Zomdisplayupdate(i);
+                cout << endl;
+                cout << " Alien take " << Zatk << " damage from zombie " << i + 1 << endl;
+                Pause();
+                Zomdisplayupdate(i);
+                cout << endl;
+                cout << " Zombie recover " << Zatk << " Health from attacking Alien " << endl;
+                Zhp = Zhp + Zatk;
+                setZomHP(i, Zhp);
+                Zomdisplayupdate(i);
+                Pause();
+                if (alhp_ == 0)
+                {
+                    cout << endl;
+                    cout << " Alien health have reached " << alhp_ << endl;
+                    Pause();
+                    Zomdisplayupdate(i);
+                    cout << endl;
+                    cout << " Alien is struggling to live..... " << endl;
+                    Pause();
+                    Zomdisplayupdate(i);
+                    cout << endl;
+                    cout << " Alien was eaten by Zombies " << endl;
+                    Pause();
+                    Zomdisplayupdate(i);
+                }
+                else
+                {
+                    cout << endl;
+                    cout << " Alien health is " << alhp_ << endl;
+                    Pause();
+                    Zomdisplayupdate(i);
+                    cout << endl;
+                    cout << " Alien survive the attack " << endl;
+                    Pause();
+                    Zomdisplayupdate(i);
+                }
+            }
+            else if (ZtoAX > ZtoAY)
             {
                 cout << endl;
-                cout << " Alien health have reached " << alhp_ << endl;
+                cout << "  Zombie " << i + 1 << " cannot find Alien in range." << endl;
                 Pause();
                 Zomdisplayupdate(i);
                 cout << endl;
-                cout << " Alien is struggling to live..... " << endl;
+                cout << "  Zombie " << i + 1 << " is moving towards Alien." << endl;
                 Pause();
                 Zomdisplayupdate(i);
-                cout << endl;
-                cout << " Alien was eaten by Zombies " << endl;
-                Pause();
-                Zomdisplayupdate(i);
+                if (DisX < 0)
+                {
+                    // zomright
+                    char obj = getObject(Zy, Zx + 1);
+                    if (obj == 'h') 
+                    {
+                        cout << endl;
+                        cout << " Zombie Gained 5 Health " << endl;
+                        Pause();
+                        Zomdisplayupdate(i);
+                        Zhp = Zhp + 5;
+                        setZomHP(i, Zhp);
+                        setmap(Zy, Zx, ' ');
+                        Zx = Zx + 1;
+                        setZomX(i, Zx);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
+                    else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                    {
+                        cout << endl;
+                        cout << " Other Zombie in the way." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                        cout << endl;
+                        cout << " Zombie " << i+1 << " cannot move." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                    }
+                    else
+                    {
+                        setmap(Zy, Zx, ' ');
+                        Zx = Zx + 1;
+                        setZomX(i, Zx);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
+                }
+                else
+                {
+                    // zomleft
+                    char obj = getObject(Zy, Zx - 1);
+                    if (obj == 'h') 
+                    {
+                        cout << endl;
+                        cout << " Zombie Gained 5 Health " << endl;
+                        Pause();
+                        Zomdisplayupdate(i);
+                        Zhp = Zhp + 5;
+                        setZomHP(i, Zhp);
+                        setmap(Zy, Zx, ' ');
+                        Zx = Zx - 1;
+                        setZomX(i, Zx);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
+                    else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                    {
+                        cout << endl;
+                        cout << " Other Zombie in the way." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                        cout << endl;
+                        cout << " Zombie " << i+1 << " cannot move." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                    }
+                    else
+                    {
+                        setmap(Zy, Zx, ' ');
+                        Zx = Zx - 1;
+                        setZomX(i, Zx);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
+                }
             }
             else
             {
                 cout << endl;
-                cout << " Alien health is " << alhp_ << endl;
+                cout << "  Zombie " << i + 1 << " cannot find Alien in range." << endl;
                 Pause();
                 Zomdisplayupdate(i);
                 cout << endl;
-                cout << " Alien survive the attack " << endl;
+                cout << "  Zombie " << i + 1 << " is moving towards Alien." << endl;
                 Pause();
                 Zomdisplayupdate(i);
-            }
-        }
-        else if (ZtoAX > ZtoAY)
-        {
-            cout << endl;
-            cout << "  Zombie " << i + 1 << " cannot find Alien in range." << endl;
-            Pause();
-            Zomdisplayupdate(i);
-            cout << endl;
-            cout << "  Zombie " << i + 1 << " is moving towards Alien." << endl;
-            Pause();
-            Zomdisplayupdate(i);
-            if (DisX < 0)
-            {
-                // zomright
-                char obj = getObject(Zy, Zx + 1);
-                if (obj == 'h') 
+                if (DisY < 0)
                 {
-                    cout << endl;
-                    cout << " Zombie Gained 5 Health " << endl;
-                    Pause();
-                    Zomdisplayupdate(i);
-                    Zhp = Zhp + 5;
-                    setZomHP(i, Zhp);
-                    setmap(Zy, Zx, ' ');
-                    Zx = Zx + 1;
-                    setZomX(i, Zx);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
-                }
-                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
-                {
-                    cout << endl;
-                    cout << " Other Zombie in the way." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
-                    cout << endl;
-                    cout << " Zombie " << i+1 << " cannot move." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
+                    // zomdown
+                    char obj = getObject(Zy + 1, Zx);
+                    if (obj == 'h') 
+                    {
+                        cout << endl;
+                        cout << " Zombie Gained 5 Health " << endl;
+                        Pause();
+                        Zomdisplayupdate(i);
+                        Zhp = Zhp + 5;
+                        setZomHP(i, Zhp);
+                        setmap(Zy, Zx, ' ');
+                        Zy = Zy + 1;
+                        setZomY(i, Zy);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
+                    else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                    {
+                        cout << endl;
+                        cout << " Other Zombie in the way." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                        cout << endl;
+                        cout << " Zombie " << i+1 << " cannot move." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                    }
+                    else
+                    {
+                        setmap(Zy, Zx, ' ');
+                        Zy = Zy + 1;
+                        setZomY(i, Zy);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
                 }
                 else
                 {
-                    setmap(Zy, Zx, ' ');
-                    Zx = Zx + 1;
-                    setZomX(i, Zx);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
-                }
-            }
-            else
-            {
-                // zomleft
-                char obj = getObject(Zy, Zx - 1);
-                if (obj == 'h') 
-                {
-                    cout << endl;
-                    cout << " Zombie Gained 5 Health " << endl;
-                    Pause();
-                    Zomdisplayupdate(i);
-                    Zhp = Zhp + 5;
-                    setZomHP(i, Zhp);
-                    setmap(Zy, Zx, ' ');
-                    Zx = Zx - 1;
-                    setZomX(i, Zx);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
-                }
-                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
-                {
-                    cout << endl;
-                    cout << " Other Zombie in the way." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
-                    cout << endl;
-                    cout << " Zombie " << i+1 << " cannot move." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
-                }
-                else
-                {
-                    setmap(Zy, Zx, ' ');
-                    Zx = Zx - 1;
-                    setZomX(i, Zx);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
-                }
-            }
-        }
-        else
-        {
-            cout << endl;
-            cout << "  Zombie " << i + 1 << " cannot find Alien in range." << endl;
-            Pause();
-            Zomdisplayupdate(i);
-            cout << endl;
-            cout << "  Zombie " << i + 1 << " is moving towards Alien." << endl;
-            Pause();
-            Zomdisplayupdate(i);
-            if (DisY < 0)
-            {
-                // zomdown
-                char obj = getObject(Zy + 1, Zx);
-                if (obj == 'h') 
-                {
-                    cout << endl;
-                    cout << " Zombie Gained 5 Health " << endl;
-                    Pause();
-                    Zomdisplayupdate(i);
-                    Zhp = Zhp + 5;
-                    setZomHP(i, Zhp);
-                    setmap(Zy, Zx, ' ');
-                    Zy = Zy + 1;
-                    setZomY(i, Zy);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
-                }
-                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
-                {
-                    cout << endl;
-                    cout << " Other Zombie in the way." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
-                    cout << endl;
-                    cout << " Zombie " << i+1 << " cannot move." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
-                }
-                else
-                {
-                    setmap(Zy, Zx, ' ');
-                    Zy = Zy + 1;
-                    setZomY(i, Zy);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
-                }
-            }
-            else
-            {
-                // zomup
-                char obj = getObject(Zy - 1, Zx);
-                if (obj == 'h') 
-                {
-                    cout << endl;
-                    cout << " Zombie Gained 5 Health " << endl;
-                    Pause();
-                    Zhp = Zhp + 5;
-                    setZomHP(i, Zhp);
-                    setmap(Zy, Zx, ' ');
-                    Zy = Zy - 1;
-                    setZomY(i, Zy);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
-                }
-                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
-                {
-                    cout << endl;
-                    cout << "Other Zombie in the way." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
-                    cout << endl;
-                    cout << " Zombie " << i+1 << " cannot move." << endl; 
-                    Pause();
-                    Zomdisplayupdate(i);
-                }
-                else
-                {
-                    setmap(Zy, Zx, ' ');
-                    Zy = Zy - 1;
-                    setZomY(i, Zy);
-                    setmap(Zy, Zx, Zombody[i]);
-                    Zomdisplayupdate(i);
+                    // zomup
+                    char obj = getObject(Zy - 1, Zx);
+                    if (obj == 'h') 
+                    {
+                        cout << endl;
+                        cout << " Zombie Gained 5 Health " << endl;
+                        Pause();
+                        Zhp = Zhp + 5;
+                        setZomHP(i, Zhp);
+                        setmap(Zy, Zx, ' ');
+                        Zy = Zy - 1;
+                        setZomY(i, Zy);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
+                    else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                    {
+                        cout << endl;
+                        cout << "Other Zombie in the way." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                        cout << endl;
+                        cout << " Zombie " << i+1 << " cannot move." << endl; 
+                        Pause();
+                        Zomdisplayupdate(i);
+                    }
+                    else
+                    {
+                        setmap(Zy, Zx, ' ');
+                        Zy = Zy - 1;
+                        setZomY(i, Zy);
+                        setmap(Zy, Zx, Zombody[i]);
+                        Zomdisplayupdate(i);
+                    }
                 }
             }
         }
