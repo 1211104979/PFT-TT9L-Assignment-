@@ -135,7 +135,6 @@ void movement::chkZomB_hp()
     if (k == number) // means all zombies' hp is 0
     {
         winGame();
-        playagain();
     }
 }
 
