@@ -32,12 +32,10 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 11. Load function
 
 ## Additional Features
-Describe the additional features that has been implemented.
+
 1. Zombie has a lifesteal effect where, the damage done to the Alien will restore the Zombie health.
 
 ## Contributions
-
-List down the contribution of each group members.
 
 ### Chua Li En
 
