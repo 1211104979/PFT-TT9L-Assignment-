@@ -8,7 +8,7 @@ to escape.
 
 ![Gameplay](/Preview3.png "Gameplay")
 
-Please provide the YouTube link to your [Video Demo](https://www.youtube.com/watch?v=zEpa2YtSvnM).
+Please provide the YouTube link to your [Video Demo](https://youtu.be/9LilFRflHbU).
 
 ## Compilation Instructions
 1. Open AlienVSZombie folder with Visual Studio Code (or Other type of compiler)
