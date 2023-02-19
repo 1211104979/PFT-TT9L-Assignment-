@@ -71,6 +71,19 @@ int fileExisting(string fileNme)
     }
 }
 
+// check the extension of the filename
+int chkExtension(string fileNme)
+{
+    int valid = 0;
+    int length = fileNme.size();
+    if (fileNme[length - 4] == '.' && fileNme[length - 3] == 't' && fileNme[length - 2] == 'x' && fileNme[length - 1] == 't')
+    {
+        valid = 1;
+    }
+
+    return valid;
+}
+
 void saveHP(int hp)
 {
     HP_Alien = hp;
@@ -91,55 +104,63 @@ void saveFile(string nameFile)
     int Znum = getZomB();
     mkdir(".\\savefiles"); // create the folder if it doesn't exist
 
-    userFile = ".\\savefiles\\" + nameFile;
-    gameFile.open(userFile, ios::out);
-    if (gameFile.is_open())
+    if (chkExtension(nameFile) == 1)
     {
-        gameFile << "Y" << dimY_ << "\nX" << dimX_; // save the dimension of the board
-        for (int i = 0; i < dimY_; ++i)
+        userFile = ".\\savefiles\\" + nameFile;
+        gameFile.open(userFile, ios::out);
+        if (gameFile.is_open())
         {
-
-            gameFile << "\n";
-            gameFile << 'T';
-            for (int j = 0; j < dimX_; ++j)
+            gameFile << "Y" << dimY_ << "\nX" << dimX_; // save the dimension of the board
+            for (int i = 0; i < dimY_; ++i)
             {
-                gameFile << map_[i][j]; // save all the objects in the board to the txt file
+
+                gameFile << "\n";
+                gameFile << 'T';
+                for (int j = 0; j < dimX_; ++j)
+                {
+                    gameFile << map_[i][j]; // save all the objects in the board to the txt file
+                }
             }
+
+            int ahp = HP_Alien;
+            int aAtk = ATK_Alien;
+            gameFile << "\nEH" << ahp << "\nEA" << aAtk;
+
+            int *zhp = getZomHP(Znum);
+            int *zatk = getZomAtk(Znum);
+            int *zrge = getZomRge(Znum);
+            gameFile << "\nx ";
+            for (int j = 0; j < Znum; j++)
+            {
+                int Z_x = getZomX(j); // location(x-axis) of each zombies
+
+                gameFile << Z_x << ",";
+            }
+
+            gameFile << "\ny ";
+            for (int k = 0; k < Znum; k++)
+            {
+                int Z_y = getZomY(k); // location(y-axis) of each zombies
+
+                gameFile << Z_y << ",";
+            }
+
+            for (int i = 0; i < Znum; i++)
+            {
+
+                char ZBnum = num[i];
+                // Attributes of all zombies
+                gameFile << "\nZ" << i << "\nB" << ZBnum << "H" << zhp[i] << "\nB" << ZBnum << "A" << zatk[i] << "\nB" << ZBnum << "R" << zrge[i];
+            }
+
+            gameFile.close();
+            cout << "Game saved successfully." << endl;
         }
-
-        int ahp = HP_Alien;
-        int aAtk = ATK_Alien;
-        gameFile << "\nEH" << ahp << "\nEA" << aAtk;
-
-        int *zhp = getZomHP(Znum);
-        int *zatk = getZomAtk(Znum);
-        int *zrge = getZomRge(Znum);
-        gameFile << "\nx ";
-        for (int j = 0; j < Znum; j++)
-        {
-            int Z_x = getZomX(j); // location(x-axis) of each zombies
-
-            gameFile << Z_x << ",";
-        }
-
-        gameFile << "\ny ";
-        for (int k = 0; k < Znum; k++)
-        {
-            int Z_y = getZomY(k); // location(y-axis) of each zombies
-
-            gameFile << Z_y << ",";
-        }
-
-        for (int i = 0; i < Znum; i++)
-        {
-
-            char ZBnum = num[i];
-            // Attributes of all zombies
-            gameFile << "\nZ" << i << "\nB" << ZBnum << "H" << zhp[i] << "\nB" << ZBnum << "A" << zatk[i] << "\nB" << ZBnum << "R" << zrge[i];
-        }
-
-        gameFile.close();
-        cout << "Game saved successfully." << endl;
+    }
+    else
+    {
+        cout << "invalid file extension, only .txt is accepted. \n Please Try Again." << endl;
+        Pause();
     }
 }
 
