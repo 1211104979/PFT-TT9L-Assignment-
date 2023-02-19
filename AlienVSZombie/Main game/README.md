@@ -16,6 +16,7 @@ Type <g++ Sub\*.cpp main.cpp> in the command to open the game file.
 
 Commands
  up    - Move up.
+ 
  down  - Move down.
  left  - Move left.
  right - Move right.
