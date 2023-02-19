@@ -101,7 +101,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
         {
             int randY = rand() % dimY_;
             int randX = rand() % dimX_;
-            chkZom(randY,randX);
+            // chkZom(randY,randX);
             map_[randY][randX] = zomBie[i];
             ZomY_.push_back(randY);
             ZomX_.push_back(randX);
@@ -118,9 +118,9 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 void display() // liEn & Afiq (from tutorial)
 {
     ClearScreen();
-    cout << " ****************************** " << endl;
-    cout << " *    .:'Alien vs Zombie':.   * " << endl;
-    cout << " ****************************** " << endl;
+    cout << "    ******************************    " << endl;
+    cout << "    *    .:'Alien vs Zombie':.   *    " << endl;
+    cout << "    ******************************    " << endl;
 
     // for each row
     for (int i = 0; i < dimY_; ++i)

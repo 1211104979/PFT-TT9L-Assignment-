@@ -759,7 +759,6 @@ void movement::zommove()
         display();
         Zombieturn(i);
         cout << "  Zombie " << i + 1 << " is making a move." << endl;
-        cout << "  Zombie " << i + 1 << " range " << Zrng << " distance " << Distance << endl;
         Pause();
         if (Distance <= Zrng)
         {
