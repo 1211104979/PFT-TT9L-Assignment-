@@ -286,6 +286,7 @@ void movement::move_up()
             char obj2 = getObject(temp - 1, AlienX_);
             if (obj2 == ' ')
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i - 1;
                 setalienY_(AlienY_);
             }
@@ -431,6 +432,7 @@ void movement::move_down()
             char obj2 = getObject(temp + 1, AlienX_);
             if (obj2 == ' ')
             {
+                setmap(temp, AlienX_, trail[0]);
                 AlienY_ = i + 1;
                 setalienY_(AlienY_);
             }
@@ -576,6 +578,7 @@ void movement::move_left()
             char obj2 = getObject(AlienY_, temp - 1);
             if (obj2 == ' ')
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i - 1;
                 setalienX_(AlienX_);
             }
@@ -721,6 +724,7 @@ void movement::move_right()
             char obj2 = getObject(AlienY_, temp + 1);
             if (obj2 == ' ')
             {
+                setmap(AlienY_, temp, trail[0]);
                 AlienX_ = i + 1;
                 setalienX_(AlienX_);
             }
