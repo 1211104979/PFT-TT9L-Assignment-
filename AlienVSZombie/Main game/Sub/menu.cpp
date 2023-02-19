@@ -133,12 +133,16 @@ void gameover()
 {
 	cout << "\n\n\t\t\tGAME OVER." << endl;
 	Pause();
+	cout << "Press again to go to the Main Menu" << endl;
+	Pause();
+	getMenu();
 }
 
 void winGame()
 {
-	cout << "Alien Win !" << endl;
+	cout << "Alien escaped the area successfully !" << endl;
 	Pause();
+	getMenu();
 }
 
 void playagain()

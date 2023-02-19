@@ -34,77 +34,85 @@ void play()
     move.setalienY_(y);
     while (1)
     {
-
-        string con;
-        cout << " Command ";
-        cin >> con;
-
-        if (con == "up")
-        {
-            move.move_up();
-            move.zommove();
+        int ALHP_ = move.getalhp_();
+        if (ALHP_ == 0)
+        {   ClearScreen();
+            gameover();
         }
-
-        if (con == "down")
+        else
         {
-            move.move_down();
-            move.zommove();
-        }
+            string con;
+            cout << " Command ";
+            cin >> con;
 
-        if (con == "left")
-        {
-            move.move_left();
-            move.zommove();
-        }
+            if (con == "up")
+            {
+                move.move_up();
+                move.zommove();
+            }
 
-        if (con == "right")
-        {
-            move.move_right();
-            move.zommove();
-        }
+            else if (con == "down")
+            {
+                move.move_down();
+                move.zommove();
+            }
 
-        if (con == "arrow")
-        {
-            cout << "Pls input based on the format, x y direction(up/down/left/right)";
-            int arY, arX;
-            string ardir;
-            cin >> arX >> arY >> ardir;
-            move.move_arrow(arX, arY, ardir);
-        }
+            else if (con == "left")
+            {
+                move.move_left();
+                move.zommove();
+            }
 
-        if (con == "help")
-        {
-            help();
-            Pause();
-            display();
-            int no = getZomB();      // Afiq
-            move.alienturndisplay(); // Afiq
-            zomdisplay(no);
-        }
+            else if (con == "right")
+            {
+                move.move_right();
+                move.zommove();
+            }
 
-        if (con == "save")
-        {
-            fileExist();
-        }
+            else if (con == "arrow")
+            {
+                cout << "Pls input based on the format, x y direction(up/down/left/right)";
+                int arY, arX;
+                string ardir;
+                cin >> arX >> arY >> ardir;
+                move.move_arrow(arX, arY, ardir);
+            }
 
-        if (con == "load")
-        {
-            loadmap();
-        }
+            else if (con == "help")
+            {
+                help();
+                Pause();
+                display();
+                int no = getZomB();      // Afiq
+                move.alienturndisplay(); // Afiq
+                zomdisplay(no);
+            }
 
-        if (con == "menu")
-        {
-            getMenu();
-        }
+            else if (con == "save")
+            {
+                fileExist();
+            }
 
-        if (con == "quit")
-        {
-            exit(0);
-        }
+            else if (con == "load")
+            {
+                loadmap();
+            }
 
-        // else
-        // {
-        //     cout << "invalid input" << endl;
-        // }
+            else if (con == "menu")
+            {
+                getMenu();
+            }
+
+            else if (con == "quit")
+            {
+                exit(0);
+            }
+
+            else
+            {
+                cout << "invalid input" << endl;
+                Pause();
+            }
+        }
     }
 }

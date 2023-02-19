@@ -768,6 +768,15 @@ void movement::zommove()
             display();
             Zombieturn(i);
             Pause();
+            if (alhp_ == 0)
+            {
+                cout << " Alien health have reached " << alhp_ << endl;
+                Pause();
+                cout << " Alien is struggling to live..... " << endl;
+                Pause();
+                cout << " Alien was eaten by Zombies " << endl;
+                Pause();
+            }
         }
         else if (ZtoAX > ZtoAY)
         {
@@ -965,7 +974,9 @@ void movement::subalatk(int num)
         display();
         Alienturn();
         Pause();
-        cout << " Zombie " << num + 1 << " is still alive." << endl;
+        cout << " Checking whether Zombie " << num + 1 << " is still alive." << endl;
+        Pause();
+        cout << " Zombie " << num + 1 << " is alive." << endl;
         Pause();
         chkZomB_hp();
     }
