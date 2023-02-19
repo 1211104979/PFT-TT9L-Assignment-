@@ -33,7 +33,8 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 
 ## Additional Features
 
-1. Zombie has a lifesteal effect where, the damage done to the Alien will restore the Zombie health.
+1. Main Menu with commands and continue option
+2. Zombie has a lifesteal effect where, the damage done to the Alien will restore the Zombie health.
 
 ## Contributions
 
@@ -68,3 +69,6 @@ Describe the problems encountered and provide the solutions / plan for the solut
 
 3. Zombies will be covered by game objects.
   - Initialize the gameboard once user go into the menu to clear out all the items inside vector and set the map.
+
+4. String input in the int variables of the arrow direction function loop infinitely making the game unplayable.  
+  - Put a condition to recognize whether the input is the right type for the variables.
