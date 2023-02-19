@@ -137,6 +137,7 @@ void movement::chkZomB_hp()
     {
         ClearScreen();
         winGame();
+        playagain();
     }
 }
 
@@ -277,6 +278,8 @@ void movement::move_up()
             cout << endl;
             cout << " Attacking Zombie." << endl;
             Pause();
+            AlienY_ = i;
+            setalienY_(AlienY_);
             Alienattack(obj);
             Pause();
             char obj2 = getObject(temp - 1, AlienX_);
@@ -419,6 +422,8 @@ void movement::move_down()
             cout << endl;
             cout << " Attacking Zombie." << endl;
             Pause();
+            AlienY_ = i;
+            setalienY_(AlienY_);
             Alienattack(obj);
             Pause();
             char obj2 = getObject(temp + 1, AlienX_);
@@ -561,6 +566,8 @@ void movement::move_left()
             cout << endl;
             cout << " Attacking Zombie." << endl;
             Pause();
+            AlienX_ = i;
+            setalienX_(AlienX_);
             Alienattack(obj);
             Pause();
             char obj2 = getObject(AlienY_, temp - 1);
@@ -703,6 +710,8 @@ void movement::move_right()
             cout << endl;
             cout << " Attacking Zombie." << endl;
             Pause();
+            AlienX_ = i;
+            setalienX_(AlienX_);
             Alienattack(obj);
             Pause();
             char obj2 = getObject(AlienY_, temp + 1);
@@ -801,7 +810,7 @@ void movement::zommove()
         cout << endl;
         cout << "  Zombie " << i + 1 << " is making a move." << endl;
         Pause();
-        if (Zhp != 0)
+        if (Zhp > 0)
         {
             if (Distance <= Zrng)
             {
@@ -1022,6 +1031,11 @@ void movement::zommove()
                 }
             }
         }
+        else
+        {
+            cout << " Zombie " << i+1 << " is dead." << endl; 
+            Pause();
+        }
     }
     Aldisplayupdate();
 }
@@ -1086,7 +1100,7 @@ void movement::subalatk(int num)
         Aldisplayupdate();
         cout << endl;
         cout << " Checking whether Zombie " << num + 1 << " is still alive." << endl;
-        Pause();
+        Pause(); 
         Aldisplayupdate();
         cout << endl;
         cout << " Zombie " << num + 1 << " is alive." << endl;
