@@ -33,7 +33,7 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 
 ## Additional Features
 
-1. Main Menu with commands and continue option
+1. Main Menu display with commands and continue option.
 2. Zombie has a lifesteal effect where, the damage done to the Alien will restore the Zombie health.
 
 ## Contributions
