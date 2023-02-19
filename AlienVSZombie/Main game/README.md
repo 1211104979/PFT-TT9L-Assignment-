@@ -1,6 +1,6 @@
 # Alien vs. Zombie
 
-Crashed into an apocalyptic world full of Zombies, you have to carefully plan your move to defeat all the zombies around you to escape alive. 
+Crashed into an apocalyptic world full of Zombies, you have to carefully plan your move to defeat all the zombies around you to escape the area alive. 
 
 You may add one signature screenshot of your program here or above the title. Check out [this tutorial](https://www.digitalocean.com/community/tutorials/markdown-markdown-images) to learn how to do it.
 

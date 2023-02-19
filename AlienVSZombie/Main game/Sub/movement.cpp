@@ -154,7 +154,6 @@ void movement::Aldisplayupdate()
 {
     display();
     Alienturn();
-    Pause();
 }
 
 // Zombie turn
@@ -169,7 +168,6 @@ void movement::Zomdisplayupdate(int num)
 {
     display();
     Zombieturn(num);
-    Pause();
 }
 //====================================================
 // Alien movement function
@@ -203,6 +201,7 @@ void movement::move_up()
             setalienY_(AlienY_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_down();
             break;
         }
@@ -225,6 +224,7 @@ void movement::move_up()
             setalienY_(AlienY_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_left();
             break;
         }
@@ -238,6 +238,7 @@ void movement::move_up()
             setalienY_(AlienY_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_right();
             break;
         }
@@ -291,6 +292,7 @@ void movement::move_up()
         }
         setmap(AlienY_, AlienX_, 'A');
         Aldisplayupdate();
+        Pause();
     }
     ranobjupdate();
     display();
@@ -340,6 +342,7 @@ void movement::move_down()
             setalienY_(AlienY_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_up();
             break;
         }
@@ -353,6 +356,7 @@ void movement::move_down()
             setalienY_(AlienY_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_left();
             break;
         }
@@ -366,6 +370,7 @@ void movement::move_down()
             setalienY_(AlienY_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_right();
             break;
         }
@@ -419,6 +424,7 @@ void movement::move_down()
         }
         setmap(AlienY_, AlienX_, 'A');
         Aldisplayupdate();
+        Pause();
     }
     ranobjupdate();
     display();
@@ -459,6 +465,7 @@ void movement::move_left()
             setalienX_(AlienX_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_down();
             break;
         }
@@ -472,6 +479,7 @@ void movement::move_left()
             setalienX_(AlienX_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_up();
             break;
         }
@@ -494,6 +502,7 @@ void movement::move_left()
             setalienX_(AlienX_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_right();
             break;
         }
@@ -547,6 +556,7 @@ void movement::move_left()
         }
         setmap(AlienY_, AlienX_, 'A');
         Aldisplayupdate();
+        Pause();
     }
     ranobjupdate();
     display();
@@ -587,6 +597,7 @@ void movement::move_right()
             setalienX_(AlienX_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_down();
             break;
         }
@@ -600,6 +611,7 @@ void movement::move_right()
             setalienX_(AlienX_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_up();
             break;
         }
@@ -613,6 +625,7 @@ void movement::move_right()
             setalienX_(AlienX_);
             setmap(AlienY_, AlienX_, 'A');
             Aldisplayupdate();
+            Pause();
             move_left();
             break;
         }
@@ -675,6 +688,7 @@ void movement::move_right()
         }
         setmap(AlienY_, AlienX_, 'A');
         Aldisplayupdate();
+        Pause();
     }
     ranobjupdate();
     display();
@@ -758,6 +772,7 @@ void movement::zommove()
             Zhp = Zhp + Zatk;
             setZomHP(i, Zhp);
             Zomdisplayupdate(i);
+            Pause();
             if (alhp_ == 0)
             {
                 cout << " Alien health have reached " << alhp_ << endl;
@@ -966,6 +981,7 @@ void movement::subalatk(int num)
     int ZomHp_ = getZHP(num);
     int Alatk_ = getalatk_();
     ZomHp_ = ZomHp_ - Alatk_;
+    Aldisplayupdate();
     cout << " Alien, attack Zombie " << num + 1 << " with " << Alatk_ << " damage. " << endl;
     Pause();
     if (ZomHp_ <= 0)
@@ -984,6 +1000,7 @@ void movement::subalatk(int num)
         Aldisplayupdate();
         cout << " Checking whether Zombie " << num + 1 << " is still alive." << endl;
         Pause();
+        Aldisplayupdate();
         cout << " Zombie " << num + 1 << " is alive." << endl;
         Pause();
         chkZomB_hp();
