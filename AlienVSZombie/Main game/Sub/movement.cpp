@@ -280,6 +280,7 @@ void movement::move_up()
             Pause();
             AlienY_ = i;
             setalienY_(AlienY_);
+            setmap(AlienY_, AlienX_, 'A');
             Alienattack(obj);
             Pause();
             char obj2 = getObject(temp - 1, AlienX_);
@@ -424,6 +425,7 @@ void movement::move_down()
             Pause();
             AlienY_ = i;
             setalienY_(AlienY_);
+            setmap(AlienY_, AlienX_, 'A');
             Alienattack(obj);
             Pause();
             char obj2 = getObject(temp + 1, AlienX_);
@@ -568,6 +570,7 @@ void movement::move_left()
             Pause();
             AlienX_ = i;
             setalienX_(AlienX_);
+            setmap(AlienY_, AlienX_, 'A');
             Alienattack(obj);
             Pause();
             char obj2 = getObject(AlienY_, temp - 1);
@@ -712,6 +715,7 @@ void movement::move_right()
             Pause();
             AlienX_ = i;
             setalienX_(AlienX_);
+            setmap(AlienY_, AlienX_, 'A');
             Alienattack(obj);
             Pause();
             char obj2 = getObject(AlienY_, temp + 1);

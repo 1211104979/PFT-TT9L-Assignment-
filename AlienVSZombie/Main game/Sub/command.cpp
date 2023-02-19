@@ -80,8 +80,8 @@ void play()
             help();
             Pause();
             display();
-            int no = getZomB();      // Afiq
-            move.alienturndisplay(); // Afiq
+            int no = getZomB();      
+            move.alienturndisplay(); 
             zomdisplay(no);
         }
 
@@ -109,6 +109,10 @@ void play()
         {
             cout << "invalid input" << endl;
             Pause();
+            display();
+            int no = getZomB();      
+            move.alienturndisplay(); 
+            zomdisplay(no);
         }
     }
 }
