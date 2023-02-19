@@ -17,6 +17,10 @@ void getMenu()
 	do
 	{
 		ClearScreen();
+		resetLoad();
+		emptymap(9, 3);
+		init(9, 3, 1);
+		
 		cout << " -------------------------- " << endl;
 		cout << " |     Alien VS Zombie     |" << endl;
 		cout << " -------------------------- " << endl;
