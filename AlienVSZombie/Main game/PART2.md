@@ -72,3 +72,6 @@ Describe the problems encountered and provide the solutions / plan for the solut
 
 4. String input in the int variables of the arrow direction function loop infinitely making the game unplayable.  
   - Put a condition to recognize whether the input is the right type for the variables.
+
+5. Another Alien spawn after deleting Zombie during attack.
+  - Set the trail function in the attacking function.

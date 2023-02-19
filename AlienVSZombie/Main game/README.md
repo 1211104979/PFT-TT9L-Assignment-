@@ -13,7 +13,7 @@ Please provide the YouTube link to your [Video Demo](https://youtu.be/9LilFRflHb
 ## Compilation Instructions
 1. Open AlienVSZombie folder with Visual Studio Code (or Other type of compiler)
 2. Right click on the main.cpp file and open integrated terminal.
-3. Type <g++ Sub\*.cpp main.cpp> in the integrated terminal and type ./a to open the game.  
+3. Type g++ Sub\*.cpp main.cpp in the integrated terminal and type ./a to open the game.  
 4. Alternatively, Open AlienVSZombie folder with window explorer, and double click the a.exe file to start the game.
 5. Enjoy your game.
 
