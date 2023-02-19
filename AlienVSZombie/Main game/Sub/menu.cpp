@@ -147,6 +147,7 @@ void winGame()
 {
 	cout << "Alien escaped the area successfully !" << endl;
 	Pause();
+	getMenu();
 }
 
 void playagain()
