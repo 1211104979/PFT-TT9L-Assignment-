@@ -1,10 +1,12 @@
 # Alien vs. Zombie
 
-Crashed into an apocalyptic world full of Zombies, you have to carefully plan your move to defeat all the zombies around you to escape the area alive. 
-
+In search of a new habitable planet, you were tasked to investigate a planet called Z0mB13.
+Just as you wanted to land on this planet,your spaceship suddenly malfunctioned and crashed. 
+Horde of Zombie had surrounded your area as you exit your spaceship. trapped in this area
+full of Zombies, you have to carefully plan your move to defeat all the zombies around you 
+to escape. 
 
 ![Gameplay](/Preview3.png "Gameplay")
-
 
 Please provide the YouTube link to your [Video Demo](https://www.youtube.com/watch?v=zEpa2YtSvnM).
 
