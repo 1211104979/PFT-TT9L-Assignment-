@@ -159,7 +159,7 @@ void saveFile(string nameFile)
     }
     else
     {
-        cout << "invalid file extension, only .txt is accepted. \n Please Try Again." << endl;
+        cout << "Invalid file extension, only .txt is accepted.\nPlease Try Again." << endl;
         Pause();
     }
 }
