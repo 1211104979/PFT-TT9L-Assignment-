@@ -754,6 +754,9 @@ void movement::zommove()
 
         int ZtoAY = abs(DisY);
         int ZtoAX = abs(DisX);
+        display();
+        Zombieturn(i);
+        Pause();
         if (Distance <= Zrng)
         {
             int dmg = Zatk;
@@ -776,6 +779,9 @@ void movement::zommove()
                 Pause();
                 cout << " Alien was eaten by Zombies " << endl;
                 Pause();
+                display();
+                Alienturn();
+                Pause();
             }
             else
             {
@@ -783,6 +789,10 @@ void movement::zommove()
                 Pause();
                 cout << " Alien survive the attack " << endl;
                 Pause();
+                display();
+                Alienturn();
+                Pause();
+
             }
         }
         else if (ZtoAX > ZtoAY)
@@ -806,7 +816,7 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
 
@@ -817,7 +827,7 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
             }
@@ -836,7 +846,7 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
 
@@ -847,7 +857,7 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
             }
@@ -873,7 +883,7 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
 
@@ -884,7 +894,7 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
             }
@@ -903,7 +913,7 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
 
@@ -914,7 +924,7 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Zombieturn(i);
+                    Alienturn();
                     Pause();
                 }
             }
