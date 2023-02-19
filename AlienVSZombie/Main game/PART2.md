@@ -66,6 +66,6 @@ Describe the problems encountered and provide the solutions / plan for the solut
  
 2. Cout warning in load function(when file doesn't exist) doesn't show up in the program.
   - Added Pause() after cout statement.
-  - 
+
 3. Zombies will be covered by game objects.
   - Initialize the gameboard once user go into the menu to clear out all the items inside vector and set the map.
