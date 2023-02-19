@@ -22,7 +22,8 @@ Commands
  arrow - Switch the direction of an arrow.
  help  - Display user commands.
  save  - Save the game.
- load  - Load a  game.
+ load  - Load a game.
+ menu  - Return to menu
  quit  - Quit the game. 
 
 Please DO NOT change the Progress Log below. Leave it as it is.
