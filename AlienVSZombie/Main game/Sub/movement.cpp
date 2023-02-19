@@ -777,6 +777,13 @@ void movement::zommove()
                 cout << " Alien was eaten by Zombies " << endl;
                 Pause();
             }
+            else
+            {
+                cout << " Alien health have reached " << alhp_ << endl;
+                Pause();
+                cout << " Alien survive the attack " << endl;
+                Pause();
+            }
         }
         else if (ZtoAX > ZtoAY)
         {

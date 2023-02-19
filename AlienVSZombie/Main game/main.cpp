@@ -110,7 +110,7 @@ void display() // liEn & Afiq (from tutorial)
     for (int i = 0; i < dimY_; ++i)
     {
         // display upper border of the row
-        cout << " ";
+        cout << "   ";
         for (int j = 0; j < dimX_; ++j)
         {
             cout << "+-";
@@ -118,7 +118,7 @@ void display() // liEn & Afiq (from tutorial)
         cout << "+" << endl;
 
         // display row number
-        cout << setw(2) << (dimY_ - i);
+        cout << setw(2) << (dimY_ - i) << " ";
         // display cell content and border of each column
         for (int j = 0; j < dimX_; ++j)
         {
@@ -128,7 +128,7 @@ void display() // liEn & Afiq (from tutorial)
     }
 
     // display lower border of the last row
-    cout << " ";
+    cout << "   ";
     for (int j = 0; j < dimX_; ++j)
     {
         cout << "+-";
@@ -136,7 +136,7 @@ void display() // liEn & Afiq (from tutorial)
     cout << "+" << endl;
 
     // display column number
-    cout << " ";
+    cout << "   ";
     for (int j = 0; j < dimX_; ++j)
     {
         int digit = (j + 1) / 10;
@@ -147,7 +147,7 @@ void display() // liEn & Afiq (from tutorial)
             cout << digit;
     }
     cout << endl;
-    cout << "  ";
+    cout << "   ";
     for (int j = 0; j < dimX_; ++j)
     {
         cout << " " << (j + 1) % 10;
@@ -316,7 +316,7 @@ void zomdisplay(int no)
     for (int i = 0; i < b; i++)
     {
         cout << '\n'
-             << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+             << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack :" << zombie.ZAtkVec[i] << "| Range :" << zombie.ZRngVec[i];
     }
     cout << endl;
 }
@@ -327,13 +327,13 @@ void zomturndisplay(int no, int num)
     if (num == 0)
     {
         cout << '\n'
-             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack :" << zombie.ZAtkVec[num] << "| Range :" << zombie.ZRngVec[num];
         for (int i = num + 1; i < no; i++)
         {
             if (num != i)
             {
                 cout << '\n'
-                     << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+                     << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack :" << zombie.ZAtkVec[i] << "| Range :" << zombie.ZRngVec[i];
             }
         }
     }
@@ -342,16 +342,16 @@ void zomturndisplay(int no, int num)
         for (int i = 0; i < num; i++)
         {
             cout << '\n'
-                 << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+                 << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack :" << zombie.ZAtkVec[i] << "| Range :" << zombie.ZRngVec[i];
         }
         cout << '\n'
-             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack :" << zombie.ZAtkVec[num] << "| Range :" << zombie.ZRngVec[num];
         for (int i = num + 1; i < no; i++)
         {
             if (num != i)
             {
                 cout << '\n'
-                     << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+                     << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack :" << zombie.ZAtkVec[i] << "| Range :" << zombie.ZRngVec[i];
             }
         }
     }
@@ -360,10 +360,10 @@ void zomturndisplay(int no, int num)
         for (int i = 0; i < num; i++)
         {
             cout << '\n'
-                 << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack  " << zombie.ZAtkVec[i] << "| Range " << zombie.ZRngVec[i];
+                 << "  Zombie " << i + 1 << " | Health point :" << zombie.ZHpVec[i] << "| Attack :" << zombie.ZAtkVec[i] << "| Range :" << zombie.ZRngVec[i];
         }
         cout << '\n'
-             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack  " << zombie.ZAtkVec[num] << "| Range " << zombie.ZRngVec[num];
+             << "> Zombie " << num + 1 << " | Health point :" << zombie.ZHpVec[num] << "| Attack :" << zombie.ZAtkVec[num] << "| Range :" << zombie.ZRngVec[num];
     }
     cout << endl;
 }

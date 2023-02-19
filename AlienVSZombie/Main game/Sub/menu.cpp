@@ -20,12 +20,12 @@ void getMenu()
 		cout << " -------------------------- " << endl;
 		cout << " |     Alien VS Zombie     |" << endl;
 		cout << " -------------------------- " << endl;
-		cout << " 1.	PLAY      	          " << endl;
-		cout << " 2.	CONTINUE      	      " << endl;
-		cout << " 3.	CONTROLS	          " << endl;
-		cout << " 4.	QUIT			      " << endl;
+		cout << " 1.	     PLAY      	     " << endl;
+		cout << " 2.	   CONTINUE      	 " << endl;
+		cout << " 3.	   CONTROLS	         " << endl;
+		cout << " 4.	     QUIT			 " << endl;
 		cout << endl;
-		cout << ">>> CHOICE:		          " << endl;
+		cout << ">>> CHOICE:		         " << endl;
 		char op;
 		cin >> op;
 
@@ -60,17 +60,17 @@ void controls()
 	cout << " --------------------------------------------- " << endl;
 	cout << endl;
 	cout << "                  CONTROLS                     " << endl;
-	cout << "| up    //Alien to move up.                   |" << endl;
-	cout << "| down  //Alien to move down.                 |" << endl;
-	cout << "| left  //Alien to move left.                 |" << endl;
-	cout << "| right //Alien to move right.                |" << endl;
-	cout << "| arrow //Switch the direction of             |" << endl;
-	cout << "|       //an arrow object in the game board.  |" << endl;
-	cout << "| help  //List and describe the commands      |" << endl;
-	cout << "|       //that the player can use in the game.|" << endl;
-	cout << "| save  //Save the current game to a file.    |" << endl;
-	cout << "| load  //Load a saved game from a file.      |" << endl;
-	cout << "| quit  //Quit the game while still in play.  |" << endl;
+	cout << "| up    ||Alien to move up.                   |" << endl;
+	cout << "| down  ||Alien to move down.                 |" << endl;
+	cout << "| left  ||Alien to move left.                 |" << endl;
+	cout << "| right ||Alien to move right.                |" << endl;
+	cout << "| arrow ||Switch the direction of             |" << endl;
+	cout << "|       ||an arrow object in the game board.  |" << endl;
+	cout << "| help  ||List and describe the commands      |" << endl;
+	cout << "|       ||that the player can use in the game.|" << endl;
+	cout << "| save  ||Save the current game to a file.    |" << endl;
+	cout << "| load  ||Load a saved game from a file.      |" << endl;
+	cout << "| quit  ||Quit the game while still in play.  |" << endl;
 	cout << endl;
 	Pause();
 }
@@ -79,7 +79,7 @@ void help()
 {
 	ClearScreen();
 	cout << endl;
-	cout << " Commands " << endl;
+	cout << "     Commands     " << endl;
 	cout << endl;
 	cout << " up    - Move up. " << endl;
 	cout << " down  - Move down. " << endl;
