@@ -24,6 +24,7 @@ using namespace std;
     int Pause() // Pause the game
     {
         #if defined(_WIN32)
+            cout << endl;
             return std::system("pause");
         #elif defined(__linux__) || defined(__APPLE__)
             return std::system(R"(read -p "Press any key to continue . . . " dummy)");
