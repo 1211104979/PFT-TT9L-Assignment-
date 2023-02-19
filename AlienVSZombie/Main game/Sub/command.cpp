@@ -68,22 +68,15 @@ void play()
 
         else if (con == "arrow")
         {
-            int number = 1;
-            while (number)
-            {
-                int arY, arX;
-                string ardir;
-                cout << " x-axis :";
-                cin >> arX;
-                cout << " y-axis :";
-                cin >> arY;
-                cout << " direction(up/down/left/right) :";
-                cin >> ardir;
-                if ((arX>0 && arX<30) && (arY>0 && arY<30) && (ardir == "up" ||ardir == "down" ||ardir == "left" ||ardir == "right"))
-                {
-                    move.move_arrow(arX, arY, ardir);
-                }
-            }
+            int arY, arX;
+            string ardir;
+            cout << " x-axis :";
+            cin >> arX;
+            cout << " y-axis :";
+            cin >> arY;
+            cout << " direction(up/down/left/right) :";
+            cin >> ardir;
+            move.move_arrow(arX, arY, ardir);
         }
 
         else if (con == "help")
