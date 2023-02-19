@@ -226,7 +226,7 @@ void movement::move_up()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching nearby Zombie to attack." << endl;
+            cout << "Pod detected, searching Zombie to attack." << endl;
             Pause();
             int podY = temp - 1;
             int podX = AlienX_;
@@ -362,7 +362,7 @@ void movement::move_down()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching neraby Zombie to attack." << endl;
+            cout << "Pod detected, searching Zombie to attack." << endl;
             Pause();
             int podY = temp + 1;
             int podX = AlienX_;
@@ -498,7 +498,7 @@ void movement::move_left()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching nearby Zombie to Attack" << endl;
+            cout << "Pod detected, searching Zombie to Attack" << endl;
             Pause();
             int podY = AlienY_;
             int podX = temp - 1;
@@ -634,7 +634,7 @@ void movement::move_right()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching nearby Zombie to attack." << endl;
+            cout << "Pod detected, searching Zombie to attack." << endl;
             Pause();
             int podY = AlienY_;
             int podX = temp + 1;
@@ -779,7 +779,7 @@ void movement::zommove()
                 cout << " Alien was eaten by Zombies " << endl;
                 Pause();
                 display();
-                Alienturn();
+                Zombieturn(i);
                 Pause();
             }
             else
@@ -789,7 +789,7 @@ void movement::zommove()
                 cout << " Alien survive the attack " << endl;
                 Pause();
                 display();
-                Alienturn();
+                Zombieturn(i);
                 Pause();
 
             }
@@ -815,10 +815,19 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
-
+                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                {
+                    cout << "Other Zombie in the way." << endl; 
+                    Pause();
+                    cout << " Zombie " << i+1 << " cannot move." << endl; 
+                    Pause();
+                    display();
+                    Zombieturn(i);
+                    Pause();
+                }
                 else
                 {
                     setmap(Zy, Zx, ' ');
@@ -826,7 +835,7 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
             }
@@ -845,10 +854,19 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
-
+                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                {
+                    cout << "Other Zombie in the way." << endl; 
+                    Pause();
+                    cout << " Zombie " << i+1 << " cannot move." << endl; 
+                    Pause();
+                    display();
+                    Zombieturn(i);
+                    Pause();
+                }
                 else
                 {
                     setmap(Zy, Zx, ' ');
@@ -856,7 +874,7 @@ void movement::zommove()
                     setZomX(i, Zx);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
             }
@@ -882,10 +900,19 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
-
+                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                {
+                    cout << "Other Zombie in the way." << endl; 
+                    Pause();
+                    cout << " Zombie " << i+1 << " cannot move." << endl; 
+                    Pause();
+                    display();
+                    Zombieturn(i);
+                    Pause();
+                }
                 else
                 {
                     setmap(Zy, Zx, ' ');
@@ -893,7 +920,7 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
             }
@@ -912,10 +939,19 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
-
+                else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
+                {
+                    cout << "Other Zombie in the way." << endl; 
+                    Pause();
+                    cout << " Zombie " << i+1 << " cannot move." << endl; 
+                    Pause();
+                    display();
+                    Zombieturn(i);
+                    Pause();
+                }
                 else
                 {
                     setmap(Zy, Zx, ' ');
@@ -923,12 +959,15 @@ void movement::zommove()
                     setZomY(i, Zy);
                     setmap(Zy, Zx, Zombody[i]);
                     display();
-                    Alienturn();
+                    Zombieturn(i);
                     Pause();
                 }
             }
         }
     }
+    display();
+    Alienturn();
+    Pause();
 }
 
 void movement::podatk(int podY, int podX)
@@ -1046,3 +1085,5 @@ void movement::Alienattack(char obj)
         subalatk(num);
     }
 }
+
+

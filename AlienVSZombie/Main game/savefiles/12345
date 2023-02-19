@@ -1,13 +1,27 @@
-Y3
-X9
-T   v pp v
-T^  pAr > 
-T <    r 1
+Y5
+X13
+T <v   <h  ph 
+Tpr ^p^phpv> r
+T^^r   A>p<1  
+T> 2vr 4p<hrrp
+Trp^vh3rp h^ h
 EH100
 EA0
-x 8,
-y 2,
+x 10,2,5,6,
+y 2,3,4,3,
 Z0
 BoH200
-BoA15
-BoR3
+BoA10
+BoR1
+Z1
+BpH150
+BpA15
+BpR3
+Z2
+BqH200
+BqA10
+BqR2
+Z3
+BrH200
+BrA10
+BrR1
