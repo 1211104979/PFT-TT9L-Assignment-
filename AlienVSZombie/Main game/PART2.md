@@ -55,8 +55,17 @@ List down the contribution of each group members.
 3. Controls in menu and during game
 4. Quit function
 5. Alien movement
-6. Game objection interaction (still in progress)
+6. Game objection interaction
+7. lifesteal effect
 
 ## Problems Encountered & Solutions
 
 Describe the problems encountered and provide the solutions / plan for the solutions.
+1. Arrow changing function will interupt with other game objects and changed them.
+  - Added if statement to check the object(<,>,^,v) in the map then change the arrow once the condition is satisfied.
+ 
+2. Cout warning in load function(when file doesn't exist) doesn't show up in the program.
+  - Added Pause() after cout statement.
+  - 
+3. Zombies will be covered by game objects.
+  - Initialize the gameboard once user go into the menu to clear out all the items inside vector and set the map.
