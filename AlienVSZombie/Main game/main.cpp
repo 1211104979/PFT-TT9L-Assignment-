@@ -55,6 +55,21 @@ void emptyZomvec()
     ZomX_.clear();
 }
 
+int chkZom(int Zy, int Zx)
+{
+    srand(time(0));
+    int chkZy = Zy;
+    int chkZx = Zx;
+    while (map_[chkZy][chkZx] == '1' ||map_[chkZy][chkZx] == '2' ||map_[chkZy][chkZx] == '3' ||map_[chkZy][chkZx] == '4' ||map_[chkZy][chkZx] == '5' ||map_[chkZy][chkZx] == '6' ||map_[chkZy][chkZx] == '7' ||map_[chkZy][chkZx] == '8' ||map_[chkZy][chkZx] == '9')
+    {
+        chkZy = rand() % dimY_;
+        chkZx = rand() % dimX_;
+    }
+    Zy = chkZy;
+    Zx = chkZx;
+    return Zy,Zx;
+}
+
 void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
 {
     dimX_ = dimX;
@@ -86,6 +101,7 @@ void init(int dimX, int dimY, int zomb) // liEn & Afiq (from tutorial)
         {
             int randY = rand() % dimY_;
             int randX = rand() % dimX_;
+            chkZom(randY,randX);
             map_[randY][randX] = zomBie[i];
             ZomY_.push_back(randY);
             ZomX_.push_back(randX);
@@ -429,6 +445,7 @@ int *getZomRge(int numofZ)
 // Main function
 int main()
 {
+    // srand(time(0));
     init(dimX_, dimY_, zomB_);
     getMenu();
 }
