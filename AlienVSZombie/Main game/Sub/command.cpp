@@ -71,7 +71,7 @@ void play()
 
             else if (con == "arrow")
             {
-                cout << "Pls input based on the format, x y direction(up/down/left/right)";
+                cout << " Input format, x y direction(up/down/left/right)";
                 int arY, arX;
                 string ardir;
                 cin >> arX >> arY >> ardir;

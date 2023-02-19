@@ -112,15 +112,20 @@ public:
     void Zombieturn(int num);
     void alienturndisplay();
     void aliendisplay();
+    void Aldisplayupdate();
+    void Zomdisplayupdate(int num);
+
     int getalhp_();
     int setplusalhp_(int hp);
     int setminusalhp_(int hp);
+
     int getalatk_();
     int setalatk_(int atk);
     int resetatk_();
     void podatk(int podY, int podX);
     void subalatk(int num);
     void Alienattack(char obj);
+
     void chkAlien_hp();
     void chkZomB_hp();
 
@@ -134,6 +139,7 @@ public:
     void move_left();
     void move_right();
     void move_arrow(int y, int x, string z);
+
     void zommove();
 };
 
