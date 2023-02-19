@@ -72,7 +72,14 @@ void play()
             int arY, arX;
             string ardir;
             cin >> arX >> arY >> ardir;
-            move.move_arrow(arX, arY, ardir);
+            if(arX && arY)
+            {
+                move.move_arrow(arX, arY, ardir);
+            }
+            else
+            {
+                cout << "invalid input" << endl;
+            }
         }
 
         else if (con == "help")
