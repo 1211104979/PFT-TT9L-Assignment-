@@ -70,13 +70,24 @@ void play()
         {
             int arY, arX;
             string ardir;
-            cout << " x-axis :";
-            cin >> arX;
-            cout << " y-axis :";
-            cin >> arY;
-            cout << " direction(up/down/left/right) :";
-            cin >> ardir;
-            move.move_arrow(arX, arY, ardir);
+            int number = 0;
+                cout << " x-axis :";
+                while (!(cin >> arX))
+                {
+                    cout << " wrong input, please put a number for x-axis:";
+                    cin.clear();
+                    cin.ignore(123, '\n');
+                }
+                cout << " y-axis :";
+                while (!(cin >> arY))
+                {
+                    cout << " wrong input, please put a number for y-axis:";
+                    cin.clear();
+                    cin.ignore(123, '\n');
+                }
+                cout << " direction(up/down/left/right) :";
+                cin >> ardir;
+                move.move_arrow(arX, arY, ardir);                
         }
 
         else if (con == "help")
