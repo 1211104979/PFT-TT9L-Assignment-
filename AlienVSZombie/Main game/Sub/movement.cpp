@@ -145,7 +145,7 @@ void movement::Zombieturn(int num)
 {
     int no = getZomB();
     aliendisplay();
-    zomdisplay(no);
+    zomturndisplay(no, num);
 }
 
 //====================================================
