@@ -138,16 +138,14 @@ void gameover()
 {
 	cout << "\n\n\t\t\tGAME OVER." << endl;
 	Pause();
-	// cout << "Press again to go to the Main Menu" << endl;
-	// Pause();
-	// getMenu();
+	playagain();
 }
 
 void winGame()
 {
 	cout << "\n\n\t\t\tALIEN ESCAPED THE AREA SUCCESSFULLY !" << endl;
 	Pause();
-	getMenu();
+	playagain();
 }
 
 void playagain()
