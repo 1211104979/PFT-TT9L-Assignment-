@@ -74,6 +74,7 @@ void controls()
 	cout << "|       ||that the player can use in the game.|" << endl;
 	cout << "| save  ||Save the current game to a file.    |" << endl;
 	cout << "| load  ||Load a saved game from a file.      |" << endl;
+	cout << "| menu  ||Return back to the menu.            |" << endl;
 	cout << "| quit  ||Quit the game while still in play.  |" << endl;
 	cout << endl;
 	Pause();
@@ -93,7 +94,7 @@ void help()
 	cout << " help  - Display user commands. " << endl;
 	cout << " save  - Save the game. " << endl;
 	cout << " load  - Load a game. " << endl;
-	cout << " menu  - return back to the menu. " << endl;
+	cout << " menu  - Return back to the menu. " << endl;
 	cout << " quit  - Quit the game. " << endl;
 	cout << endl;
 }
