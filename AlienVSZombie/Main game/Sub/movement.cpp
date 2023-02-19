@@ -115,6 +115,7 @@ void movement::chkAlien_hp()
 {
     if (getalhp_() == 0)
     {
+        ClearScreen();
         gameover();
         playagain();
     }
@@ -134,6 +135,7 @@ void movement::chkZomB_hp()
     }
     if (k == number) // means all zombies' hp is 0
     {
+        ClearScreen();
         winGame();
     }
 }
