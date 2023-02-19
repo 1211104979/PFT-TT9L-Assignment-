@@ -55,8 +55,9 @@ List down the contribution of each group members.
 3. Controls in menu and during game
 4. Quit function
 5. Alien movement
-6. Game objection interaction
-7. lifesteal effect
+6. Game object interaction
+7. Zombie movement
+8. lifesteal effect
 
 ## Problems Encountered & Solutions
 

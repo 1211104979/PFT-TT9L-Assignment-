@@ -445,7 +445,7 @@ int *getZomRge(int numofZ)
 // Main function
 int main()
 {
-    // srand(time(0));
+    srand(time(0));
     init(dimX_, dimY_, zomB_);
     getMenu();
 }
