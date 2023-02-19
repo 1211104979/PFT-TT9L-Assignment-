@@ -6,7 +6,7 @@ Horde of Zombie had surrounded your area as you exit your spaceship. trapped in 
 full of Zombies, you have to carefully plan your move to defeat all the zombies around you 
 to escape. 
 
-![Gameplay](/Preview3.png "Gameplay")
+![Gameplay](/Preview3.png"Gameplay")
 
 Please provide the YouTube link to your [Video Demo](https://www.youtube.com/watch?v=zEpa2YtSvnM).
 
