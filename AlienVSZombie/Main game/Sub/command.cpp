@@ -68,18 +68,15 @@ void play()
 
         else if (con == "arrow")
         {
-            cout << " Input format, x y direction(up/down/left/right)";
-            int arY, arX;
+            int arY, arX, chkY, chkX;
             string ardir;
-            cin >> arX >> arY >> ardir;
-            if(arX && arY)
-            {
-                move.move_arrow(arX, arY, ardir);
-            }
-            else
-            {
-                cout << "invalid input" << endl;
-            }
+            cout << " x-axis :" << endl;
+            cin >> arX;
+            cout << " y-axis :" << endl;
+            cin >> arY;
+            cout << " direction(up/down/left/right) :" << endl;
+            cin >> ardir;
+            move.move_arrow(arX, arY, ardir);
         }
 
         else if (con == "help")
