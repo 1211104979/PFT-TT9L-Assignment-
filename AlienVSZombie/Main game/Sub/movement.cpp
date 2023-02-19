@@ -184,7 +184,7 @@ void movement::move_up()
         char obj = getObject(temp - 1, AlienX_);
         if (obj == 'h') // Health (+20 health to Alien)
         {
-            cout << "Gained 20 Health." << endl;
+            cout << " Gained 20 Health." << endl;
             Pause();
             getalhp_();
             setplusalhp_(20);
@@ -193,8 +193,8 @@ void movement::move_up()
         }
         else if (obj == 'v') // move down by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i - 1;
@@ -207,8 +207,8 @@ void movement::move_up()
         }
         else if (obj == '^') // move up by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i - 1;
@@ -216,8 +216,8 @@ void movement::move_up()
         }
         else if (obj == '<') // move to the left by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i - 1;
@@ -230,8 +230,8 @@ void movement::move_up()
         }
         else if (obj == '>') // move to the right by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i - 1;
@@ -244,20 +244,20 @@ void movement::move_up()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching Zombie to attack." << endl;
+            cout << " Pod detected, searching Zombie to attack." << endl;
             Pause();
             int podY = temp - 1;
             int podX = AlienX_;
             podatk(podY, podX);
-            cout << "Zombie received 10 damage." << endl;
+            cout << " Zombie received 10 damage." << endl;
             Pause();
             AlienY_ = i - 1;     // good
             setalienY_(AlienY_); // good
         }
         else if (obj == 'r')
         {
-            cout << "Alien finds a rock." << endl;
-            cout << "Breaking the rock." << endl;
+            cout << " Alien finds a rock." << endl;
+            cout << " Breaking the rock." << endl;
             Pause();
             rockobjupdate(temp - 1, AlienX_);
             AlienY_ = i;
@@ -266,7 +266,7 @@ void movement::move_up()
         }
         else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
         {
-            cout << "Attacking Zombie." << endl;
+            cout << " Attacking Zombie." << endl;
             Pause();
             Alienattack(obj);
             Pause();
@@ -285,7 +285,7 @@ void movement::move_up()
         }
         else
         {
-            cout << "Alien finds an empty space." << endl;
+            cout << " Alien finds an empty space." << endl;
             Pause();
             AlienY_ = i - 1;
             setalienY_(AlienY_);
@@ -316,7 +316,7 @@ void movement::move_down()
         char obj = getObject(temp + 1, AlienX_);
         if (obj == 'h')
         {
-            cout << "Gained 20 Health." << endl;
+            cout << " Gained 20 Health." << endl;
             Pause();
             getalhp_();
             setplusalhp_(20);
@@ -325,8 +325,8 @@ void movement::move_down()
         }
         else if (obj == 'v') // move down by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i + 1;
@@ -334,8 +334,8 @@ void movement::move_down()
         }
         else if (obj == '^') // move up by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i + 1;
@@ -348,8 +348,8 @@ void movement::move_down()
         }
         else if (obj == '<') // move to the left by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i + 1;
@@ -362,8 +362,8 @@ void movement::move_down()
         }
         else if (obj == '>') // move to the right by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienY_ = i + 1;
@@ -376,20 +376,20 @@ void movement::move_down()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching Zombie to attack." << endl;
+            cout << " Pod detected, searching Zombie to attack." << endl;
             Pause();
             int podY = temp + 1;
             int podX = AlienX_;
             podatk(podY, podX);
-            cout << "Zombie received 10 damage." << endl;
+            cout << " Zombie received 10 damage." << endl;
             Pause();
             AlienY_ = i + 1;
             setalienY_(AlienY_);
         }
         else if (obj == 'r')
         {
-            cout << "Alien finds a rock." << endl;
-            cout << "Breaking the rock." << endl;
+            cout << " Alien finds a rock." << endl;
+            cout << " Breaking the rock." << endl;
             Pause();
             rockobjupdate(temp + 1, AlienX_);
             AlienY_ = i;
@@ -398,7 +398,7 @@ void movement::move_down()
         }
         else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
         {
-            cout << "Attacking Zombie." << endl;
+            cout << " Attacking Zombie." << endl;
             Pause();
             Alienattack(obj);
             Pause();
@@ -417,7 +417,7 @@ void movement::move_down()
         }
         else
         {
-            cout << "Alien finds an empty space." << endl;
+            cout << " Alien finds an empty space." << endl;
             Pause();
             AlienY_ = i + 1;
             setalienY_(AlienY_);
@@ -448,7 +448,7 @@ void movement::move_left()
         char obj = getObject(AlienY_, temp - 1);
         if (obj == 'h') // Health (+20 health to Alien)
         {
-            cout << "Gained 20 Health." << endl;
+            cout << " Gained 20 Health." << endl;
             Pause();
             getalhp_();
             setplusalhp_(20);
@@ -457,8 +457,8 @@ void movement::move_left()
         }
         else if (obj == 'v') // move down by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = i - 1;
@@ -471,8 +471,8 @@ void movement::move_left()
         }
         else if (obj == '^') // move up by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = i - 1;
@@ -485,8 +485,8 @@ void movement::move_left()
         }
         else if (obj == '<') // move to the left by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = AlienX_ - 1;
@@ -494,8 +494,8 @@ void movement::move_left()
         }
         else if (obj == '>') // move to the right by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = i - 1;
@@ -508,20 +508,20 @@ void movement::move_left()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching Zombie to Attack" << endl;
+            cout << " Pod detected, searching Zombie to Attack" << endl;
             Pause();
             int podY = AlienY_;
             int podX = temp - 1;
             podatk(podY, podX);
-            cout << "Zombie received 10 damage." << endl;
+            cout << " Zombie received 10 damage." << endl;
             Pause();
             AlienX_ = i - 1;
             setalienX_(AlienX_);
         }
         else if (obj == 'r')
         {
-            cout << "Alien finds a rock." << endl;
-            cout << "Breaking the rock." << endl;
+            cout << " Alien finds a rock." << endl;
+            cout << " Breaking the rock." << endl;
             Pause();
             rockobjupdate(AlienY_, temp - 1);
             AlienX_ = i;
@@ -530,7 +530,7 @@ void movement::move_left()
         }
         else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
         {
-            cout << "Attacking Zombie." << endl;
+            cout << " Attacking Zombie." << endl;
             Pause();
             Alienattack(obj);
             Pause();
@@ -549,7 +549,7 @@ void movement::move_left()
         }
         else
         {
-            cout << "Alien finds an empty space." << endl;
+            cout << " Alien finds an empty space." << endl;
             Pause();
             AlienX_ = i - 1;
             setalienX_(AlienX_);
@@ -589,8 +589,8 @@ void movement::move_right()
         }
         else if (obj == 'v') // move down by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = i + 1;
@@ -603,8 +603,8 @@ void movement::move_right()
         }
         else if (obj == '^') // move up by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = i + 1;
@@ -617,8 +617,8 @@ void movement::move_right()
         }
         else if (obj == '<') // move to the left by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = i + 1;
@@ -631,8 +631,8 @@ void movement::move_right()
         }
         else if (obj == '>') // move to the right by 1 and stop
         {
-            cout << "Alien finds an arrow." << endl;
-            cout << "Alien's attack is increased by 20." << endl;
+            cout << " Alien finds an arrow." << endl;
+            cout << " Alien's attack is increased by 20." << endl;
             Pause();
             setalatk_(20);
             AlienX_ = i + 1;
@@ -640,20 +640,20 @@ void movement::move_right()
         }
         else if (obj == 'p') // attack nearby Zombie
         {
-            cout << "Pod detected, searching Zombie to attack." << endl;
+            cout << " Pod detected, searching Zombie to attack." << endl;
             Pause();
             int podY = AlienY_;
             int podX = temp + 1;
             podatk(podY, podX);
-            cout << "Zombie received 10 damage." << endl;
+            cout << " Zombie received 10 damage." << endl;
             Pause();
             AlienX_ = i + 1;
             setalienX_(AlienX_);
         }
         else if (obj == 'r')
         {
-            cout << "Alien finds a rock." << endl;
-            cout << "Breaking the rock." << endl;
+            cout << " Alien finds a rock." << endl;
+            cout << " Breaking the rock." << endl;
             Pause();
             rockobjupdate(AlienY_, temp + 1);
             AlienX_ = i;
@@ -662,7 +662,7 @@ void movement::move_right()
         }
         else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
         {
-            cout << "Attacking Zombie." << endl;
+            cout << " Attacking Zombie." << endl;
             Pause();
             Alienattack(obj);
             Pause();
@@ -681,7 +681,7 @@ void movement::move_right()
         }
         else
         {
-            cout << "Alien finds an empty space." << endl;
+            cout << " Alien finds an empty space." << endl;
             Pause();
             AlienX_ = i + 1;
             setalienX_(AlienX_);
@@ -765,11 +765,11 @@ void movement::zommove()
         {
             int dmg = Zatk;
             setminusalhp_(dmg);
-            cout << "Alien in range" << endl;
+            cout << " Alien in range" << endl;
             Pause();
-            cout << "Alien take " << Zatk << " damage from zombie " << i + 1 << endl;
+            cout << " Alien take " << Zatk << " damage from zombie " << i + 1 << endl;
             Pause();
-            cout << "Zombie recover " << Zatk << " Health from attacking Alien " << endl;
+            cout << " Zombie recover " << Zatk << " Health from attacking Alien " << endl;
             Zhp = Zhp + Zatk;
             setZomHP(i, Zhp);
             Zomdisplayupdate(i);
@@ -817,7 +817,7 @@ void movement::zommove()
                 }
                 else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
                 {
-                    cout << "Other Zombie in the way." << endl; 
+                    cout << " Other Zombie in the way." << endl; 
                     Pause();
                     cout << " Zombie " << i+1 << " cannot move." << endl; 
                     Pause();
@@ -850,7 +850,7 @@ void movement::zommove()
                 }
                 else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
                 {
-                    cout << "Other Zombie in the way." << endl; 
+                    cout << " Other Zombie in the way." << endl; 
                     Pause();
                     cout << " Zombie " << i+1 << " cannot move." << endl; 
                     Pause();
@@ -890,7 +890,7 @@ void movement::zommove()
                 }
                 else if (obj == '1' || obj == '2' || obj == '3' || obj == '4' || obj == '5' || obj == '6' || obj == '7' || obj == '8' || obj == '9')
                 {
-                    cout << "Other Zombie in the way." << endl; 
+                    cout << " Other Zombie in the way." << endl; 
                     Pause();
                     cout << " Zombie " << i+1 << " cannot move." << endl; 
                     Pause();

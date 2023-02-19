@@ -8,7 +8,7 @@ Please provide the YouTube link to your [Video Demo](https://www.youtube.com/wat
 
 ## Compilation Instructions
 
-Provide instructions on how to compile your program, especially when it is non-trivial.
+
 
 Type <g++ Sub\*.cpp main.cpp> in the command to open the game file.  
 

@@ -38,6 +38,7 @@ void play()
         move.chkZomB_hp();
 
         string con;
+        cout << endl;
         cout << " Command ";
         cin >> con;
 
