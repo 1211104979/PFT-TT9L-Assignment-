@@ -53,6 +53,14 @@ int movement::setplusalhp_(int hp)
     if (alhp_ < 100)
     {
         alhp_ = alhp_ + hp;
+        if(alhp_>100)
+        {
+            alhp_ = 100;
+        }
+    }
+    else 
+    {
+        alhp_ = 100;
     }
     return alhp_;
 }
@@ -761,12 +769,11 @@ void movement::zommove()
             }
             else
             {
-                cout << " Alien health have reached " << alhp_ << endl;
+                cout << " Alien health is " << alhp_ << endl;
                 Pause();
                 cout << " Alien survive the attack " << endl;
                 Pause();
                 Zomdisplayupdate(i);
-
             }
         }
         else if (ZtoAX > ZtoAY)
@@ -779,11 +786,11 @@ void movement::zommove()
             {
                 // zomright
                 char obj = getObject(Zy, Zx + 1);
-                if (obj == 'h') // Health (+20 health to Alien)
+                if (obj == 'h') 
                 {
-                    cout << " Zombie Gained 20 Health " << endl;
+                    cout << " Zombie Gained 5 Health " << endl;
                     Pause();
-                    Zhp = Zhp + 20;
+                    Zhp = Zhp + 5;
                     setZomHP(i, Zhp);
                     setmap(Zy, Zx, ' ');
                     Zx = Zx + 1;
@@ -812,11 +819,11 @@ void movement::zommove()
             {
                 // zomleft
                 char obj = getObject(Zy, Zx - 1);
-                if (obj == 'h') // Health (+20 health to Alien)
+                if (obj == 'h') 
                 {
-                    cout << " Zombie Gained 20 Health " << endl;
+                    cout << " Zombie Gained 5 Health " << endl;
                     Pause();
-                    Zhp = Zhp + 20;
+                    Zhp = Zhp + 5;
                     setZomHP(i, Zhp);
                     setmap(Zy, Zx, ' ');
                     Zx = Zx - 1;
@@ -852,11 +859,11 @@ void movement::zommove()
             {
                 // zomdown
                 char obj = getObject(Zy + 1, Zx);
-                if (obj == 'h') // Health (+20 health to Alien)
+                if (obj == 'h') 
                 {
-                    cout << " Zombie Gained 20 Health " << endl;
+                    cout << " Zombie Gained 5 Health " << endl;
                     Pause();
-                    Zhp = Zhp + 20;
+                    Zhp = Zhp + 5;
                     setZomHP(i, Zhp);
                     setmap(Zy, Zx, ' ');
                     Zy = Zy + 1;
@@ -885,11 +892,11 @@ void movement::zommove()
             {
                 // zomup
                 char obj = getObject(Zy - 1, Zx);
-                if (obj == 'h') // Health (+20 health to Alien)
+                if (obj == 'h') 
                 {
-                    cout << " Zombie Gained 20 Health " << endl;
+                    cout << " Zombie Gained 5 Health " << endl;
                     Pause();
-                    Zhp = Zhp + 20;
+                    Zhp = Zhp + 5;
                     setZomHP(i, Zhp);
                     setmap(Zy, Zx, ' ');
                     Zy = Zy - 1;
