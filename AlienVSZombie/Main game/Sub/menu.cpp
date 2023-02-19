@@ -145,7 +145,7 @@ void gameover()
 
 void winGame()
 {
-	cout << "Alien escaped the area successfully !" << endl;
+	cout << "\n\n\t\t\tALIEN ESCAPED THE AREA SUCCESSFULLY !" << endl;
 	Pause();
 	getMenu();
 }
